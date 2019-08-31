@@ -1,4 +1,4 @@
-# 2.4
+# 2.4 - Creating your first project with vue-cli
 
 ## Project setup
 ```

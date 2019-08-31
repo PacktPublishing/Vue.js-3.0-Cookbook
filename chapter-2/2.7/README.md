@@ -1,4 +1,4 @@
-# 2.5 - Adding plugins to a vue-cli project with vue-ui
+# 2.7 - Creating your first TypeScript Vue component with vue-class-component
 
 ## Project setup
 ```

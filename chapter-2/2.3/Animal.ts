@@ -34,7 +34,7 @@ export class Animal implements IBasicAnimal {
   public whoAmI() {
     console.log(`I am a ${this.name}, my family is ${this.family}. My diet is ${this.foodChainType}.`);
     if (this.sound) {
-      console.log(Array(2).fill(this.sound).join(', '));
+      console.log([...Array(2).fill(this.sound)].join(', '));
     }
   }
 } 

@@ -1,4 +1,4 @@
-# 2.5 - Adding plugins to a vue-cli project with vue-ui
+# 2.8 - Creating a custom function decorators with vue-class-component
 
 ## Project setup
 ```

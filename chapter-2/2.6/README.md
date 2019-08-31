@@ -1,4 +1,4 @@
-# 2.6
+# 2.6 - Adding TypeScript to a vue-cli project
 
 ## Project setup
 ```
