@@ -1,4 +1,4 @@
-# 2.10
+# 2.10 - Adding custom hooks to vue-class-component
 
 ## Project setup
 ```
