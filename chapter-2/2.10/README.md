@@ -1,4 +1,4 @@
-# 2.8 - Creating a custom mixin with vue-class-component
+# 2.10
 
 ## Project setup
 ```

@@ -9,6 +9,8 @@ interface IBasicAnimal {
   sound?: string;
   family: string;
   foodChainType: FoodChainType;
+  whoAmI: () => void;
+  makeSound: () => void;
 }
 
 interface IAnimalConstructor {
@@ -31,10 +33,14 @@ export class Animal implements IBasicAnimal {
     this.foodChainType = params.foodChainType;
   }
 
-  public whoAmI() {
+  public whoAmI(): void {
     console.log(`I am a ${this.name}, my family is ${this.family}. My diet is ${this.foodChainType}.`);
     if (this.sound) {
       console.log([...Array(2).fill(this.sound)].join(', '));
     }
+  }
+
+  public makeSound(): void {
+    console.log(this.sound);
   }
 } 

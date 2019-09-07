@@ -9,8 +9,4 @@ class Dog extends Animal {
       foodChainType: FoodChainType.Carnivorous,
     });
   }
-
-  public bark() {
-    console.log(this.sound);
-  }
 }

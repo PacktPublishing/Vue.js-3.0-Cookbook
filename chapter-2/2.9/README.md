@@ -1,4 +1,4 @@
-# 2.7 - Creating your first TypeScript Vue component with vue-class-component
+# 2.9 - Creating a custom function decorators with vue-class-component
 
 ## Project setup
 ```
