@@ -1,4 +1,4 @@
-# 2.9 - Creating a custom mixin with vue-class-component
+# 2.11 - Adding vue-property-decorator to a vue-class-component
 
 ## Project setup
 ```
