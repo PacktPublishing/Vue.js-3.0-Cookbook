@@ -14,7 +14,6 @@ export default {
           this.$watch(key, (newValue, oldValue) => {
             console.log(`The new value for ${key} is: ${newValue}`);
             console.log(`The old value for ${key} is: ${oldValue}`);
-            console.clear();
           }, {
             deep: true,
           });
