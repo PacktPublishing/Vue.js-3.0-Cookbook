@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <current-time />
+    <current-time class="col-4" />
   </div>
 </template>
 
