@@ -5,6 +5,11 @@
       <p>{{ task }}</p>
       <hr />
       <input type="text" v-model="task" />
+      <button
+        v-on:click="addTask"
+      >
+        Add Task
+      </button>
     </div>
   </div>
 </template>
@@ -14,5 +19,10 @@ export default {
   data: () => ({
     task: '',
   }),
+  methods: {
+    addTask(){
+      this.$emit('add-task', this.task);
+    },
+  }
 };
 </script>

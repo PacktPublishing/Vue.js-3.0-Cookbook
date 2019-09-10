@@ -1,4 +1,4 @@
-# 3.2 - Creating an input form with two-way data binding
+# 3.3 - Adding an event listener to an element
 
 ## Project setup
 ```

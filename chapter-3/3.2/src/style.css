@@ -30,6 +30,10 @@
   [class*="col-"] {
     width: 100%;
   }
+
+  .cardBox {
+    margin: 20px 0;
+  }
 }
 
 @media only screen and (min-width: 600px) {
