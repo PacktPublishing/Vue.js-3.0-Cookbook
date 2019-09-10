@@ -2,6 +2,7 @@
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s linear;
   border-radius: 3px;
+  margin: 20px;
 }
 
 .cardBox:hover {
@@ -10,6 +11,10 @@
 
 .cardBox>.container {
   padding: 4px 18px;
+}
+
+[class*="col-"] {
+  display: inline-block;
 }
 
 @media only screen and (max-width: 600px) {
