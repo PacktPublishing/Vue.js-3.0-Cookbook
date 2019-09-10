@@ -1,0 +1,14 @@
+.cardBox {
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+  transition: 0.3s linear;
+  max-width: 300px;
+  border-radius: 3px;
+}
+
+.cardBox:hover {
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
+}
+
+.cardBox > .container {
+  padding: 4px 18px;
+}

@@ -1,5 +1,5 @@
 <template>
-  <div class="box shadow">
+  <div class="cardBox">
     <div class="container">
       <h1>Today is:</h1>
       <h2>{{ getCurrentDate }}</h2>
