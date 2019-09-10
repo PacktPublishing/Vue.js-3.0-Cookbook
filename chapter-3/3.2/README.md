@@ -1,4 +1,4 @@
-# 3.1 - Creating the "hello world" component
+# 3.2 - Creating an input form with two-way data binding
 
 ## Project setup
 ```
