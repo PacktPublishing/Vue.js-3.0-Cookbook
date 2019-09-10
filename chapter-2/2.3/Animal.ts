@@ -4,20 +4,19 @@ export enum FoodChainType {
   Omnivorous = 'omnivorous',
 }
 
-interface IBasicAnimal {
+interface IAnimal {
   name: string;
   sound?: string;
   family: string;
   foodChainType: FoodChainType;
+}
+
+interface IBasicAnimal extends IAnimal{
   whoAmI: () => void;
   makeSound: () => void;
 }
 
-interface IAnimalConstructor {
-  name: string,
-  sound?: string,
-  family: string,
-  foodChainType: FoodChainType
+interface IAnimalConstructor extends IAnimal{
 }
 
 export class Animal implements IBasicAnimal {
