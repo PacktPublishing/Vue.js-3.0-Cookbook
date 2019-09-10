@@ -22,6 +22,7 @@ export default {
   methods: {
     addTask(){
       this.$emit('add-task', this.task);
+      this.task = '';
     },
   }
 };

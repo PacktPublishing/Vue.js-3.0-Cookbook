@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <current-time class="col-4" />
-    <task-input class="col-6" />
+    <task-input 
+      class="col-6"
+      @add-task="addNewTask"
+    />
   </div>
 </template>
 
@@ -14,6 +17,11 @@ export default {
   components: {
     CurrentTime,
     TaskInput,
-  }
+  },
+  methods:{
+    addNewTask(task){
+      alert(`New task added: ${task}`);
+    },
+  },
 }
 </script>
