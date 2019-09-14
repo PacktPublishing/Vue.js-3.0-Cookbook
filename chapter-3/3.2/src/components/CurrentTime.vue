@@ -1,8 +1,8 @@
 <template>
   <div class="cardBox">
     <div class="container">
-      <h1>Today is:</h1>
-      <h2>{{ getCurrentDate }}</h2>
+      <h2>Today is:</h2>
+      <h3>{{ getCurrentDate }}</h3>
     </div>
   </div>
 </template>

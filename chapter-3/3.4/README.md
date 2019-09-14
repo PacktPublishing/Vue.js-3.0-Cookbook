@@ -1,4 +1,4 @@
-# 3.3 - Adding an event listener to an element
+# 3.4 - Creating a dynamic todo list
 
 ## Project setup
 ```
