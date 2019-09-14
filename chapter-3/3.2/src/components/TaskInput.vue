@@ -1,16 +1,16 @@
 <template>
-  <div class="cardBox">
-    <div class="container tasker">
+  <div class='cardBox'>
+    <div class='container tasker'>
       <strong>My task is: {{task}}</strong>
-      <input type="text" v-model="task" class="taskInput" />
+      <input type='text' v-model='task' class='taskInput' />
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "TaskInput",
+  name: 'TaskInput',
   data: () => ({
-    task: ""
+    task: ''
   }),
 };
 </script>

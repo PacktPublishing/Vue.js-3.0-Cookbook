@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <current-time class="col-4" />
+  <div id='app'>
+    <current-time class='col-4' />
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import CurrentTime from './components/CurrentTime.vue';
 
 export default {
-  name: 'app',
+  name: 'TodoApp',
   components: {
     CurrentTime
   }

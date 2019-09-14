@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
-    <current-time class="col-4" />
+  <div id='app'>
+    <current-time class='col-4' />
     <task-input 
-      class="col-6"
-      @add-task="addNewTask"
+      class='col-6'
+      @add-task='addNewTask'
     />
   </div>
 </template>
@@ -13,7 +13,7 @@ import CurrentTime from './components/CurrentTime.vue';
 import TaskInput from './components/TaskInput';
 
 export default {
-  name: 'app',
+  name: 'TodoApp',
   components: {
     CurrentTime,
     TaskInput,
