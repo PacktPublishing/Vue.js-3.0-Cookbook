@@ -2,7 +2,12 @@
   <div class="cardBox">
     <div class="container tasker">
       <strong>My task is:</strong>
-      <input type="text" v-model="task" class="taskInput" />
+      <input 
+        type="text" 
+        :value="task" 
+        @input="task = $event.target.value" 
+        class="taskInput" 
+      />
       <button v-on:click="addTask">Add Task</button>
     </div>
   </div>
