@@ -1,4 +1,4 @@
-# 3.8 - Adding form validation with vuelidate
+# 3.9 - Creating filters and sorting for the list
 
 ## Project setup
 ```

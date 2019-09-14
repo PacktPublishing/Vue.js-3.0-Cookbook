@@ -1,4 +1,4 @@
-# 3.8 - Adding form validation with vuelidate
+# 3.11 - Adding custom styles and transactions
 
 ## Project setup
 ```

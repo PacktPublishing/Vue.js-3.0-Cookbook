@@ -1,4 +1,4 @@
-# 3.8 - Adding form validation with vuelidate
+# 3.10 - Conditional and filtering data on the list
 
 ## Project setup
 ```
