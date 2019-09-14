@@ -1,4 +1,4 @@
-# 3.4 - Removing the v-model from the input
+# 3.6 - Creating computed properties and how they work
 
 ## Project setup
 ```

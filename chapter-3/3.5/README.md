@@ -1,4 +1,4 @@
-# 3.4 - Removing the v-model from the input
+# 3.5 - Creating a dynamic todo list
 
 ## Project setup
 ```
