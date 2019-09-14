@@ -6,7 +6,8 @@
         type='text' 
         :value='task' 
         @input='task = $event.target.value' 
-        class='taskInput' 
+        class='taskInput'
+        :class="$v.task.$error ? 'fieldError' : ''" 
       />
       <button v-on:click='addTask'>Add Task</button>
     </div>
@@ -22,8 +23,14 @@ export default {
   }),
   methods: {
     addTask() {
+      this.$v.task.$touch();
+      
+      if (this.$v.$error) return false;
+
       this.$emit('add-task', this.task);
       this.task = '';
+      this.$v.task.$reset();
+      return true;
     }
   },
   validations: {
