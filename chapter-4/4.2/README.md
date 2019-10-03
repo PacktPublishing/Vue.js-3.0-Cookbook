@@ -1,4 +1,4 @@
-# 4.1 - Creating a visual template component
+# 4.2 - Using Slots and Named Slots to place data inside your components
 
 ## Project setup
 ```

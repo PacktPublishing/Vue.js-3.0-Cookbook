@@ -1,5 +1,5 @@
 <template>
-  <div class="cardBox">
+  <div class="cardBox elevation_2">
     <div class="section">
       This is a Material Card Box
     </div>
@@ -11,13 +11,17 @@ export default {
 };
 </script>
 <style scoped>
+  @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+  @import '../style/elevation.css';
+
+  *{
+    font-family: 'Roboto', sans-serif;
+  }
   .cardBox{
-    border-radius: 0.25rem;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.2),
-    0 2px 2px rgba(0,0,0,0.14),
-    0 3px 1px -2px rgba(0,0,0,0.12);
     background-color: #fff;
     position: relative;
+    display: inline-block;
+    border-radius: 0.25rem;
   }
   .cardBox > .section {
     padding: 1rem;
