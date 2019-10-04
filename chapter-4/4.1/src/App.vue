@@ -8,7 +8,7 @@
 import MaterialCardBox from './components/MaterialCardBox.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     MaterialCardBox,
   },

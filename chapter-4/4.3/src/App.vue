@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-    <MaterialCardBox>
-      <template v-slot:header>
-        <strong>Card Title</strong><br />
-        <span>Card Sub-Title</span>
-      </template>
-      <template v-slot:media>
-        <img src="https://via.placeholder.com/350x150" />
-      </template>
-      <p>Main Section</p>
+    <MaterialCardBox
+      header="Material Card Header"
+      sub-header="Card Sub Header"
+      show-media
+      show-actions
+      img-src="https://picsum.photos/300/200"
+      :main-text="`
+        The path of the righteous man is beset on all sides by the iniquities
+        of the selfish and the tyranny of evil men.`"
+    >
       <template v-slot:action>
         <button>Action Button</button>
         <button>Action Button</button>
@@ -21,7 +22,7 @@
 import MaterialCardBox from './components/MaterialCardBox.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     MaterialCardBox,
   },

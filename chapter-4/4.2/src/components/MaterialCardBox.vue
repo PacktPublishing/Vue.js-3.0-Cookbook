@@ -1,15 +1,28 @@
 <template>
   <div class="cardBox elevation_2">
     <div class="header">
-      <slot v-if="$slots.header" name="header" />
+      <slot
+        v-if="$slots.header"
+        name="header"
+      />
       <div v-else>
-        <h1 class="cardHeader cardText">Card Header</h1>
-        <h2 class="cardSubHeader cardText">Card Sub Header</h2>
+        <h1 class="cardHeader cardText">
+          Card Header
+        </h1>
+        <h2 class="cardSubHeader cardText">
+          Card Sub Header
+        </h2>
       </div>
     </div>
     <div class="media">
-      <slot v-if="$slots.media" name="media" />
-      <img v-else src="https://via.placeholder.com/350x250" />
+      <slot
+        v-if="$slots.media"
+        name="media"
+      />
+      <img
+        v-else
+        src="https://via.placeholder.com/350x250"
+      >
     </div>
     <div
       v-if="$slots.default"
@@ -21,14 +34,17 @@
     >
       <slot />
     </div>
-    <div v-if="$slots.action" class="action">
+    <div
+      v-if="$slots.action"
+      class="action"
+    >
       <slot name="action" />
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "MaterialCardBox"
+  name: 'MaterialCardBox',
 };
 </script>
 <style scoped>
@@ -41,6 +57,8 @@ export default {
 }
 
 .cardBox {
+  width: 100%;
+  max-width: 300px;
   border-radius: 0.25rem;
   background-color: #fff;
   position: relative;

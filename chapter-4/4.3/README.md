@@ -1,4 +1,4 @@
-# 4.2 - Using Slots and Named Slots to place data inside your components
+# 4.3 - Passing data to your component and validating the data
 
 ## Project setup
 ```

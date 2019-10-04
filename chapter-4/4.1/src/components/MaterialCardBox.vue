@@ -18,6 +18,8 @@ export default {
     font-family: 'Roboto', sans-serif;
   }
   .cardBox{
+      width: 100%;
+  max-width: 300px;
     background-color: #fff;
     position: relative;
     display: inline-block;

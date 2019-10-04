@@ -2,11 +2,11 @@
   <div id="app">
     <MaterialCardBox>
       <template v-slot:header>
-        <strong>Card Title</strong><br />
+        <strong>Card Title</strong><br>
         <span>Card Sub-Title</span>
       </template>
       <template v-slot:media>
-        <img src="https://via.placeholder.com/350x150" />
+        <img src="https://via.placeholder.com/350x150">
       </template>
       <p>Main Section</p>
       <template v-slot:action>
@@ -21,7 +21,7 @@
 import MaterialCardBox from './components/MaterialCardBox.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     MaterialCardBox,
   },
