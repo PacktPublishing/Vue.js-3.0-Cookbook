@@ -2,7 +2,11 @@
   <div>
     <fieldset>
       <legend>{{ this.formattedNumber }}</legend>
-      <button @click="increase">Increase</button><button @click="decrease">Decrease</button>
+      <button @click="increase">
+        Increase
+      </button><button @click="decrease">
+        Decrease
+      </button>
     </fieldset>
   </div>
 </template>

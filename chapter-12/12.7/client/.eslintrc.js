@@ -11,7 +11,9 @@ module.exports = {
     'airbnb-base',
     'plugin:import/errors',
     'plugin:import/warnings',
+    'plugin:vue/essential',
     'plugin:vue/recommended',
+    'plugin:vue/strongly-recommended',
   ],
   plugins: [
     'html',
