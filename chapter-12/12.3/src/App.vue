@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <input
-      type="text"
-      v-input-mask="'###-###-###'"
       v-model="inputMask"
-    />
+      v-input-mask="'###-###-###'"
+      type="text"
+    >
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'App',
   data: () => ({
     inputMask: '',
   }),
