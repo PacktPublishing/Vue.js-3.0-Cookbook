@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Counter />
-    <hr />
+    <hr>
     <CounterByTen />
   </div>
 </template>

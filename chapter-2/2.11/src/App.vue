@@ -3,7 +3,7 @@
     <Counter
       v-model="amount"
     />
-    <hr />
+    <hr>
     <CounterByTen
       v-model="amount"
     />

@@ -5,13 +5,6 @@ module.exports = {
     node: true,
   },
 
-  extends: [
-    'plugin:vue/essential',
-    'plugin:vue/recommended',
-    'plugin:vue/strongly-recommended',
-    '@vue/airbnb',
-  ],
-
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -25,6 +18,8 @@ module.exports = {
 
   extends: [
     'plugin:vue/essential',
+    'plugin:vue/recommended',
+    'plugin:vue/strongly-recommended',
     '@vue/airbnb',
     '@vue/typescript',
   ],
