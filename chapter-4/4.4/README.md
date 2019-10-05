@@ -1,4 +1,4 @@
-# 4.3 - Passing data to your component and validating the data
+# 4.4 - Creating Functional Components
 
 ## Project setup
 ```

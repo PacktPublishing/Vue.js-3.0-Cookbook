@@ -88,6 +88,9 @@ export default {
   position: relative;
   display: block;
 }
+.cardBox > .action > *:not(:first-child) {
+  margin-left: 0.4rem;
+}
 .noBottomPadding {
   padding-bottom: 0 !important;
 }
