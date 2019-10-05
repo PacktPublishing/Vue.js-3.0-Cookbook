@@ -1,16 +1,16 @@
 <template>
   <div>
     <StarRatingInput
-      v-if="!rating"
+      v-if="!voted"
       :max-rating="maxRating"
-      @final-vote="rating = $event"
+      @final-vote="vote"
     >
       Rate this Place
     </StarRatingInput>
     <StarRatingDisplay
       v-else
       :max-rating="maxRating"
-      :rating="rating"
+      :rating="rating || rank"
       :votes="votes"
     />
   </div>
@@ -41,42 +41,14 @@ export default {
     },
   },
   data: () => ({
-    rating: 0,
+    rank: 0,
+    voted: false,
   }),
+  methods: {
+    vote(rank) {
+      this.rank = rank;
+      this.voted = true;
+    },
+  },
 };
 </script>
-
-<style scoped>
-  .starRating {
-    user-select: none;
-    display: flex;
-    flex-direction: row;
-  }
-
-  .starRating * {
-    line-height: 0.9rem;
-  }
-
-  .starRating .material-icons {
-    font-size: .9rem !important;
-    color: orange;
-  }
-
-  ul {
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-  }
-
-  ul > li {
-    list-style: none;
-    float: left;
-  }
-
-  .rating, .votes {
-    display: inline-block;
-    color: rgba(0, 0, 0, .65);
-    font-size: .75rem;
-    margin-left: .4rem;
-  }
-</style>
