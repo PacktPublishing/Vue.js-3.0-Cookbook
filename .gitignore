@@ -266,8 +266,6 @@ dist/
 # Flycheck
 flycheck_*.el
 
-
-
 # projectiles files
 .projectile
 
@@ -412,3 +410,4 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+.idea
