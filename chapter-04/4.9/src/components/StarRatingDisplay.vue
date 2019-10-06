@@ -24,7 +24,6 @@
 
 <script>
 import StarRatingDisplayMixin from '../mixins/starRatingDisplay';
-import StarRatingBaseMixin from '../mixins/starRatingBase';
 import StarRatingNameMixin from '../mixins/starRatingName';
 import StarRatingChildMixin from '../mixins/starRatingChild';
 
@@ -32,7 +31,6 @@ export default {
   name: 'StartRatingDisplay',
   mixins: [
     StarRatingDisplayMixin,
-    StarRatingBaseMixin,
     StarRatingNameMixin,
     StarRatingChildMixin,
   ],

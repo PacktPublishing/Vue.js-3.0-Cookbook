@@ -1,4 +1,4 @@
-# 4.9 - Lazy Loading your components, make it asynchronously
+# 4.8 - Creating a component mixin
 
 ## Project setup
 ```

@@ -14,12 +14,11 @@
 import StarRatingInput from './StarRatingInput.vue';
 import StarRatingDisplay from './StarRatingDisplay.vue';
 import StarRatingDisplayMixin from '../mixins/starRatingDisplay';
-import StarRatingBaseMixin from '../mixins/starRatingBase';
 
 export default {
   name: 'StarRating',
   components: { StarRatingDisplay, StarRatingInput },
-  mixins: [StarRatingBaseMixin, StarRatingDisplayMixin],
+  mixins: [StarRatingDisplayMixin],
   provide: {
     starRating: true,
   },

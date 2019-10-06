@@ -21,14 +21,12 @@
 
 <script>
 import StarRatingBaseMixin from '../mixins/starRatingBase';
-import StarRatingNameMixin from '../mixins/starRatingName';
 import StarRatingChildMixin from '../mixins/starRatingChild';
 
 export default {
   name: 'StartRatingInput',
   mixins: [
     StarRatingBaseMixin,
-    StarRatingNameMixin,
     StarRatingChildMixin,
   ],
   data: () => ({
@@ -43,10 +41,11 @@ export default {
       this.$emit('final-vote', this.rank);
     },
     getStarName(rate) {
-      if (rate <= (this.rating || this.rank)) {
+      const rating = (this.rating || this.rank);
+      if (rate <= rating) {
         return 'star';
       }
-      if (Math.fround((rate - (this.rating || this.rank))) < 1) {
+      if (Math.fround((rate - rating)) < 1) {
         return 'star_half';
       }
       return 'star_border';

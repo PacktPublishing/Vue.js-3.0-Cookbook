@@ -38,16 +38,12 @@
 </template>
 
 <script>
-import MaterialCardBox from () => import('./components/MaterialCardBox.vue');
-import MaterialButton from () => import('./components/MaterialButton.vue');
-import StarRating from () => import('./components/StarRating.vue');
-
 export default {
   name: 'App',
   components: {
-    StarRating,
-    MaterialButton,
-    MaterialCardBox,
+    StarRating: () => import('./components/StarRating.vue'),
+    MaterialButton: () => import('./components/MaterialButton.vue'),
+    MaterialCardBox: () => import('./components/MaterialCardBox.vue'),
   },
   methods: {
     resetVote() {
