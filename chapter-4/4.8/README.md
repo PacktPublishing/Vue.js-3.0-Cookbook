@@ -1,4 +1,4 @@
-# 4.7 - Creating a dependency injection component
+# 4.8 - Creating a component mixin
 
 ## Project setup
 ```

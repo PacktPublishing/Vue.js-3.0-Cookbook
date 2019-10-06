@@ -1,4 +1,4 @@
-# 4.5 - Accessing your children components data
+# 4.6 - Creating a dynamic injected component
 
 ## Project setup
 ```

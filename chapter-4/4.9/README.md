@@ -1,4 +1,4 @@
-# 4.7 - Creating a dependency injection component
+# 4.9 - Lazy Loading your components, make it asynchronously
 
 ## Project setup
 ```
