@@ -1,6 +1,6 @@
 import baseHttp from './baseFetch';
 
-export const getHttp = async (url, type = 'json') => (await baseHttp(url, 'get'))(type);
+export const getHttp = async (url, type = 'json', options) => (await baseHttp(url, 'get', options))(type);
 
 export const postHttp = async (url,
   body,

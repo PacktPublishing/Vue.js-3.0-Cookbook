@@ -1,7 +1,7 @@
 export default async (url, method, options = {}) => {
   let httpRequest;
   if (method.toUpperCase() === 'GET') {
-    httpRequest = await fetch(url);
+    httpRequest = await fetch(url, options);
   } else {
     httpRequest = fetch(url, {
       method: method.toUpperCase(),
