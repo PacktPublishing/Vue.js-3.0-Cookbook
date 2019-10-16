@@ -12,6 +12,16 @@ export const postHttp = async (url,
     ...options,
   }))(type);
 
+export const updateHttp = async (url,
+  body,
+  type = 'json',
+  options) => (await baseHttp(url,
+  'update',
+  {
+    body,
+    ...options,
+  }))(type);
+
 export const putHttp = async (url,
   body,
   type = 'json',
@@ -46,6 +56,7 @@ export const deleteHttp = async (
 export default {
   get: getHttp,
   post: postHttp,
+  update: updateHttp,
   put: putHttp,
   patch: patchHttp,
   delete: deleteHttp,
