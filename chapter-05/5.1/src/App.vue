@@ -7,7 +7,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue';
-import httpMethods from './http';
+import httpMethods from './http/fetchApi';
 
 export default {
   name: 'app',
