@@ -1,10 +1,14 @@
 export default async (url, method, options = {}) => {
   let httpRequest;
   if (method.toUpperCase() === 'GET') {
-    httpRequest = await fetch(url, options);
+    httpRequest = await fetch(url, {
+      cache: 'reload',
+      ...options,
+    });
   } else {
     httpRequest = fetch(url, {
       method: method.toUpperCase(),
+      cache: 'reload',
       ...options,
     });
   }
