@@ -9,11 +9,16 @@
       <template
         v-slot:media>
         <img
-          v-show="kittyImage"
+          v-if="kittyImage"
           alt="Meow!"
           :src="kittyImage"
           style="width: 300px;"
         >
+        <p v-else style="text-align: center">
+          <i class="material-icons">
+            cached
+          </i>
+        </p>
       </template>
       <template v-slot:action>
         <MaterialButton
