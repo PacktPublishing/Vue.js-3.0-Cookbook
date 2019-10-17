@@ -48,6 +48,9 @@ export default {
     MaterialButton: () => import('./components/MaterialButton.vue'),
     MaterialCardBox: () => import('./components/MaterialCardBox.vue'),
   },
+  async beforeMount() {
+    await this.newCatImage();
+  },
   data: () => ({
     kittyImage: '',
   }),
