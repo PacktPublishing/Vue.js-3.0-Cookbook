@@ -1,4 +1,4 @@
-# 5.1 - Creating a wrapper for the Fetch API as an HTTP client
+# 5.2 - Creating a random cat image or GIF component
 
 ## Project setup
 ```
