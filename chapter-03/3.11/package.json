@@ -8,14 +8,14 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^2.6.5",
+    "core-js": "^3.1.2",
     "vue": "^2.6.10",
     "vuelidate": "^0.7.4"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-plugin-babel": "^4.0.4",
+    "@vue/cli-plugin-eslint": "^4.0.4",
+    "@vue/cli-service": "^4.0.4",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
