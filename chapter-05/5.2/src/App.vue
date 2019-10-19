@@ -60,11 +60,14 @@ export default {
     kittyImage: '',
   }),
   methods: {
+    async getImage(url) {
+      return URL.createObjectURL(await getHttp(url, 'blob'));
+    },
     async newCatImage() {
-      this.kittyImage = URL.createObjectURL(await getHttp('https://cataas.com/cat', 'blob'));
+      this.kittyImage = await this.getImage('https://cataas.com/cat');
     },
     async newCatGif() {
-      this.kittyImage = URL.createObjectURL(await getHttp('https://cataas.com/cat/gif', 'blob'));
+      this.kittyImage = await this.getImage('https://cataas.com/cat/gif');
     },
   },
 };
