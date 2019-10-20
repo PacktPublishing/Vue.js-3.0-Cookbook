@@ -63,22 +63,11 @@ export default {
       this.response = await getHttp(`${window.location.href}api/users`);
     },
     async createUser(data) {
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-
-      await postHttp(`${window.location.href}api/users`, { data },
-        'text',
-        { headers });
+      await postHttp(`${window.location.href}api/users`, { data });
       await this.getAllUsers();
     },
     async updateUser(data) {
-      const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-
-      await patchHttp(`${window.location.href}api/users/${data.id}`,
-        { data },
-        'text',
-        { headers });
+      await patchHttp(`${window.location.href}api/users/${data.id}`, { data });
       await this.getAllUsers();
     },
     async deleteUser(id) {
