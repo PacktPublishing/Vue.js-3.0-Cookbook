@@ -5,7 +5,7 @@ import { postFrom } from './post';
 import { patchFrom } from './patch';
 import { deleteFrom } from './delete';
 
-const server = new Server({
+window.server = new Server({
   seeds(srv) {
     srv.db.loadData({ ...baseData });
   },
@@ -24,5 +24,3 @@ const server = new Server({
     this.delete('/users/:id', deleteFrom('users'));
   },
 });
-
-window.server = server;
