@@ -6,7 +6,7 @@ export default async (url, method, options = {}) => {
       ...options,
     });
   } else {
-    httpRequest = fetch(url, {
+    httpRequest = await fetch(url, {
       method: method.toUpperCase(),
       cache: 'reload',
       ...options,
