@@ -60,7 +60,8 @@ export default {
   },
   methods: {
     async getAllUsers() {
-      this.response = await getHttp(`${window.location.href}api/users`);
+      const { data } = await getHttp(`${window.location.href}api/users`);
+      this.response = data;
     },
     async createUser(data) {
       await postHttp(`${window.location.href}api/users`, { data });
@@ -71,7 +72,7 @@ export default {
       await this.getAllUsers();
     },
     async deleteUser(id) {
-      await deleteHttp(`${window.location.href}api/users/${id}`, {}, 'text');
+      await deleteHttp(`${window.location.href}api/users/${id}`);
       await this.getAllUsers();
     },
   },
