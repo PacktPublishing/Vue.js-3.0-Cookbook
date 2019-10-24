@@ -1,4 +1,4 @@
-# 5.3 - Creating your local fake JSON API Server with MirajeJS
+# 5.4 - Using axios as the new HTTP client
 
 ## Project setup
 ```

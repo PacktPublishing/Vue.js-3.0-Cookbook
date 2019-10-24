@@ -1,11 +1,13 @@
 <template>
   <div>
     <div id="app">
+      <h3>Response</h3>
       <pre>{{ response }}</pre>
     </div>
     <hr/>
     <h1> Create / Update User </h1>
     <label for="userData">
+      User JSON:
       <textarea
         id="userData"
         v-model="userData"
@@ -29,6 +31,7 @@
     <hr/>
     <h1> Delete User </h1>
     <label for="userData">
+      User Id:
       <input type="number" step="1" v-model="userId">
     </label>
     <button
