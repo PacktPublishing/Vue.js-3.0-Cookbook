@@ -245,7 +245,7 @@ module.exports = {
       'error',
       'as-needed'
     ],
-    'require-await': 'error',
+    'require-await': 'off',
     'rest-spread-spacing': 'error',
     'semi': 'off',
     'semi-spacing': 'off',

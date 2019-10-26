@@ -1,11 +1,4 @@
-import baseHttp, { jsonPlaceholderApi } from './baseFetch';
-
-export const getTodos = async userId => jsonPlaceholderApi.get('todos',
-  {
-    params: {
-      userId,
-    },
-  });
+import baseHttp from './baseFetch';
 
 export const getHttp = async (
   url,

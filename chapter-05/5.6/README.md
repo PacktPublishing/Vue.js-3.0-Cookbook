@@ -1,4 +1,4 @@
-# 5.4 - Using axios as the new HTTP client
+# 5.6 - Using axios as the new HTTP client
 
 ## Project setup
 ```

@@ -1,6 +1,6 @@
 import { Server } from 'miragejs';
 import baseData from './db';
-import { getFrom } from './get';
+import { getFrom, getFromBy } from './get';
 import { postFrom } from './post';
 import { patchFrom } from './patch';
 import { deleteFrom } from './delete';
@@ -16,9 +16,11 @@ window.server = new Server({
 
     this.namespace = 'api';
 
-    this.timing = 750;
+    this.timing = 100;
 
     this.get('/users', getFrom('users'));
+
+    this.get('/users/:id', getFromBy('users'));
 
     this.post('/users', postFrom('users'));
 

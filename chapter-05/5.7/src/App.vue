@@ -1,51 +1,73 @@
 <template>
   <div id="app">
-    <mdb-container fluid>
-      asd
-    </mdb-container>
+    <vs-row>
+      <vs-col
+        vs-type="flex"
+        vs-justify="left"
+        vs-align="left"
+        vs-w="12">
+        <component
+          :is="component"
+          @change-component="changeComponent"
+        />
+      </vs-col>
+    </vs-row>
   </div>
 </template>
 
 <script>
-import {
-  getHttp,
-  postHttp,
-  patchHttp,
-  deleteHttp,
-  getTodos,
-} from './http/fetchApi';
+  import List from './components/list';
+  import Create from './components/create';
+  import View from './components/view';
+  import Update from './components/update';
+  import {
+    getHttp,
+    postHttp,
+    patchHttp,
+    deleteHttp,
+    getTodos,
+  } from './http/fetchApi';
 
-export default {
-  name: 'app',
-  data: () => ({
-    response: undefined,
-    userData: '',
-    userId: undefined,
-    userTodo: [],
-  }),
-  async beforeMount() {
-    await this.getAllUsers();
-  },
-  methods: {
-    async getAllUsers() {
-      const { data } = await getHttp(`${window.location.href}api/users`);
-      this.response = data;
+  export default {
+    name: 'app',
+    components: {
+      List,
     },
-    async createUser(data) {
-      await postHttp(`${window.location.href}api/users`, { data });
-      await this.getAllUsers();
+    data: () => ({
+      componentIs: 'list',
+      userId: 0,
+    }),
+    provide () {
+      const base = {};
+
+      Object.defineProperty(base, 'userId', {
+        enumerable: true,
+        get: () => Number(this.userId),
+      });
+
+      return base;
     },
-    async updateUser(data) {
-      await patchHttp(`${window.location.href}api/users/${data.id}`, { data });
-      await this.getAllUsers();
+    computed: {
+      component() {
+        switch (this.componentIs) {
+          case 'list':
+            return List;
+          case 'create':
+            return Create;
+          case 'view':
+            return View;
+          case 'edit':
+            return Update;
+          default:
+            return undefined;
+        }
+      }
     },
-    async deleteUser(id) {
-      await deleteHttp(`${window.location.href}api/users/${id}`);
-      await this.getAllUsers();
+    methods: {
+      changeComponent(payload) {
+        this.componentIs = payload.component;
+        this.userId = Number(payload.userId);
+      },
     },
-    async getUserTodo(userId) {
-      this.userTodo = await getTodos(userId);
-    },
-  },
-};
+  };
 </script>

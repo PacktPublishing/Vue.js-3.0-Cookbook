@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2';
 
-const postMethods = ['post', 'delete', 'patch'];
+const postMethods = ['post', 'patch'];
 
 export function requestInterceptor(config) {
   if (

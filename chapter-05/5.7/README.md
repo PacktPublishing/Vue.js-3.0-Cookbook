@@ -1,4 +1,4 @@
-# 5.4 - Using axios as the new HTTP client
+# 5.7 - Creating a CRUD Interface with Axios and Vuesax
 
 ## Project setup
 ```

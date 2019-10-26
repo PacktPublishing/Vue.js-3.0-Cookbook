@@ -1,11 +1,10 @@
 import './server/server';
 import Vue from 'vue';
 import App from './App.vue';
-import 'bootstrap-css-only/css/bootstrap.min.css'
-import 'mdbvue/build/css/mdb.css'
-import mdbVue from 'mdbvue';
+import Vuesax from 'vuesax';
+import './style.css';
 
-Vue.use(mdbVue);
+Vue.use(Vuesax);
 
 Vue.config.productionTip = false;
 
