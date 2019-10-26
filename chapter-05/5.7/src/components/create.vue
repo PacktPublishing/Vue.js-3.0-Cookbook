@@ -66,7 +66,12 @@
     }),
     methods: {
       async createUser() {
-        console.log('foi');
+        await postHttp(`${window.location.href}api/users`, {
+          data: {
+            ...this.userData,
+          }
+        });
+        this.changeComponent('list', 0);
       },
     },
   };
