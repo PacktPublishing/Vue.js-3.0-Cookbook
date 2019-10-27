@@ -33,6 +33,16 @@
         >
           Back
         </vs-button>
+        <vs-button
+          color="success"
+          type="filled"
+          icon="edit"
+          size="small"
+          style="margin-left: 5px"
+          @click="changeComponent('edit', userId)"
+        >
+          Edit User
+        </vs-button>
       </vs-row>
     </div>
   </vs-card>

@@ -20,19 +20,9 @@
   import Create from './components/create';
   import View from './components/view';
   import Update from './components/update';
-  import {
-    getHttp,
-    postHttp,
-    patchHttp,
-    deleteHttp,
-    getTodos,
-  } from './http/fetchApi';
 
   export default {
     name: 'app',
-    components: {
-      List,
-    },
     data: () => ({
       componentIs: 'list',
       userId: 0,
