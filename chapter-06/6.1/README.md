@@ -1,4 +1,4 @@
-# 6.1
+# 6.1 - Creating a simple route
 
 ## Project setup
 ```
