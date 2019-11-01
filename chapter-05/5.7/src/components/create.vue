@@ -48,6 +48,7 @@
 <script>
   import userForm from './userForm';
   import changeComponent from '../mixin/changeComponent';
+  import { postHttp } from '../http/fetchApi';
 
   export default {
     name: 'CreateUser',

@@ -131,7 +131,6 @@
         this.userList = data;
       },
       async deleteUser(id) {
-        debugger;
         await deleteHttp(`${window.location.href}api/users/${id}`);
         await this.getAllUsers();
       },
