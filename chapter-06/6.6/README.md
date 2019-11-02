@@ -1,4 +1,4 @@
-# 6.4 - Creating route alias
+# 6.6 - Creating a nested router view
 
 ## Project setup
 ```
