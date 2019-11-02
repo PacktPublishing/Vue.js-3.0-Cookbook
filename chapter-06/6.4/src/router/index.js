@@ -9,23 +9,27 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
+    path: '/user',
     name: 'list',
+    alias: '/',
     component: List,
   },
   {
-    path: '/view/:id',
+    path: '/user/:id',
     name: 'view',
+    alias: '/view/:id',
     component: View,
   },
   {
-    path: '/edit/:id',
+    path: '/user/edit/:id',
     name: 'edit',
+    alias: '/edit/:id',
     component: Edit,
   },
   {
-    path: '/create',
+    path: '/user/create',
     name: 'create',
+    alias: '/create',
     component: Create,
   },
 ];
