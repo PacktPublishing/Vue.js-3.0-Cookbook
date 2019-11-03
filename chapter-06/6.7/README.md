@@ -1,4 +1,4 @@
-# 6.6 - Creating a nested router view
+# 6.7 - Creating a 404 error page
 
 ## Project setup
 ```
