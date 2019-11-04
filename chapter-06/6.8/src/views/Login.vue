@@ -34,6 +34,7 @@
               <vs-input
                 :danger="error"
                 label="Password"
+                type="password"
                 danger-text="Check your password"
                 placeholder="Your password"
                 v-model="password"
