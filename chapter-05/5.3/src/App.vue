@@ -1,46 +1,44 @@
 <template>
-  <div>
-    <div id="app">
-      <h3>Response</h3>
-      <pre>{{ response }}</pre>
-    </div>
-    <hr/>
-    <h1> Create / Update User </h1>
-    <label for="userData">
-      User JSON:
-      <textarea
-        id="userData"
-        v-model="userData"
-        rows="10"
-        cols="40"
-        style="display: block;"
-      ></textarea>
-    </label>
-    <button
-      style="margin: 20px;"
-      @click="createUser(JSON.parse(userData))"
-    >
-      Create User
-    </button>
-    <button
-      style="margin: 20px;"
-      @click="updateUser(JSON.parse(userData))"
-    >
-      Update User
-    </button>
-    <hr/>
-    <h1> Delete User </h1>
-    <label for="userData">
-      User Id:
-      <input type="number" step="1" v-model="userId">
-    </label>
-    <button
-      style="margin: 20px;"
-      @click="deleteUser(userId)"
-    >
-      Delete User
-    </button>
-  </div>
+  <div id="app">
+    <h3>Response</h3>
+    <pre>{{ response }}</pre>
+  <hr/>
+  <h1> Create / Update User </h1>
+  <label for="userData">
+    User JSON:
+    <textarea
+      id="userData"
+      v-model="userData"
+      rows="10"
+      cols="40"
+      style="display: block;"
+    ></textarea>
+  </label>
+  <button
+    style="margin: 20px;"
+    @click="createUser(JSON.parse(userData))"
+  >
+    Create User
+  </button>
+  <button
+    style="margin: 20px;"
+    @click="updateUser(JSON.parse(userData))"
+  >
+    Update User
+  </button>
+  <hr/>
+  <h1> Delete User </h1>
+  <label for="userData">
+    User Id:
+    <input type="number" step="1" v-model="userId">
+  </label>
+  <button
+    style="margin: 20px;"
+    @click="deleteUser(userId)"
+  >
+    Delete User
+  </button>
+</div>
 </template>
 
 <script>
