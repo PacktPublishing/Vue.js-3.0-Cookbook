@@ -2,11 +2,11 @@
   <vs-card
     style="margin: 20px;"
   >
-    <div slot="header">
+    <template slot="header">
       <h3>
         View User
       </h3>
-    </div>
+    </template>
     <vs-row>
       <vs-col
         vs-type="flex"
@@ -21,14 +21,13 @@
         />
       </vs-col>
     </vs-row>
-    <div slot="footer">
+    <template slot="footer">
       <vs-row vs-justify="flex-start">
         <vs-button
           color="primary"
           type="filled"
           icon="arrow_back"
           size="small"
-          style="margin-left: 5px"
           @click="changeComponent('list', 0)"
         >
           Back
@@ -44,7 +43,7 @@
           Edit User
         </vs-button>
       </vs-row>
-    </div>
+    </template>
   </vs-card>
 </template>
 <script>

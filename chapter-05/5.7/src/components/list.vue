@@ -2,11 +2,11 @@
   <vs-card
     style="margin: 20px;"
   >
-    <div slot="header">
+    <template slot="header">
       <h3>
         Users
       </h3>
-    </div>
+    </template>
     <vs-row>
       <vs-col
         vs-type="flex"
@@ -22,7 +22,7 @@
           style="width: 100%; padding: 20px;"
         >
           <template slot="thead">
-            <vs-th sort-key="name">
+            <vs-th sort-key="id">
               #
             </vs-th>
             <vs-th sort-key="name">
@@ -94,7 +94,7 @@
         </vs-table>
       </vs-col>
     </vs-row>
-    <div slot="footer">
+    <template slot="footer">
       <vs-row vs-justify="flex-start">
         <vs-button
           color="primary"
@@ -106,7 +106,7 @@
           Create User
         </vs-button>
       </vs-row>
-    </div>
+    </template>
   </vs-card>
 </template>
 <script>

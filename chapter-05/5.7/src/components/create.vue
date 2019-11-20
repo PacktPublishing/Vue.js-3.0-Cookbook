@@ -2,11 +2,11 @@
   <vs-card
     style="margin: 20px;"
   >
-    <div slot="header">
+    <template slot="header">
       <h3>
         Create User
       </h3>
-    </div>
+    </template>
     <vs-row>
       <vs-col
         vs-type="flex"
@@ -20,7 +20,7 @@
         />
       </vs-col>
     </vs-row>
-    <div slot="footer">
+    <template slot="footer">
       <vs-row vs-justify="flex-start">
         <vs-button
           color="success"
@@ -42,7 +42,7 @@
           Cancel
         </vs-button>
       </vs-row>
-    </div>
+    </template>
   </vs-card>
 </template>
 <script>
