@@ -12,11 +12,11 @@
         <vs-card
           style="margin: 20px;"
         >
-          <div slot="header">
+          <template slot="header">
             <h3>
               User Login
             </h3>
-          </div>
+          </template>
           <vs-row
             vs-align="center"
             vs-justify="center"
@@ -41,7 +41,7 @@
               />
             </vs-col>
           </vs-row>
-          <div slot="footer">
+          <template slot="footer">
             <vs-row vs-justify="flex-start">
               <vs-button
                 color="success"
@@ -53,7 +53,7 @@
                 Sign-in
               </vs-button>
             </vs-row>
-          </div>
+          </template>
         </vs-card>
       </vs-col>
     </vs-row>
@@ -80,6 +80,7 @@
           this.$router.replace('/user');
         }
         this.error = true;
+        return false;
       },
     }
   };
