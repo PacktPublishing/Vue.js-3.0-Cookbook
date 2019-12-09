@@ -1,4 +1,4 @@
-# 7.1
+# 7.1 - Creating a simple Vuex Store
 
 ## Project setup
 ```
