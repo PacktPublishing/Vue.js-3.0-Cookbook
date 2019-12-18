@@ -23,7 +23,7 @@ async function updateUser({ commit }, payload) {
         ...payload,
       }
     });
-    commit(MT.REMOVE_USER, userId);
+    commit(MT.UPDATE_USER, userId);
   } catch (error) {
     commit(MT.ERROR, error);
   }
