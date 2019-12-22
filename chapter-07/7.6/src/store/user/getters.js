@@ -3,7 +3,7 @@ function getUsersList(state) {
 }
 
 function getUserById(state) {
-  return (userId) => {
+  return userId => {
     return state.data.usersList.find(u => u.id === userId);
   }
 }

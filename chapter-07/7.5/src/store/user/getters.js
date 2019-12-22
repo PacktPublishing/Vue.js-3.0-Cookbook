@@ -2,6 +2,10 @@ function getUsersList(state) {
   return state.data.usersList;
 }
 
+function getUsersData(state) {
+  return state.data.userData;
+}
+
 function getUserById(state) {
   return (userId) => {
     return state.data.usersList.find(u => u.id === userId);
@@ -18,6 +22,7 @@ function hasError(state) {
 
 export default {
   getUsersList,
+  getUsersData,
   getUserById,
   isLoading,
   hasError,

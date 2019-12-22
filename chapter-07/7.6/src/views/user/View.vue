@@ -56,15 +56,13 @@
   </vs-row>
 </template>
 <script>
-  import {
-    getHttp,
-  } from '@/http/fetchApi';
   import UserForm from '@/components/userForm';
   import changeRouteMixin from '../../mixin/changeRoute';
+  import vuexMixin from '@/mixin/vuex';
 
   export default {
     name: 'ViewUser',
-    mixins: [changeRouteMixin],
+    mixins: [changeRouteMixin, vuexMixin],
     components: {
       UserForm,
     },

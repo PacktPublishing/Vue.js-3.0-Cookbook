@@ -118,28 +118,26 @@
   </vs-row>
 </template>
 <script>
-  import {
-    getHttp,
-    deleteHttp,
-  } from '@/http/fetchApi';
   import changeRouteMixin from '@/mixin/changeRoute';
+  import vuexMixin from '@/mixin/vuex';
 
   export default {
     name: 'ListUsers',
-    mixins: [changeRouteMixin],
+    mixins: [changeRouteMixin, vuexMixin],
     async beforeMount() {
       await this.getAllUsers();
     },
-    data: () => ({
-      userList: [],
-    }),
+    computed: {
+      userList() {
+        return this.$store.getters.getUsersList;
+      },
+    },
     methods: {
       async getAllUsers() {
-        const { data } = await getHttp(`api/users`);
-        this.userList = data;
+        this.$store.dispatch('fetchUsersList');
       },
       async deleteUser(id) {
-        await deleteHttp(`api/users/${id}`);
+        this.$store.dispatch('removeUser', id);
         await this.getAllUsers();
       },
     }

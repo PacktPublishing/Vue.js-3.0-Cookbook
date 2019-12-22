@@ -15,6 +15,16 @@ async function fetchUsersList({ commit }) {
   }
 }
 
+async function fetchUserData({ commit }, userId) {
+  try {
+    commit(MT.LOADING);
+    const { data } = await getHttp(`api/users/${userId}`);
+    commit(MT.SET_USER_DATA, data);
+  } catch (error) {
+    commit(MT.ERROR, error);
+  }
+}
+
 async function updateUser({ commit }, payload) {
   try {
     commit(MT.LOADING);
@@ -23,7 +33,7 @@ async function updateUser({ commit }, payload) {
         ...payload,
       }
     });
-    commit(MT.UPDATE_USER, userId);
+    commit(MT.UPDATE_USER, payload);
   } catch (error) {
     commit(MT.ERROR, error);
   }
@@ -41,6 +51,7 @@ async function removeUser({ commit }, userId) {
 
 export default {
   fetchUsersList,
+  fetchUserData,
   updateUser,
   removeUser,
 }
