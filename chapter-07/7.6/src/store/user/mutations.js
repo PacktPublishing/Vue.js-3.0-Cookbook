@@ -15,6 +15,12 @@ const setUserList = (state, payload) => {
   state.error = null;
 };
 
+const setUserData = (state, payload) => {
+  state.data.userData = payload;
+  state.loading = false;
+  state.error = null;
+};
+
 const updateUser = (state, payload) => {
   const userIndex = state.data.usersList.findIndex(u => u.id === payload.id);
   if (userIndex > -1) {
@@ -37,6 +43,7 @@ export default {
   [MT.LOADING]: setLoading,
   [MT.ERROR]: setError,
   [MT.SET_USER_LIST]: setUserList,
+  [MT.SET_USER_DATA]: setUserData,
   [MT.UPDATE_USER]: updateUser,
   [MT.REMOVE_USER]: removeUser,
 }
