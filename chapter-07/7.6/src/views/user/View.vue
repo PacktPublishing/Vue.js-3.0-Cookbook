@@ -22,7 +22,7 @@
             style="margin: 20px"
           >
             <user-form
-              v-model="userData"
+              :value="userData"
               disabled
             />
           </vs-col>
@@ -57,24 +57,14 @@
 </template>
 <script>
   import UserForm from '@/components/userForm';
-  import changeRouteMixin from '../../mixin/changeRoute';
-  import vuexMixin from '@/mixin/vuex';
+  import changeRouteMixin from '@/mixin/changeRoute';
 
   export default {
     name: 'ViewUser',
-    mixins: [changeRouteMixin, vuexMixin],
+    mixins: [changeRouteMixin],
     components: {
       UserForm,
     },
-    data: () => ({
-      userData: {
-        name: '',
-        email: '',
-        birthday: '',
-        country: '',
-        phone: '',
-      },
-    }),
     async beforeMount() {
       await this.getUserById();
     },
@@ -82,11 +72,13 @@
       userId() {
         return this.$route.params.id;
       },
+      userData() {
+        return this.$store.getters.getUserData;
+      },
     },
     methods: {
       async getUserById() {
-        const { data } = await getHttp(`api/users/${this.userId}`);
-        this.userData = data;
+        await this.$store.dispatch('fetchUserData', this.userId);
       },
     }
   };

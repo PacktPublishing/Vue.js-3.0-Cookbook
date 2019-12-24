@@ -2,7 +2,7 @@ function getUsersList(state) {
   return state.data.usersList;
 }
 
-function getUsersData(state) {
+function getUserData(state) {
   return state.data.userData;
 }
 
@@ -22,7 +22,7 @@ function hasError(state) {
 
 export default {
   getUsersList,
-  getUsersData,
+  getUserData,
   getUserById,
   isLoading,
   hasError,

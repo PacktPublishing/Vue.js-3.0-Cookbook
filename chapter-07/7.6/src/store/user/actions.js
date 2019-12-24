@@ -2,8 +2,23 @@ import {
   getHttp,
   patchHttp,
   deleteHttp,
+  postHttp,
 } from '@/http/fetchApi';
 import MT from './types';
+
+async function createUser({ commit }, userData) {
+  try {
+    commit(MT.LOADING);
+    await postHttp(`/api/users`, {
+      data: {
+        ...userData,
+      }
+    });
+    commit(MT.SET_USER_DATA, userData);
+  } catch (error) {
+    commit(MT.ERROR, error);
+  }
+}
 
 async function fetchUsersList({ commit }) {
   try {
@@ -50,6 +65,7 @@ async function removeUser({ commit }, userId) {
 }
 
 export default {
+  createUser,
   fetchUsersList,
   fetchUserData,
   updateUser,

@@ -56,7 +56,6 @@
 <script>
   import UserForm from '@/components/userForm';
   import changeRouteMixin from '@/mixin/changeRoute';
-  import { postHttp } from '@/http/fetchApi';
 
   export default {
     name: 'CreateUser',
@@ -75,11 +74,7 @@
     }),
     methods: {
       async createUser() {
-        await postHttp(`${window.location.href}api/users`, {
-          data: {
-            ...this.userData,
-          }
-        });
+        await this.$store.dispatch('createUser', this.userData);
         this.changeRoute('list');
       },
     },

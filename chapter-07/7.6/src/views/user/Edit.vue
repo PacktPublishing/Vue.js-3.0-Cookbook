@@ -22,7 +22,7 @@
             style="margin: 20px"
           >
             <user-form
-              v-model="userData"
+              v-model="tmpUserData"
             />
           </vs-col>
         </vs-row>
@@ -56,10 +56,6 @@
 <script>
   import UserForm from '@/components/userForm';
   import changeRouteMixin from '@/mixin/changeRoute';
-  import {
-    getHttp,
-    patchHttp,
-  } from '../../http/fetchApi';
 
   export default {
     name: 'UpdateView',
@@ -67,8 +63,17 @@
     components: {
       UserForm,
     },
-    data: () => ({
+    watch: {
       userData: {
+        handler(newData) {
+          this.tmpUserData = newData;
+        },
+        immediate: true,
+        deep: true,
+      }
+    },
+    data: () => ({
+      tmpUserData: {
         name: '',
         email: '',
         birthday: '',
@@ -80,21 +85,19 @@
       userId() {
         return this.$route.params.id;
       },
+      userData() {
+        return this.$store.getters.getUserData;
+      }
     },
     async created() {
       await this.getUserById();
     },
     methods: {
       async getUserById() {
-        const { data } = await getHttp(`api/users/${this.userId}`);
-        this.userData = data;
+        await this.$store.dispatch('fetchUserData', this.userId);
       },
       async updateUser() {
-        await patchHttp(`api/users/${this.userData.id}`, {
-          data: {
-            ...this.userData,
-          }
-        });
+        await this.$store.dispatch('updateUser', this.tmpUserData);
         this.changeRoute('list');
       },
     },
