@@ -1,4 +1,4 @@
-# 8.1 - Adding Vue-i18n to a Vue Project
+# 8.2 - Creating Vue-i18n translations
 
 ## Project setup
 ```
