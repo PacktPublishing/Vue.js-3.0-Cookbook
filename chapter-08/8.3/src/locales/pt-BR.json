@@ -1,0 +1,16 @@
+{
+  "text": {
+    "userRepository": "O Usuário tem {repo} disponível.",
+    "repository": "nenhum repositório | um repositório | {n} repositórios"
+  },
+  "label": {
+    "languageSelect": "Selecione o Idioma"
+  },
+  "title": {
+    "application": "Nossa Aplicação em Vue.JS"
+  },
+  "menu": {
+    "home": "Página Inicial",
+    "about": "Sobre"
+  }
+}
