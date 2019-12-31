@@ -1,0 +1,12 @@
+{
+  "label": {
+    "languageSelect": "Language Select"
+  },
+  "title": {
+    "application": "Our Vue.JS Application"
+  },
+  "menu": {
+    "home": "Home",
+    "about": "About"
+  }
+}

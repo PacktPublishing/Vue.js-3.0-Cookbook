@@ -1,0 +1,13 @@
+{
+  "id": "pt-BR",
+  "label": {
+    "languageSelect": "Selecione o Idioma"
+  },
+  "title": {
+    "application": "Nossa Aplicação em Vue.JS"
+  },
+  "menu": {
+    "home": "Página Inicial",
+    "about": "Sobre"
+  }
+}
