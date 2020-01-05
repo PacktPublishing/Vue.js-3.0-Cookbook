@@ -2,7 +2,7 @@
   <label>
     {{ $t('label.languageSelect') }}
     <select
-      @change="changeLanguage"
+      v-model="lang"
     >
       <option
         v-for="(lang, index) in languages"
@@ -21,6 +21,9 @@ import { defineNewLanguage, getLoadedLanguage } from '@/i18n';
 
 export default {
   name: 'LanguageChangerSelect',
+  data: () => ({
+    lang: 'en',
+  }),
   computed: {
     languages() {
       return [
@@ -39,14 +42,22 @@ export default {
       ];
     },
   },
+  watch: {
+    lang(lang) {
+      this.changeLanguage(lang);
+    },
+  },
   methods: {
-    async changeLanguage({ target: { value } }) {
+    async changeLanguage(lang) {
       const languages = getLoadedLanguage();
 
-      if (languages.includes(value)) return false;
+      if (languages.includes(lang)) {
+        defineNewLanguage(lang);
+        return false;
+      }
 
-      const { data: newLang } = await axios.get(`/api/language/${value}`);
-      defineNewLanguage(value, newLang);
+      const { data: newLang } = await axios.get(`/api/language/${lang}`);
+      defineNewLanguage(lang, newLang);
       return true;
     },
   },

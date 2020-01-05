@@ -2,7 +2,7 @@
   <label>
     {{ $t('label.languageSelect') }}
     <select
-      @change="changeLanguage"
+      v-model="lang"
     >
       <option
         v-for="(lang, index) in languages"
@@ -18,6 +18,9 @@
 <script>
 export default {
   name: 'LanguageChangerSelect',
+  data: () => ({
+    lang: 'en',
+  }),
   computed: {
     languages() {
       return [
@@ -32,9 +35,14 @@ export default {
       ];
     },
   },
+  watch: {
+    lang(lang) {
+      this.changeLanguage(lang);
+    },
+  },
   methods: {
-    changeLanguage({ target: { value } }) {
-      this.$i18n.locale = value;
+    changeLanguage(lang) {
+      this.$i18n.locale = lang;
     },
   },
 };
