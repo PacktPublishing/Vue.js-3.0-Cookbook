@@ -17,4 +17,13 @@ describe('AsyncComponent.vue Unit Tests', () => {
       expect(jsonKeys.includes(key)).toBeTruthy();
     });
   });
+  it('check if the text on the template matches the function return', async () => {
+    const wrapper = shallowMount(AsyncComponent);
+
+    const jsonData = await wrapper.vm.fetchJson();
+
+    wrapper.vm.jsonData = jsonData;
+
+    expect(wrapper.text()).toBe(JSON.stringify(jsonData, null, 2));
+  });
 });
