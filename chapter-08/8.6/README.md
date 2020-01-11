@@ -1,4 +1,4 @@
-# 8.5 - Creating tests for a Single File Component with Jest and Vue Test Utils
+# 8.6 - Creating a test for an asynchronous function with Jest and Vue Test Utils
 
 ## Project setup
 ```
