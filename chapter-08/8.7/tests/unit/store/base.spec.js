@@ -56,7 +56,7 @@ describe('Vuex Store Unit Test', () => {
     expect(store.state.votes[candidate]).toBe(0);
   });
 
-  test('check if static getters are working correctly', () => {
+  test('check if getters are working correctly', () => {
     const localVue = createLocalVue();
     localVue.use(Vuex);
     const store = new Vuex.Store(createStore());
