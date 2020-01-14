@@ -12,7 +12,24 @@ const createStore = () => ({
   actions,
   getters,
 });
+
 describe('Vuex Store Unit Test', () => {
+  test('check if actions are working correctly', () => {
+    const localVue = createLocalVue();
+    localVue.use(Vuex);
+    const store = new Vuex.Store(createStore());
+
+    const candidate = 'Heitor';
+
+    store.dispatch('voteFor', candidate);
+
+    expect(store.state.votes[candidate]).toBe(1);
+
+    store.dispatch('cancelVoteFor', candidate);
+
+    expect(store.state.votes[candidate]).toBe(0);
+  });
+
   test('check if store is being created correctly', () => {
     const localVue = createLocalVue();
     localVue.use(Vuex);
@@ -56,5 +73,5 @@ describe('Vuex Store Unit Test', () => {
     store.commit(MT.REMOVE_VOTE, candidate);
 
     expect(store.getters.voteByName(candidate)).toBe(0);
-  })
+  });
 });
