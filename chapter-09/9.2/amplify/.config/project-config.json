@@ -1,0 +1,17 @@
+{
+    "projectName": "chat-app",
+    "version": "3.0",
+    "frontend": "javascript",
+    "javascript": {
+        "framework": "none",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "dist/spa",
+            "BuildCommand": "quasar build",
+            "StartCommand": "quasar serve"
+        }
+    },
+    "providers": [
+        "awscloudformation"
+    ]
+}
