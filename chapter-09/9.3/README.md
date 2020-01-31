@@ -1,4 +1,4 @@
-# Quasar App (9_1)
+# 9.3 - Adding the GraphQL Client to your application
 
 A Quasar Framework App
 

@@ -1,4 +1,4 @@
-# Quasar App (9_1)
+# 9.2 - Creating your first GraphQL API
 
 A Quasar Framework App
 

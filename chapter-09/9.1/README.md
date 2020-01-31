@@ -1,4 +1,4 @@
-# Quasar App (9_1)
+# 9.1 - Creating your AWS Amplify Environment
 
 A Quasar Framework App
 
