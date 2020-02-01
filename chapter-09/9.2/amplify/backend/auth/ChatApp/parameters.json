@@ -1,10 +1,8 @@
 {
-    "identityPoolName": "chatapp459b30ab_identitypool_459b30ab",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "chatap459b30ab",
-    "userPoolName": "chatapp459b30ab_userpool_459b30ab",
+    "resourceNameTruncated": "ChatApba05d2b4",
+    "userPoolName": "ChatApp_UserPool",
     "autoVerifiedAttributes": [
-        "email"
+        "phone_number"
     ],
     "mfaConfiguration": "OFF",
     "mfaTypes": [
@@ -14,24 +12,36 @@
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": false,
-    "passwordPolicyMinLength": 8,
+    "defaultPasswordPolicy": true,
+    "passwordPolicyMinLength": "6",
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "email"
+        "name",
+        "phone_number"
     ],
     "userpoolClientGenerateSecret": true,
-    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientRefreshTokenValidity": "30",
     "userpoolClientWriteAttributes": [
         "email"
     ],
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "chatap459b30ab_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "ChatApba05d2b4_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "chatapp459b30ab",
-    "authSelections": "identityPoolAndUserPool",
+    "useDefault": "manual",
+    "authSelections": "userPoolOnly",
+    "resourceName": "ChatApp",
+    "usernameAttributes": [
+        "phone_number"
+    ],
+    "userPoolGroups": true,
+    "adminQueries": false,
+    "triggers": "{}",
+    "hostedUI": false,
+    "userPoolGroupList": [
+        "Users"
+    ],
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -44,10 +54,9 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
-    "usernameAttributes": [
-        "phone_number"
-    ],
-    "userPoolGroupList": [],
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [],
     "dependsOn": []
 }
