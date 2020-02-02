@@ -1,8 +1,10 @@
 {
-    "resourceNameTruncated": "ChatApba05d2b4",
-    "userPoolName": "ChatApp_UserPool",
+    "identityPoolName": "chatapp69960c9a_identitypool_69960c9a",
+    "allowUnauthenticatedIdentities": false,
+    "resourceNameTruncated": "chatap69960c9a",
+    "userPoolName": "chatapp69960c9a_userpool_69960c9a",
     "autoVerifiedAttributes": [
-        "phone_number"
+        "email"
     ],
     "mfaConfiguration": "OFF",
     "mfaTypes": [
@@ -12,36 +14,24 @@
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
     "emailVerificationMessage": "Your verification code is {####}",
-    "defaultPasswordPolicy": true,
-    "passwordPolicyMinLength": "6",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
     "requiredAttributes": [
-        "name",
-        "phone_number"
+        "email"
     ],
     "userpoolClientGenerateSecret": true,
-    "userpoolClientRefreshTokenValidity": "30",
+    "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
         "email"
     ],
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "ChatApba05d2b4_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "chatap69960c9a_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "useDefault": "manual",
-    "authSelections": "userPoolOnly",
-    "resourceName": "ChatApp",
-    "usernameAttributes": [
-        "phone_number"
-    ],
-    "userPoolGroups": true,
-    "adminQueries": false,
-    "triggers": "{}",
-    "hostedUI": false,
-    "userPoolGroupList": [
-        "Users"
-    ],
+    "resourceName": "chatapp69960c9a",
+    "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -54,9 +44,10 @@
             "Arn"
         ]
     },
-    "parentStack": {
-        "Ref": "AWS::StackId"
-    },
-    "permissions": [],
+    "useDefault": "default",
+    "usernameAttributes": [
+        "email"
+    ],
+    "userPoolGroupList": [],
     "dependsOn": []
 }
