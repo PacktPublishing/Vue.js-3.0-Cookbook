@@ -11,15 +11,22 @@ export default {
     state.loading = false;
   },
 
-  [MT.CREATE_USER](state, payload) {
-    console.log(payload);
+  [MT.CREATE_USER](state, { email, password }) {
+    state.username = email;
+    state.email = email;
+    state.password = window.btoa(password);
     state.loading = false;
   },
 
-  [MT.SET_USER_DATA](state, { email = '', phone = '' }) {
-    state.email = email;
-    state.phone = phone;
+  [MT.USER_VALIDATED](state) {
+    state.validated = true;
+    delete state.password;
+    state.loading = true;
+  },
 
+  [MT.SET_USER_DATA](state, { id = '', email = '' }) {
+    state.id = id;
+    state.email = email;
     state.loading = false;
   },
 

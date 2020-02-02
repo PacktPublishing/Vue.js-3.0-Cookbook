@@ -1,5 +1,6 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
+const path = require('path');
 
 module.exports = function (ctx) {
   return {
@@ -85,12 +86,15 @@ module.exports = function (ctx) {
           loader: 'eslint-loader',
           exclude: /node_modules/,
           options: {
-            formatter: require('eslint').CLIEngine.getFormatter('stylish')
-          }
-        })
+            formatter: require('eslint').CLIEngine.getFormatter('stylish'),
+          },
+        });
 
-
-      }
+        cfg.resolve.alias = {
+          ...cfg.resolve.alias,
+          driver: path.resolve(__dirname, './src/driver'),
+        };
+      },
     },
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer

@@ -1,6 +1,6 @@
 projects:
   chatapp:
-    schemaPath: src/graphql/schema.json
+    schemaPath: amplify/backend/api/chatapp/build/schema.graphql
     includes:
       - src/graphql/**/*.js
     excludes:
@@ -10,3 +10,6 @@ projects:
         codeGenTarget: javascript
         generatedFileName: ''
         docsFilePath: src/graphql
+extensions:
+  amplify:
+    version: 3

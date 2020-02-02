@@ -1,9 +1,11 @@
 export const createState = () => ({
+  username: '',
   email: '',
-  phone: '',
   avatar: '',
   id: '',
+  password: '',
   loading: false,
+  validated: false,
   error: undefined,
 });
 
