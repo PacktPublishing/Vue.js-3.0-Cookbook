@@ -1,15 +1,26 @@
-
 const routes = [
   {
     path: '/',
-    component: () => import('layouts/MyLayout.vue'),
+    component: () => import('layouts/Base.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') },
+      {
+        path: '',
+        name: 'Index',
+        component: () => import('pages/Index.vue'),
+      },
+      {
+        path: 'sign-up',
+        name: 'SignUp',
+        component: () => import('pages/SignUp.vue'),
+      },
+      {
+        path: 'validate',
+        name: 'Validate',
+        component: () => import('pages/Validate.vue'),
+      },
     ],
   },
 ];
-
-// Always leave this as last one
 if (process.env.MODE !== 'ssr') {
   routes.push({
     path: '*',

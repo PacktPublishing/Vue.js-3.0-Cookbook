@@ -3,11 +3,12 @@
     <q-page class="flex flex-center">
       <q-card style="width: 350px">
         <q-card-section>
-          <div class="text-h6">Chat Application</div>
+          <div class="text-h6">Create a new account</div>
         </q-card-section>
         <q-card-section>
           <q-form
             @submit="onSubmit"
+            @reset="onReset"
             class="q-gutter-md"
           >
             <q-input
@@ -22,8 +23,10 @@
               v-model="password"
               :type="isPwd ? 'password' : 'text'"
               :rules="[
+                val => val.length >= 8 || 'Your password need to have 8 or more characters',
                 val => val !== null && val !== '' || 'Please type your password',
               ]"
+              :hint=" password.length < 8 ? 'Your password has a minimum of 8 characters' : ''"
               outlined
               label="Your password"
               lazy-rules
@@ -40,14 +43,15 @@
         </q-card-section>
         <q-card-actions align="right">
           <q-btn
-            label="Create new account"
+            label="Reset"
+            type="reset"
             color="primary"
             flat
             class="q-ml-sm"
-            @click="createAccount"
+            @click="onReset"
           />
           <q-btn
-            label="Login"
+            label="Create"
             type="submit"
             color="primary"
             @click="onSubmit"
@@ -65,7 +69,7 @@
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  name: 'Index',
+  name: 'SignUp',
   data: () => ({
     email: '',
     password: '',
@@ -78,7 +82,7 @@ export default {
   },
   methods: {
     ...mapActions('user', [
-      'singInUser',
+      'singUpNewUser',
     ]),
     validateEmail(email) {
       // eslint-disable-next-line no-useless-escape
@@ -86,13 +90,15 @@ export default {
       return regex.test(email);
     },
     async onSubmit() {
-      await this.singInUser({
-        username: this.email,
+      await this.singUpNewUser({
+        email: this.email,
         password: this.password,
       });
+      this.$router.replace({ name: 'Validate' });
     },
-    createAccount() {
-      this.$router.push({ name: 'SignUp' });
+    onReset() {
+      this.email = '';
+      this.password = '';
     },
   },
 };

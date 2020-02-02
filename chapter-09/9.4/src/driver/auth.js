@@ -38,8 +38,7 @@ export const validateUser = async (username = '', code = '') => {
 
 export const resendValidationCode = async (username = '') => {
   try {
-    await Auth.resendSignUp(username);
-    return Promise.resolve(true);
+    return Auth.resendSignUp(username);
   } catch (err) {
     return Promise.reject(err);
   }

@@ -21,7 +21,7 @@ export default {
   [MT.USER_VALIDATED](state) {
     state.validated = true;
     delete state.password;
-    state.loading = true;
+    state.loading = false;
   },
 
   [MT.SET_USER_DATA](state, { id = '', email = '' }) {
