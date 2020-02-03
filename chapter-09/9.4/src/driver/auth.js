@@ -1,9 +1,9 @@
 import { Auth } from 'aws-amplify';
 
-export const singIn = async (username, password) => {
+export const singIn = async (email = '', password = '') => {
   try {
     return Auth.signIn({
-      username,
+      username: email,
       password,
     });
   } catch (err) {
@@ -11,10 +11,10 @@ export const singIn = async (username, password) => {
   }
 };
 
-export const singUp = async ({ username = '', password = '', email = '' }) => {
+export const singUp = async ({ password = '', email = '' }) => {
   try {
     return Auth.signUp({
-      username,
+      username: email,
       password: `${password}`,
       attributes: {
         email,
@@ -52,7 +52,7 @@ export const signOut = async () => {
   }
 };
 
-export const changePassword = async (username, oldPassword, newPassword) => {
+export const changePassword = async (oldPassword = '', newPassword = '') => {
   try {
     const user = await Auth.currentAuthenticatedUser();
     return Auth.changePassword(user, `${oldPassword}`, `${newPassword}`);

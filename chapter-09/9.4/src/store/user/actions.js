@@ -13,14 +13,12 @@ async function initialLogin({ commit }) {
   try {
     commit(MT.LOADING);
 
-    const userData = await getCurrentAuthUser();
+    const AuthUser = await getCurrentAuthUser();
 
-    if (userData.username !== '') {
-      await API.graphql(graphqlOperation(GetUser, { id: userData.id }));
-    }
-    commit(MT.SET_USER_DATA, userData);
+    const { data } = await API.graphql(graphqlOperation(GetUser, { id: AuthUser.id }));
+    commit(MT.SET_USER_DATA, data.getUser);
 
-    return Promise.resolve(userData);
+    return Promise.resolve(AuthUser);
   } catch (err) {
     commit(MT.ERROR, err);
     return Promise.reject(err);
@@ -29,14 +27,21 @@ async function initialLogin({ commit }) {
 
 async function singUpNewUser({ commit }, {
   email = '',
+  username = '',
+  name = '',
   password = '',
 }) {
   try {
     commit(MT.LOADING);
 
-    const userData = await singUp({ username: email, password, email });
+    const userData = await singUp({ username, password, email });
 
-    commit(MT.CREATE_USER, { email, password });
+    commit(MT.CREATE_USER, {
+      email,
+      password,
+      name,
+      username,
+    });
 
     return Promise.resolve(userData);
   } catch (err) {
@@ -48,19 +53,29 @@ async function singUpNewUser({ commit }, {
 async function createNewUser({ commit, dispatch, state }, code) {
   try {
     commit(MT.LOADING);
+    const {
+      email,
+      username,
+      name,
+      password,
+    } = state;
+    const userData = await validateUser(email, code);
 
-    const userData = await validateUser(state.email, code);
+    await dispatch('singInUser', {
+      email,
+      password: window.atob(password),
+    });
 
-    await dispatch('singInUser', { username: state.email, password: window.atob(state.password) });
-
-    const user = await getCurrentAuthUser();
+    const AuthUser = await getCurrentAuthUser();
 
     await API.graphql(graphqlOperation(
       createUser,
       {
         input: {
-          id: user.username,
-          username: user.email,
+          id: AuthUser.username,
+          username,
+          email,
+          name,
         },
       },
     ));
@@ -74,11 +89,11 @@ async function createNewUser({ commit, dispatch, state }, code) {
   }
 }
 
-async function singInUser({ commit, dispatch }, { username = '', password = '' }) {
+async function singInUser({ commit, dispatch }, { email = '', password = '' }) {
   try {
     commit(MT.LOADING);
 
-    await singIn(username, password);
+    await singIn(email, password);
 
     await dispatch('initialLogin');
   } catch (err) {

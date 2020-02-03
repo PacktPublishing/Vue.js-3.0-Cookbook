@@ -17,7 +17,7 @@
             class="q-gutter-md"
           >
             <q-input
-              v-model="code"
+              v-model.trim="code"
               :rules="[ val => val && val.length > 0
               || 'Please type the validation code']"
               outlined

@@ -7,12 +7,14 @@ export const onCreateConversationLink = /* GraphQL */ `
       id
       user {
         id
+        email
         username
         avatar {
           bucket
           region
           key
         }
+        name
         conversations {
           nextToken
         }
@@ -48,12 +50,14 @@ export const onCreateMessage = /* GraphQL */ `
       id
       author {
         id
+        email
         username
         avatar {
           bucket
           region
           key
         }
+        name
         conversations {
           nextToken
         }
@@ -93,12 +97,14 @@ export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser($id: String!) {
     onCreateUser(id: $id) {
       id
+      email
       username
       avatar {
         bucket
         region
         key
       }
+      name
       conversations {
         items {
           id
@@ -129,12 +135,14 @@ export const onUpdateUser = /* GraphQL */ `
   subscription OnUpdateUser($id: String!) {
     onUpdateUser(id: $id) {
       id
+      email
       username
       avatar {
         bucket
         region
         key
       }
+      name
       conversations {
         items {
           id
@@ -165,12 +173,14 @@ export const onDeleteUser = /* GraphQL */ `
   subscription OnDeleteUser($id: String!) {
     onDeleteUser(id: $id) {
       id
+      email
       username
       avatar {
         bucket
         region
         key
       }
+      name
       conversations {
         items {
           id

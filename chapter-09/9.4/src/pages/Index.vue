@@ -10,32 +10,12 @@
             @submit="onSubmit"
             class="q-gutter-md"
           >
-            <q-input
-              v-model="email"
-              :rules="[ val => (val && val.length > 0 && validateEmail(val)
-              || 'Please type a valida E-mail')]"
-              outlined
-              label="Your E-mail"
-              lazy-rules
+            <email-input
+              v-model.trim="email"
             />
-            <q-input
-              v-model="password"
-              :type="isPwd ? 'password' : 'text'"
-              :rules="[
-                val => val !== null && val !== '' || 'Please type your password',
-              ]"
-              outlined
-              label="Your password"
-              lazy-rules
-            >
-              <template v-slot:append>
-                <q-icon
-                  :name="isPwd ? 'visibility_off' : 'visibility'"
-                  class="cursor-pointer"
-                  @click="isPwd = !isPwd"
-                />
-              </template>
-            </q-input>
+            <password-input
+              v-model.trim="password"
+            />
           </q-form>
         </q-card-section>
         <q-card-actions align="right">
@@ -66,6 +46,10 @@ import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'Index',
+  components: {
+    PasswordInput: () => import('components/PasswordInput'),
+    EmailInput: () => import('components/EmailInput'),
+  },
   data: () => ({
     email: '',
     password: '',
@@ -80,11 +64,6 @@ export default {
     ...mapActions('user', [
       'singInUser',
     ]),
-    validateEmail(email) {
-      // eslint-disable-next-line no-useless-escape
-      const regex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return regex.test(email);
-    },
     async onSubmit() {
       await this.singInUser({
         username: this.email,

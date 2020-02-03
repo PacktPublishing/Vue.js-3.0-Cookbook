@@ -8,12 +8,14 @@ export const createUser = /* GraphQL */ `
   ) {
     createUser(input: $input, condition: $condition) {
       id
+      email
       username
       avatar {
         bucket
         region
         key
       }
+      name
       conversations {
         items {
           id
@@ -47,12 +49,14 @@ export const updateUser = /* GraphQL */ `
   ) {
     updateUser(input: $input, condition: $condition) {
       id
+      email
       username
       avatar {
         bucket
         region
         key
       }
+      name
       conversations {
         items {
           id
@@ -86,12 +90,14 @@ export const deleteUser = /* GraphQL */ `
   ) {
     deleteUser(input: $input, condition: $condition) {
       id
+      email
       username
       avatar {
         bucket
         region
         key
       }
+      name
       conversations {
         items {
           id
@@ -232,12 +238,14 @@ export const createMessage = /* GraphQL */ `
       id
       author {
         id
+        email
         username
         avatar {
           bucket
           region
           key
         }
+        name
         conversations {
           nextToken
         }
@@ -282,12 +290,14 @@ export const updateMessage = /* GraphQL */ `
       id
       author {
         id
+        email
         username
         avatar {
           bucket
           region
           key
         }
+        name
         conversations {
           nextToken
         }
@@ -332,12 +342,14 @@ export const deleteMessage = /* GraphQL */ `
       id
       author {
         id
+        email
         username
         avatar {
           bucket
           region
           key
         }
+        name
         conversations {
           nextToken
         }
@@ -382,12 +394,14 @@ export const createConversationLink = /* GraphQL */ `
       id
       user {
         id
+        email
         username
         avatar {
           bucket
           region
           key
         }
+        name
         conversations {
           nextToken
         }
@@ -426,12 +440,14 @@ export const updateConversationLink = /* GraphQL */ `
       id
       user {
         id
+        email
         username
         avatar {
           bucket
           region
           key
         }
+        name
         conversations {
           nextToken
         }

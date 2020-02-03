@@ -1,8 +1,9 @@
 export const createState = () => ({
+  id: '',
   username: '',
   email: '',
+  name: '',
   avatar: '',
-  id: '',
   password: '',
   loading: false,
   validated: false,
