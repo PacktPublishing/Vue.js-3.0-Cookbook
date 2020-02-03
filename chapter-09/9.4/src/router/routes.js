@@ -16,7 +16,7 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Index',
+        name: 'Chat',
         component: () => import('pages/Chat.vue'),
       },
       {

@@ -89,7 +89,7 @@ export default {
         password: this.password,
         newPassword: this.newPassword,
       });
-      // this.$router.replace({ name: 'Chat' });
+      this.$router.replace({ name: 'Chat' });
     },
     onReset() {
       this.name = this.getUser.name;

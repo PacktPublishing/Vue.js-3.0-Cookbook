@@ -119,13 +119,13 @@ async function editUser({ commit, state }, {
     const { data } = await API.graphql(graphqlOperation(updateUser,
       { input: { id: state.id, ...updateObject } }));
 
-    console.log(data.updateUser);
-
     if (password && newPassword) {
       await changePassword(password, newPassword);
     }
 
-    return Promise.resolve(data);
+    commit(MT.SET_USER_DATA, data.updateUser);
+
+    return Promise.resolve(data.updateUser);
   } catch (err) {
     return Promise.reject(err);
   }

@@ -69,6 +69,7 @@ export default {
         username: this.email,
         password: this.password,
       });
+      this.$router.push({ name: 'Chat' });
     },
     createAccount() {
       this.$router.push({ name: 'SignUp' });
