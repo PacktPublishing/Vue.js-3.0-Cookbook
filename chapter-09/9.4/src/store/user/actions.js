@@ -1,11 +1,12 @@
 import { API, graphqlOperation } from 'aws-amplify';
 import { getUser as GetUser } from 'src/graphql/queries';
-import { createUser } from 'src/graphql/mutations';
+import { createUser, updateUser } from 'src/graphql/mutations';
 import {
   singUp,
   validateUser,
   singIn,
   getCurrentAuthUser,
+  changePassword,
 } from 'driver/auth';
 import MT from './types';
 
@@ -101,9 +102,39 @@ async function singInUser({ commit, dispatch }, { email = '', password = '' }) {
   }
 }
 
+async function editUser({ commit, state }, {
+  username = '',
+  name = '',
+  password = '',
+  newPassword = '',
+}) {
+  try {
+    commit(MT.LOADING);
+
+    const updateObject = Object.assign({
+      name: state.name,
+      username: state.username,
+    }, { name, username });
+
+    const { data } = await API.graphql(graphqlOperation(updateUser,
+      { input: { id: state.id, ...updateObject } }));
+
+    console.log(data.updateUser);
+
+    if (password && newPassword) {
+      await changePassword(password, newPassword);
+    }
+
+    return Promise.resolve(data);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+}
+
 export default {
   initialLogin,
   singUpNewUser,
   createNewUser,
   singInUser,
+  editUser,
 };

@@ -7,8 +7,8 @@
                 val => val !== null && val !== '' || 'Please type your password',
               ]"
     :hint=" value.length < 8 ? 'Your password has a minimum of 8 characters' : ''"
+    :label="label"
     outlined
-    label="Your password"
     lazy-rules
     @blur="$emit('blur', $event)"
     @keydown="$emit('keydown', $event)"
@@ -34,6 +34,11 @@ export default {
     value: {
       type: String,
       default: '',
+      required: false,
+    },
+    label: {
+      type: String,
+      default: 'Your password',
       required: false,
     },
   },
