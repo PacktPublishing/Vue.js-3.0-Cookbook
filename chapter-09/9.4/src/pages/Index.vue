@@ -7,7 +7,6 @@
         </q-card-section>
         <q-card-section>
           <q-form
-            @submit="onSubmit"
             class="q-gutter-md"
           >
             <email-input

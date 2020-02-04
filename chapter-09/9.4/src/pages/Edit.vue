@@ -11,13 +11,17 @@
             @reset="onReset"
             class="q-gutter-md"
           >
+            <avatar-input
+              v-model="avatar"
+              ref="avatar"
+            />
             <name-input
               v-model.trim="name"
             />
             <username-input
               v-model.trim="username"
             />
-            <q-separator />
+            <q-separator/>
             <password-input
               v-model.trim="password"
               label="Your old password"
@@ -54,10 +58,12 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import AvatarInput from '../components/AvatarInput';
 
 export default {
   name: 'EditUser',
   components: {
+    AvatarInput,
     PasswordInput: () => import('components/PasswordInput'),
     UsernameInput: () => import('components/UsernameInput'),
     NameInput: () => import('components/NameInput'),
@@ -65,10 +71,12 @@ export default {
   created() {
     this.name = this.getUser.name;
     this.username = this.getUser.username;
+    this.avatar = this.getUser.avatar;
   },
   data: () => ({
     name: '',
     username: '',
+    avatar: '',
     password: '',
     newPassword: '',
   }),
@@ -83,13 +91,20 @@ export default {
       'editUser',
     ]),
     async onSubmit() {
-      await this.editUser({
-        name: this.name,
-        username: this.username,
-        password: this.password,
-        newPassword: this.newPassword,
-      });
-      this.$router.replace({ name: 'Chat' });
+      try {
+        await this.$refs.avatar.uploadFile();
+        console.log(this.$refs.avatar.s3file);
+        await this.editUser({
+          name: this.name,
+          avatar: this.$refs.avatar.s3file,
+          username: this.username,
+          password: this.password,
+          newPassword: this.newPassword,
+        });
+        this.$router.replace({ name: 'Chat' });
+      } catch (err) {
+        console.error(err);
+      }
     },
     onReset() {
       this.name = this.getUser.name;

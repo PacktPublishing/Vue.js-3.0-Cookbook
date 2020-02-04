@@ -35,7 +35,7 @@ async function singUpNewUser({ commit }, {
   try {
     commit(MT.LOADING);
 
-    const userData = await singUp({ username, password, email });
+    const userData = await singUp(email, password);
 
     commit(MT.CREATE_USER, {
       email,
@@ -105,6 +105,11 @@ async function singInUser({ commit, dispatch }, { email = '', password = '' }) {
 async function editUser({ commit, state }, {
   username = '',
   name = '',
+  avatar = {
+    key: '',
+    bucket: '',
+    region: '',
+  },
   password = '',
   newPassword = '',
 }) {
@@ -114,7 +119,8 @@ async function editUser({ commit, state }, {
     const updateObject = Object.assign({
       name: state.name,
       username: state.username,
-    }, { name, username });
+      avatar: state.avatar,
+    }, { name, username, avatar });
 
     const { data } = await API.graphql(graphqlOperation(updateUser,
       { input: { id: state.id, ...updateObject } }));

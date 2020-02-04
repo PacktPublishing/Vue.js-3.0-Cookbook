@@ -80,10 +80,7 @@ export default {
         await this.createNewUser(this.code);
         this.$router.replace({ name: 'Index' });
       } catch (e) {
-        this.$q.notify({
-          message: e.message,
-          color: 'red',
-        });
+        console.error(e);
       }
     },
     async resendCode() {

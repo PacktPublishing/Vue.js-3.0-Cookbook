@@ -1,6 +1,6 @@
 import { Auth } from 'aws-amplify';
 
-export const singIn = async (email = '', password = '') => {
+export async function singIn(email = '', password = '') {
   try {
     return Auth.signIn({
       username: email,
@@ -9,9 +9,9 @@ export const singIn = async (email = '', password = '') => {
   } catch (err) {
     return Promise.reject(err);
   }
-};
+}
 
-export const singUp = async ({ password = '', email = '' }) => {
+export async function singUp(email = '', password = '') {
   try {
     return Auth.signUp({
       username: email,
@@ -24,9 +24,9 @@ export const singUp = async ({ password = '', email = '' }) => {
   } catch (err) {
     return Promise.reject(err);
   }
-};
+}
 
-export const validateUser = async (username = '', code = '') => {
+export async function validateUser(username = '', code = '') {
   try {
     await Auth.confirmSignUp(username, `${code}`);
 
@@ -34,34 +34,34 @@ export const validateUser = async (username = '', code = '') => {
   } catch (err) {
     return Promise.reject(err);
   }
-};
+}
 
-export const resendValidationCode = async (username = '') => {
+export async function resendValidationCode(username = '') {
   try {
     return Auth.resendSignUp(username);
   } catch (err) {
     return Promise.reject(err);
   }
-};
+}
 
-export const signOut = async () => {
+export async function signOut() {
   try {
     return Auth.signOut();
   } catch (err) {
     return Promise.reject(err);
   }
-};
+}
 
-export const changePassword = async (oldPassword = '', newPassword = '') => {
+export async function changePassword(oldPassword = '', newPassword = '') {
   try {
     const user = await Auth.currentAuthenticatedUser();
     return Auth.changePassword(user, `${oldPassword}`, `${newPassword}`);
   } catch (err) {
     return Promise.reject(err);
   }
-};
+}
 
-export const getCurrentAuthUser = async () => {
+export async function getCurrentAuthUser() {
   try {
     const user = await Auth.currentAuthenticatedUser();
 
@@ -72,7 +72,7 @@ export const getCurrentAuthUser = async () => {
   } catch (err) {
     return Promise.reject(err);
   }
-};
+}
 
 export default {
   singIn,
