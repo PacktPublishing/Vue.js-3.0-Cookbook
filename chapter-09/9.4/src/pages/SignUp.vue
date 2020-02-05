@@ -73,10 +73,10 @@ export default {
   },
   methods: {
     ...mapActions('user', [
-      'singUpNewUser',
+      'signUpNewUser',
     ]),
     async onSubmit() {
-      await this.singUpNewUser({
+      await this.signUpNewUser({
         name: this.name,
         username: this.username,
         email: this.email,

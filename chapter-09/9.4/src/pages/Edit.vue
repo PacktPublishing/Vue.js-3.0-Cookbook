@@ -93,7 +93,7 @@ export default {
     async onSubmit() {
       try {
         await this.$refs.avatar.uploadFile();
-        console.log(this.$refs.avatar.s3file);
+
         await this.editUser({
           name: this.name,
           avatar: this.$refs.avatar.s3file,
@@ -101,6 +101,7 @@ export default {
           password: this.password,
           newPassword: this.newPassword,
         });
+
         this.$router.replace({ name: 'Chat' });
       } catch (err) {
         console.error(err);

@@ -2,9 +2,9 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { getUser as GetUser } from 'src/graphql/queries';
 import { createUser, updateUser } from 'src/graphql/mutations';
 import {
-  singUp,
+  signUp,
   validateUser,
-  singIn,
+  signIn,
   getCurrentAuthUser,
   changePassword,
 } from 'driver/auth';
@@ -26,7 +26,7 @@ async function initialLogin({ commit }) {
   }
 }
 
-async function singUpNewUser({ commit }, {
+async function signUpNewUser({ commit }, {
   email = '',
   username = '',
   name = '',
@@ -35,7 +35,7 @@ async function singUpNewUser({ commit }, {
   try {
     commit(MT.LOADING);
 
-    const userData = await singUp(email, password);
+    const userData = await signUp(email, password);
 
     commit(MT.CREATE_USER, {
       email,
@@ -62,7 +62,7 @@ async function createNewUser({ commit, dispatch, state }, code) {
     } = state;
     const userData = await validateUser(email, code);
 
-    await dispatch('singInUser', {
+    await dispatch('signInUser', {
       email,
       password: window.atob(password),
     });
@@ -90,11 +90,11 @@ async function createNewUser({ commit, dispatch, state }, code) {
   }
 }
 
-async function singInUser({ commit, dispatch }, { email = '', password = '' }) {
+async function signInUser({ commit, dispatch }, { email = '', password = '' }) {
   try {
     commit(MT.LOADING);
 
-    await singIn(email, password);
+    await signIn(email, password);
 
     await dispatch('initialLogin');
   } catch (err) {
@@ -139,8 +139,8 @@ async function editUser({ commit, state }, {
 
 export default {
   initialLogin,
-  singUpNewUser,
+  signUpNewUser,
   createNewUser,
-  singInUser,
+  signInUser,
   editUser,
 };

@@ -61,10 +61,10 @@ export default {
   },
   methods: {
     ...mapActions('user', [
-      'singInUser',
+      'signInUser',
     ]),
     async onSubmit() {
-      await this.singInUser({
+      await this.signInUser({
         username: this.email,
         password: this.password,
       });

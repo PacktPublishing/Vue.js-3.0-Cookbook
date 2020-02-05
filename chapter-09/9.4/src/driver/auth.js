@@ -1,6 +1,6 @@
 import { Auth } from 'aws-amplify';
 
-export async function singIn(email = '', password = '') {
+export async function signIn(email = '', password = '') {
   try {
     return Auth.signIn({
       username: email,
@@ -11,7 +11,7 @@ export async function singIn(email = '', password = '') {
   }
 }
 
-export async function singUp(email = '', password = '') {
+export async function signUp(email = '', password = '') {
   try {
     return Auth.signUp({
       username: email,
@@ -75,8 +75,8 @@ export async function getCurrentAuthUser() {
 }
 
 export default {
-  singIn,
-  singUp,
+  signIn,
+  signUp,
   validateUser,
   resendValidationCode,
   signOut,
