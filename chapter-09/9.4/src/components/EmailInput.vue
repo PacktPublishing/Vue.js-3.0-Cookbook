@@ -4,6 +4,7 @@
     :rules="[ val => (val && val.length > 0 && validateEmail(val)
               || 'Please type a valid E-mail')]"
     outlined
+    type="email"
     label="Your E-mail"
     lazy-rules
     @blur="$emit('blur', $event)"
