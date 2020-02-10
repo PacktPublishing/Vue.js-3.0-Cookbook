@@ -3,7 +3,7 @@
     <q-page class="flex flex-center">
       <q-card style="width: 350px">
         <q-card-section>
-          <div class="text-h6">Chat Application</div>
+          <h6 class="text-h6">Chat Application</h6>
         </q-card-section>
         <q-card-section>
           <q-form
@@ -52,7 +52,6 @@ export default {
   data: () => ({
     email: '',
     password: '',
-    isPwd: true,
   }),
   computed: {
     ...mapGetters('user', [
