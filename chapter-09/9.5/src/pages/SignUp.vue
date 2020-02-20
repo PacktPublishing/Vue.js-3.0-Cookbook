@@ -7,8 +7,6 @@
         </q-card-section>
         <q-card-section>
           <q-form
-            @submit="onSubmit"
-            @reset="onReset"
             class="q-gutter-md"
           >
             <name-input
@@ -87,6 +85,8 @@ export default {
     onReset() {
       this.email = '';
       this.password = '';
+      this.name = '';
+      this.username = '';
     },
   },
 };

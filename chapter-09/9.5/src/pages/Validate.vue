@@ -76,12 +76,8 @@ export default {
       'createNewUser',
     ]),
     async onSubmit() {
-      try {
-        await this.createNewUser(this.code);
-        this.$router.replace({ name: 'Index' });
-      } catch (e) {
-        console.error(e);
-      }
+      await this.createNewUser(this.code);
+      this.$router.replace({ name: 'Index' });
     },
     async resendCode() {
       await resendValidationCode(this.getUserEmail);
