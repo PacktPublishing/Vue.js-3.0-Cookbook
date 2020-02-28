@@ -3,7 +3,7 @@
     <q-page class="flex flex-center">
       <q-card style="width: 350px">
         <q-card-section>
-          <div class="text-h6">Chat Application</div>
+          <div class="text-h6 no-margin">Chat Application</div>
         </q-card-section>
         <q-card-section>
           <q-form

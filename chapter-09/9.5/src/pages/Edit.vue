@@ -3,7 +3,7 @@
     <q-page class="flex flex-center">
       <q-card style="width: 350px">
         <q-card-section>
-          <h6 class="text-h6">Edit user account</h6>
+          <h6 class="text-h6 no-margin">Edit user account</h6>
         </q-card-section>
         <q-card-section>
           <q-form

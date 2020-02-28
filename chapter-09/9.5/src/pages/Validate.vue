@@ -3,7 +3,7 @@
     <q-page class="flex flex-center">
       <q-card style="width: 350px">
         <q-card-section>
-          <div class="text-h6">Validate new account</div>
+          <div class="text-h6 no-margin">Validate new account</div>
           <div class="text-subtitle2">{{ getUserEmail }}</div>
         </q-card-section>
         <q-card-section>
