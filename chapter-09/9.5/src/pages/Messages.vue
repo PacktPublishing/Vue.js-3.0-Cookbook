@@ -1,13 +1,11 @@
 <template>
-  <q-page-container class="bg-grey-1">
-    <q-page class="flex flex-center">
-      Chat
-    </q-page>
-  </q-page-container>
+  <q-page class="flex flex-center bg-grey-1">
+    Chat
+  </q-page>
 </template>
 
 <script>
 export default {
-  name: 'Messages',
+  name: 'Chat',
 };
 </script>

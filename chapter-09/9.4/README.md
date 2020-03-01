@@ -1,4 +1,4 @@
-# 9.4 -
+# 9.4 - Creating a user on the Application
 
 A Quasar Framework App
 

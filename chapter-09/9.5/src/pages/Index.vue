@@ -1,13 +1,11 @@
 <template>
-  <q-page-container class="bg-grey-1">
-    <q-page class="flex flex-center">
+    <q-page padding class="flex flex-center bg-grey-1">
       <q-card style="width: 350px">
         <q-card-section>
-          <div class="text-h6 no-margin">Chat Application</div>
+          <h6 class="no-margin">Chat Application</h6>
         </q-card-section>
         <q-card-section>
           <q-form
-            @submit="onSubmit"
             class="q-gutter-md"
           >
             <email-input
@@ -38,7 +36,6 @@
         </q-inner-loading>
       </q-card>
     </q-page>
-  </q-page-container>
 </template>
 
 <script>
@@ -53,7 +50,6 @@ export default {
   data: () => ({
     email: '',
     password: '',
-    isPwd: true,
   }),
   computed: {
     ...mapGetters('user', [
@@ -62,10 +58,10 @@ export default {
   },
   methods: {
     ...mapActions('user', [
-      'singInUser',
+      'signInUser',
     ]),
     async onSubmit() {
-      await this.singInUser({
+      await this.signInUser({
         username: this.email,
         password: this.password,
       });

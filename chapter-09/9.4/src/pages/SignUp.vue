@@ -1,52 +1,48 @@
 <template>
-  <q-page-container class="bg-grey-1">
-    <q-page class="flex flex-center">
-      <q-card style="width: 350px">
-        <q-card-section>
-          <div class="text-h6">Create a new account</div>
-        </q-card-section>
-        <q-card-section>
-          <q-form
-            @submit="onSubmit"
-            @reset="onReset"
-            class="q-gutter-md"
-          >
-            <name-input
-              v-model.trim="name"
-            />
-            <username-input
-              v-model.trim="username"
-            />
-            <email-input
-              v-model.trim="email"
-            />
-            <password-input
-              v-model.trim="password"
-            />
-          </q-form>
-        </q-card-section>
-        <q-card-actions align="right">
-          <q-btn
-            label="Reset"
-            type="reset"
-            color="primary"
-            flat
-            class="q-ml-sm"
-            @click="onReset"
+  <q-page class="flex flex-center bg-grey-1">
+    <q-card style="width: 350px">
+      <q-card-section>
+        <h6 class="no-margin">Create a new account</h6>
+      </q-card-section>
+      <q-card-section>
+        <q-form
+          class="q-gutter-md"
+        >
+          <name-input
+            v-model.trim="name"
           />
-          <q-btn
-            label="Create"
-            type="submit"
-            color="primary"
-            @click="onSubmit"
+          <username-input
+            v-model.trim="username"
           />
-        </q-card-actions>
-        <q-inner-loading :showing="isLoading">
-          <q-spinner size="50px" color="primary"/>
-        </q-inner-loading>
-      </q-card>
-    </q-page>
-  </q-page-container>
+          <email-input
+            v-model.trim="email"
+          />
+          <password-input
+            v-model.trim="password"
+          />
+        </q-form>
+      </q-card-section>
+      <q-card-actions align="right">
+        <q-btn
+          label="Reset"
+          type="reset"
+          color="primary"
+          flat
+          class="q-ml-sm"
+          @click="onReset"
+        />
+        <q-btn
+          label="Create"
+          type="submit"
+          color="primary"
+          @click="onSubmit"
+        />
+      </q-card-actions>
+      <q-inner-loading :showing="isLoading">
+        <q-spinner size="50px" color="primary"/>
+      </q-inner-loading>
+    </q-card>
+  </q-page>
 </template>
 
 <script>

@@ -1,9 +1,8 @@
 <template>
-  <q-page-container class="bg-grey-1">
-    <q-page class="flex flex-center">
+    <q-page padding class="flex flex-center bg-grey-1">
       <q-card style="width: 350px">
         <q-card-section>
-          <h6 class="text-h6">Chat Application</h6>
+          <h6 class="no-margin">Chat Application</h6>
         </q-card-section>
         <q-card-section>
           <q-form
@@ -37,7 +36,6 @@
         </q-inner-loading>
       </q-card>
     </q-page>
-  </q-page-container>
 </template>
 
 <script>

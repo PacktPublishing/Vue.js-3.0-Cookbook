@@ -1,9 +1,7 @@
 <template>
-  <q-page-container class="bg-grey-1">
-    <q-page class="flex flex-center">
+    <q-page padding class="bg-grey-1 flex flex-center">
       Chat
     </q-page>
-  </q-page-container>
 </template>
 
 <script>

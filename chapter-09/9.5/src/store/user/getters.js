@@ -1,14 +1,22 @@
+const getUserId = state => state.id;
+const getUserEmail = state => state.email;
+const getUserUsername = state => state.username;
+const getUserAvatar = state => state.avatar;
+const getUser = state => ({
+  name: state.name,
+  username: state.username,
+  avatar: state.avatar,
+  email: state.email,
+});
+const isLoading = state => state.loading;
+const hasError = state => state.error;
+
 export default {
-  getUserId: state => state.id,
-  getUserEmail: state => state.email,
-  getUserUsername: state => state.username,
-  getUserAvatar: state => state.avatar,
-  getUser: state => ({
-    name: state.name,
-    username: state.username,
-    avatar: state.avatar,
-    email: state.email,
-  }),
-  isLoading: state => state.loading,
-  hasError: state => state.error,
+  getUserId,
+  getUserEmail,
+  getUserUsername,
+  getUserAvatar,
+  getUser,
+  isLoading,
+  hasError,
 };
