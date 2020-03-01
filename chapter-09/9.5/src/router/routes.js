@@ -12,7 +12,7 @@ const routes = [
   },
   {
     path: '/chat',
-    component: () => import('layouts/Chat.vue'),
+    component: () => import('layouts/Base.vue'),
     children: [
       {
         path: '',
@@ -28,7 +28,7 @@ const routes = [
   },
   {
     path: '/user',
-    component: () => import('layouts/Chat.vue'),
+    component: () => import('layouts/Base.vue'),
     children: [
       {
         path: '',
@@ -40,7 +40,7 @@ const routes = [
   },
   {
     path: '/register',
-    component: () => import('layouts/Chat.vue'),
+    component: () => import('layouts/Base.vue'),
     children: [
       {
         path: '',
