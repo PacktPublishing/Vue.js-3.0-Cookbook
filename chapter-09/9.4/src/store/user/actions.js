@@ -97,8 +97,12 @@ async function signInUser({ commit, dispatch }, { email = '', password = '' }) {
     await signIn(email, password);
 
     await dispatch('initialLogin');
+
+    return Promise.resolve(true);
   } catch (err) {
     commit(MT.ERROR);
+
+    return Promise.reject(err);
   }
 }
 

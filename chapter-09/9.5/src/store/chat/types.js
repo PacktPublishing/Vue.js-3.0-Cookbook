@@ -1,0 +1,5 @@
+export default {
+  SET_CONVERSATIONS: 'SET_CONVERSATIONS',
+  LOADING: 'LOADING',
+  ERROR: 'ERROR',
+};

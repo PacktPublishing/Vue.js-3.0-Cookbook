@@ -61,11 +61,17 @@ export default {
       'signInUser',
     ]),
     async onSubmit() {
-      await this.signInUser({
-        username: this.email,
-        password: this.password,
-      });
-      this.$router.push({ name: 'Chat' });
+      try {
+        await this.signInUser({
+          email: this.email,
+          password: this.password,
+        });
+        this.$router.push({ name: 'Chat' });
+      } catch (e) {
+        this.$q.dialog({
+          message: e.message,
+        });
+      }
     },
     createAccount() {
       this.$router.push({ name: 'SignUp' });
