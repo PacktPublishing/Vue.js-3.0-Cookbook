@@ -3,6 +3,7 @@ const getUserEmail = state => state.email;
 const getUserUsername = state => state.username;
 const getUserAvatar = state => state.avatar;
 const getUser = state => ({
+  id: state.id,
   name: state.name,
   username: state.username,
   avatar: state.avatar,

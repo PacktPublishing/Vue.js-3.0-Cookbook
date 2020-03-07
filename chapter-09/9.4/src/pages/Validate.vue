@@ -76,7 +76,9 @@ export default {
         await this.createNewUser(this.code);
         this.$router.replace({ name: 'Index' });
       } catch (e) {
-        console.error(e);
+        this.$q.dialog({
+          message: e.message,
+        });
       }
     },
     async resendCode() {

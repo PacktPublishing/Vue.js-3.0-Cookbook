@@ -49,7 +49,7 @@ module.exports = function (ctx) {
       directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: ['Dialog']
     },
 
     // https://quasar.dev/quasar-cli/cli-documentation/supporting-ie

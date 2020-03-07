@@ -1,6 +1,7 @@
-import { API, graphqlOperation } from 'aws-amplify';
+import { graphqlOperation } from 'aws-amplify';
 import { getUser as GetUser } from 'src/graphql/queries';
 import { createUser, updateUser } from 'src/graphql/mutations';
+import { AuthAPI } from 'src/driver/appsync';
 import {
   signUp,
   validateUser,
@@ -16,7 +17,8 @@ async function initialLogin({ commit }) {
 
     const AuthUser = await getCurrentAuthUser();
 
-    const { data } = await API.graphql(graphqlOperation(GetUser, { id: AuthUser.id }));
+    const { data } = await AuthAPI.graphql(graphqlOperation(GetUser, { id: AuthUser.id }));
+
     commit(MT.SET_USER_DATA, data.getUser);
 
     return Promise.resolve(AuthUser);
@@ -51,7 +53,7 @@ async function signUpNewUser({ commit }, {
   }
 }
 
-async function createNewUser({ commit, dispatch, state }, code) {
+async function createNewUser({ commit, state }, code) {
   try {
     commit(MT.LOADING);
     const {
@@ -62,14 +64,11 @@ async function createNewUser({ commit, dispatch, state }, code) {
     } = state;
     const userData = await validateUser(email, code);
 
-    await dispatch('signInUser', {
-      email,
-      password: window.atob(password),
-    });
+    await signIn(`${email}`, `${window.atob(password)}`);
 
     const AuthUser = await getCurrentAuthUser();
 
-    await API.graphql(graphqlOperation(
+    await AuthAPI.graphql(graphqlOperation(
       createUser,
       {
         input: {
@@ -125,7 +124,7 @@ async function editUser({ commit, state }, {
       avatar: state.avatar,
     }, { name, username, avatar });
 
-    const { data } = await API.graphql(graphqlOperation(updateUser,
+    const { data } = await AuthAPI.graphql(graphqlOperation(updateUser,
       { input: { id: state.id, ...updateObject } }));
 
     if (password && newPassword) {

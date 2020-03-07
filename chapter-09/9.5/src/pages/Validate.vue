@@ -77,6 +77,9 @@ export default {
         this.$router.replace({ name: 'Index' });
       } catch (e) {
         console.error(e);
+        this.$q.dialog({
+          message: e.message,
+        });
       }
     },
     async resendCode() {

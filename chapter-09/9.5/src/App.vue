@@ -9,7 +9,7 @@ export default {
   name: 'App',
   async created() {
     try {
-      this.$store.dispatch('user/initialLogin');
+      await this.$store.dispatch('user/initialLogin');
       this.$router.replace({ name: 'Chat' });
     } catch (err) {
       this.$router.replace({ name: 'Index' });

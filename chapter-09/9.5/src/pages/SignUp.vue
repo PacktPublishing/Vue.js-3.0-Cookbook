@@ -72,13 +72,19 @@ export default {
       'signUpNewUser',
     ]),
     async onSubmit() {
-      await this.signUpNewUser({
-        name: this.name,
-        username: this.username,
-        email: this.email,
-        password: this.password,
-      });
-      this.$router.replace({ name: 'Validate' });
+      try {
+        await this.signUpNewUser({
+          name: this.name,
+          username: this.username,
+          email: this.email,
+          password: this.password,
+        });
+        this.$router.replace({ name: 'Validate' });
+      } catch (e) {
+        this.$q.dialog({
+          message: e.message,
+        });
+      }
     },
     onReset() {
       this.email = '';

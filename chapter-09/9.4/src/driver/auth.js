@@ -68,6 +68,7 @@ export async function getCurrentAuthUser() {
     return Promise.resolve({
       id: user.username,
       email: user.signInUserSession.idToken.payload.email,
+      username: user.username,
     });
   } catch (err) {
     return Promise.reject(err);

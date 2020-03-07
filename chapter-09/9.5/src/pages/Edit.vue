@@ -98,8 +98,10 @@ export default {
         });
 
         this.$router.replace({ name: 'Chat' });
-      } catch (err) {
-        console.error(err);
+      } catch (e) {
+        this.$q.dialog({
+          message: e.message,
+        });
       }
     },
     onReset() {
