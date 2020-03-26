@@ -12,7 +12,7 @@ const routes = [
   },
   {
     path: '/chat',
-    component: () => import('layouts/Base.vue'),
+    component: () => import('layouts/Chat.vue'),
     children: [
       {
         path: '',
@@ -20,7 +20,7 @@ const routes = [
         component: () => import('pages/Chat.vue'),
       },
       {
-        path: 'messages/:id',
+        path: '/messages/:id/:name',
         name: 'Messages',
         component: () => import('pages/Messages.vue'),
       },
@@ -28,7 +28,7 @@ const routes = [
   },
   {
     path: '/user',
-    component: () => import('layouts/Base.vue'),
+    component: () => import('layouts/Chat.vue'),
     children: [
       {
         path: '',

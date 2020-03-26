@@ -1,5 +1,6 @@
 import { graphqlOperation } from 'aws-amplify';
-import { getUser as GetUser } from 'src/graphql/queries';
+import { getUser } from 'src/graphql/queries';
+import { listUsers } from 'src/graphql/fragments';
 import { createUser, updateUser } from 'src/graphql/mutations';
 import { AuthAPI } from 'src/driver/appsync';
 import {
@@ -17,7 +18,9 @@ async function initialLogin({ commit }) {
 
     const AuthUser = await getCurrentAuthUser();
 
-    const { data } = await AuthAPI.graphql(graphqlOperation(GetUser, { id: AuthUser.id }));
+    const { data } = await AuthAPI.graphql(graphqlOperation(getUser, {
+      id: AuthUser.username,
+    }));
 
     commit(MT.SET_USER_DATA, data.getUser);
 
@@ -30,7 +33,6 @@ async function initialLogin({ commit }) {
 
 async function signUpNewUser({ commit }, {
   email = '',
-  username = '',
   name = '',
   password = '',
 }) {
@@ -40,10 +42,11 @@ async function signUpNewUser({ commit }, {
     const userData = await signUp(email, password);
 
     commit(MT.CREATE_USER, {
+      id: userData.userSub,
       email,
       password,
       name,
-      username,
+      username: userData.userSub,
     });
 
     return Promise.resolve(userData);
@@ -58,7 +61,6 @@ async function createNewUser({ commit, state }, code) {
     commit(MT.LOADING);
     const {
       email,
-      username,
       name,
       password,
     } = state;
@@ -72,8 +74,7 @@ async function createNewUser({ commit, state }, code) {
       createUser,
       {
         input: {
-          id: AuthUser.username,
-          username,
+          username: AuthUser.username,
           email,
           name,
         },
@@ -139,10 +140,29 @@ async function editUser({ commit, state }, {
   }
 }
 
+async function listAllUsers() {
+  try {
+    const {
+      data: {
+        listUsers: {
+          items: usersList,
+        },
+      },
+    } = await AuthAPI.graphql(graphqlOperation(
+      listUsers,
+    ));
+
+    return Promise.resolve(usersList);
+  } catch (e) {
+    return Promise.reject(e);
+  }
+}
+
 export default {
   initialLogin,
   signUpNewUser,
   createNewUser,
   signInUser,
   editUser,
+  listAllUsers,
 };

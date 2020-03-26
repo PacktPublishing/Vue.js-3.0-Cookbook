@@ -1,5 +1,4 @@
 import MT from './types';
-import { createState } from './state';
 
 function setLoading(state) {
   state.loading = true;
@@ -11,7 +10,7 @@ function setError(state, error = new Error()) {
 }
 
 function setConversations(state, payload) {
-  state.conversations = payload;
+  state.conversations = payload.items;
   state.loading = false;
 }
 

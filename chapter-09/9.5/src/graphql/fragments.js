@@ -1,24 +1,33 @@
-import gql from 'graphql-tag';
+import graphql from 'graphql-tag';
 
-// mutations
-const createUser = gql`
+const createUser = graphql`
   mutation($username: String!) {
     createUser(input: {
       username: $username
     }) {
-      id username createdAt
+      id 
+      username
+      createdAt
     }
   }
-`
+`;
 
-const createMessage = gql`mutation CreateMessage(
-  $createdAt: String, $id: ID, $authorId: String, $content: String!, $messageConversationId: ID!
+const createMessage = graphql`mutation CreateMessage(
+  $createdAt: String,
+  $id: ID,
+  $authorId: String,
+  $message: String!,
+  $messageConversationId: ID!
 ) {
   createMessage(input: {
-    createdAt: $createdAt, id: $id, content: $content, messageConversationId: $messageConversationId, authorId: $authorId
+    createdAt: $createdAt, 
+    id: $id,
+    message: $message,
+    messageConversationId: $messageConversationId,
+    authorId: $authorId
   }) {
     id
-    content
+    message
     authorId
     messageConversationId
     createdAt
@@ -27,8 +36,8 @@ const createMessage = gql`mutation CreateMessage(
 `;
 
 
-const createConvo = gql`mutation CreateConvo($name: String!, $members: [String!]!) {
-  createConvo(input: {
+const createConversation = graphql`mutation CreateConversation($name: String!, $members: [String!]!) {
+  createConversation(input: {
     name: $name, members: $members
   }) {
     id
@@ -38,15 +47,17 @@ const createConvo = gql`mutation CreateConvo($name: String!, $members: [String!]
 }
 `;
 
-const createConvoLink = gql`mutation CreateConvoLink(
-    $convoLinkConversationId: ID!, $convoLinkUserId: ID
+const createConversationLink = graphql`mutation CreateConversationLink(
+    $conversationLinkConversationId: ID!,
+    $conversationLinkUserId: ID
   ) {
-  createConvoLink(input: {
-    convoLinkConversationId: $convoLinkConversationId, convoLinkUserId: $convoLinkUserId
+  createConversationLink(input: {
+    conversationLinkConversationId: $conversationLinkConversationId, 
+    conversationLinkUserId: $conversationLinkUserId
   }) {
     id
-    convoLinkUserId
-    convoLinkConversationId
+    conversationLinkUserId
+    conversationLinkConversationId
     conversation {
       id
       name
@@ -55,17 +66,17 @@ const createConvoLink = gql`mutation CreateConvoLink(
 }
 `;
 
-const getUser = gql`
+const getUser = graphql`
   query getUser($id: ID!) {
     getUser(id: $id) {
       id
       username
     }
   }
-`
+`;
 
-const fetchUserConversations = gql`
-  query fetchUserConversations($id:ID!) {
+const getUserAndConversations = graphql`
+  query getUserAndConversations($id:ID!) {
     getUser(id:$id) {
       id
       username
@@ -75,23 +86,37 @@ const fetchUserConversations = gql`
           conversation {
             id
             name
+            associated {
+              items {
+                user {
+                  id
+                  name
+                  email
+                  avatar {
+                    bucket
+                    key
+                    region
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
   }
-`
+`;
 
-const getConvo = gql`
-  query getConvo($id: ID!) {
-    getConvo(id:$id) {
+const getConversation = graphql`
+  query GetConversation($id: ID!) {
+    getConversation(id:$id) {
       id
       name
       members
       messages(limit: 100) {
         items {
           id
-          content
+          message
           authorId
           messageConversationId
           createdAt
@@ -101,21 +126,27 @@ const getConvo = gql`
       updatedAt
     }
   }
-`
+`;
 
-const listUsers = gql`
+const listUsers = graphql`
   query listUsers {
     listUsers {
       items {
         id
         username
+        name
         createdAt
+        avatar {
+          bucket
+          region
+          key
+        }
       }
     }
   }
-`
+`;
 
-const onCreateMessage = gql`
+const onCreateMessage = graphql`
   subscription onCreateMessage($messageConversationId: ID!) {
     onCreateMessage(messageConversationId: $messageConversationId) {
       id
@@ -125,9 +156,9 @@ const onCreateMessage = gql`
       createdAt
     }
   }
-`
+`;
 
-const onCreateUser = gql`subscription OnCreateUser {
+const onCreateUser = graphql`subscription OnCreateUser {
   onCreateUser {
     id
     username
@@ -139,12 +170,12 @@ const onCreateUser = gql`subscription OnCreateUser {
 export {
   createUser,
   createMessage,
-  createConvo,
-  createConvoLink,
-  getConvo,
+  createConversation,
+  createConversationLink,
+  getConversation,
   getUser,
   getUserAndConversations,
   listUsers,
   onCreateMessage,
-  onCreateUser
-}
+  onCreateUser,
+};
