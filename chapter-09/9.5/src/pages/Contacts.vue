@@ -2,17 +2,16 @@
   <div>
     <q-list bordered>
       <q-item
-        v-for="conversation in getConversations"
-        :key="conversation.id"
+        v-for="contact in getConversations"
+        :key="contact.id"
         class="q-my-sm"
         clickable
         v-ripple
-        @click="createConversation(conversation.id)"
       >
         <q-item-section avatar>
           <q-avatar>
             <q-img
-              :src="getAvatar(conversation.avatar)"
+              :src="getAvatar(contact.avatar)"
               spinner-color="primary"
             >
               <template v-slot:error>
@@ -54,7 +53,7 @@ import NewConversation from 'components/NewConversation';
 import getAvatar from 'src/mixins/getAvatar';
 
 export default {
-  name: 'Chat',
+  name: 'ChatContacts',
   mixins: [getAvatar],
   components: { NewConversation },
   data: () => ({

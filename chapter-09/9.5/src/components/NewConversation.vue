@@ -8,14 +8,14 @@
     >
       <q-card-section class="row items-center q-pb-none">
         <div class="text-h6">New Conversation</div>
-        <q-space />
-        <q-btn icon="close" flat round dense v-close-popup />
+        <q-space/>
+        <q-btn icon="close" flat round dense v-close-popup/>
       </q-card-section>
 
       <q-card-section>
         <q-list>
           <q-item
-            v-for="contact in userList"
+            v-for="contact in contactList"
             :key="contact.id"
             class="q-my-sm"
             clickable
@@ -51,7 +51,7 @@
           :showing="pending">
           <q-spinner
             size="50px"
-            color="primary" />
+            color="primary"/>
         </q-inner-loading>
       </q-card-section>
     </q-card>
@@ -84,6 +84,11 @@ export default {
   },
   computed: {
     ...mapGetters('user', ['getUser']),
+    ...mapGetters('chat', ['getConversations']),
+    contactList() {
+      return this.userList
+        .filter(user => this.getConversations.findIndex(u => u.id === user.id) === -1);
+    },
   },
   methods: {
     ...mapActions('user', ['listAllUsers']),

@@ -66,7 +66,7 @@ export default {
           email: this.email,
           password: this.password,
         });
-        this.$router.push({ name: 'Chat' });
+        this.$router.push({ name: 'Contacts' });
       } catch (e) {
         this.$q.dialog({
           message: e.message,

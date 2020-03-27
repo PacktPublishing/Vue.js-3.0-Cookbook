@@ -97,7 +97,7 @@ export default {
           newPassword: this.newPassword,
         });
 
-        this.$router.replace({ name: 'Chat' });
+        this.$router.replace({ name: 'Contacts' });
       } catch (e) {
         this.$q.dialog({
           message: e.message,

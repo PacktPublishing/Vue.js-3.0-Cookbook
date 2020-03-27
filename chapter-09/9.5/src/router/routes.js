@@ -15,12 +15,12 @@ const routes = [
     component: () => import('layouts/Chat.vue'),
     children: [
       {
-        path: '',
-        name: 'Chat',
-        component: () => import('pages/Chat.vue'),
+        path: 'contacts',
+        name: 'Contacts',
+        component: () => import('pages/Contacts.vue'),
       },
       {
-        path: '/messages/:id/:name',
+        path: 'messages/:id/:name',
         name: 'Messages',
         component: () => import('pages/Messages.vue'),
       },

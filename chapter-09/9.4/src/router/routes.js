@@ -12,15 +12,15 @@ const routes = [
   },
   {
     path: '/chat',
-    component: () => import('layouts/Base.vue'),
+    component: () => import('layouts/Chat.vue'),
     children: [
       {
-        path: '',
-        name: 'Chat',
-        component: () => import('pages/Chat.vue'),
+        path: 'contacts',
+        name: 'Contacts',
+        component: () => import('pages/Contacts.vue'),
       },
       {
-        path: 'messages/:id',
+        path: 'messages/:id/:name',
         name: 'Messages',
         component: () => import('pages/Messages.vue'),
       },
@@ -28,7 +28,7 @@ const routes = [
   },
   {
     path: '/user',
-    component: () => import('layouts/Base.vue'),
+    component: () => import('layouts/Chat.vue'),
     children: [
       {
         path: '',

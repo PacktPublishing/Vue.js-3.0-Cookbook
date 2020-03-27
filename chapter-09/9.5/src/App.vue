@@ -10,7 +10,7 @@ export default {
   async created() {
     try {
       await this.$store.dispatch('user/initialLogin');
-      this.$router.replace({ name: 'Chat' });
+      this.$router.replace({ name: 'Contacts' });
     } catch (err) {
       this.$router.replace({ name: 'Index' });
     }

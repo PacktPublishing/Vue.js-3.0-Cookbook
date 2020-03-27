@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'Chat',
+  name: 'Contacts',
 };
 </script>
