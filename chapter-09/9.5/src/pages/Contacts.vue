@@ -4,6 +4,13 @@
       <q-item
         v-for="contact in getConversations"
         :key="contact.id"
+        :to="{
+          name: 'Messages',
+           params: {
+            id: contact.conversation,
+             name: contact.name,
+          },
+        }"
         class="q-my-sm"
         clickable
         v-ripple

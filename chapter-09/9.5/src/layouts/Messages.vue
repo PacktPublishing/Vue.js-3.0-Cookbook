@@ -3,14 +3,14 @@
     <q-header elevated>
       <q-toolbar>
         <q-btn
+          v-go-back
           dense
           flat
           round
-          icon="person"
-          :to="{name: 'Edit'}"
+          icon="keyboard_arrow_left"
         />
         <q-toolbar-title>
-          Chat App
+          Chat App asd asd
         </q-toolbar-title>
         <q-btn
           dense
@@ -25,6 +25,13 @@
     <q-page-container>
       <router-view/>
     </q-page-container>
+    <q-footer class="bg-white">
+      <q-toolbar>
+        <q-toolbar-title>
+          <chat-input />
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
   </q-layout>
 </template>
 
@@ -32,9 +39,11 @@
 import {
   signOut,
 } from 'driver/auth';
+import ChatInput from '../components/ChatInput';
 
 export default {
-  name: 'ChatLayout',
+  name: 'MessagesLayout',
+  components: { ChatInput },
   methods: {
     async logOff() {
       await signOut();

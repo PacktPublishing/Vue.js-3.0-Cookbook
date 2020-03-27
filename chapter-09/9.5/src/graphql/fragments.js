@@ -113,7 +113,7 @@ const getConversation = graphql`
       id
       name
       members
-      messages(limit: 100) {
+      messages {
         items {
           id
           message
