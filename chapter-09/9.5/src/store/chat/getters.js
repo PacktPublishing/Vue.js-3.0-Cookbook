@@ -16,11 +16,14 @@ const getConversations = (state) => {
     }, [])
     .flat(Infinity);
 };
+const getChatMessages = state => convId => state.messages
+  .find(m => m.id === convId).messages.items || [];
 const isLoading = state => state.loading;
 const hasError = state => state.error;
 
 export default {
   getConversations,
+  getChatMessages,
   isLoading,
   hasError,
 };

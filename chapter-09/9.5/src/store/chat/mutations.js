@@ -14,8 +14,20 @@ function setConversations(state, payload) {
   state.loading = false;
 }
 
+function setMessages(state, payload) {
+  const messageIndex = state.messages.findIndex(m => m.id === payload.id);
+
+  if (messageIndex === -1) {
+    state.messages.push(payload);
+  } else {
+    state.messages[messageIndex].messages.items = payload.messages.items;
+  }
+  state.loading = false;
+}
+
 export default {
   [MT.LOADING]: setLoading,
   [MT.ERROR]: setError,
   [MT.SET_CONVERSATIONS]: setConversations,
+  [MT.SET_MESSAGES]: setMessages,
 };

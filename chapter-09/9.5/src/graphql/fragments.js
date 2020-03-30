@@ -13,11 +13,11 @@ const createUser = graphql`
 `;
 
 const createMessage = graphql`mutation CreateMessage(
-  $createdAt: String,
   $id: ID,
   $authorId: String,
   $message: String!,
   $messageConversationId: ID!
+  $createdAt: String,
 ) {
   createMessage(input: {
     createdAt: $createdAt, 
@@ -113,7 +113,7 @@ const getConversation = graphql`
       id
       name
       members
-      messages {
+      messages(limit: 1000) {
         items {
           id
           message
@@ -150,7 +150,7 @@ const onCreateMessage = graphql`
   subscription onCreateMessage($messageConversationId: ID!) {
     onCreateMessage(messageConversationId: $messageConversationId) {
       id
-      content
+      message
       authorId
       messageConversationId
       createdAt
