@@ -1,4 +1,4 @@
-# 12.4 - Creating a Vue plugin
+# 13.4 - Creating a Vue plugin
 
 ## Project setup
 ```

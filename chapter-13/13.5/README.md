@@ -1,4 +1,4 @@
-# 12.5 - Creating a SSR, SPA, PWA, Cordova and Electron Application in Vue with Quasar
+# 13.5 - Creating a SSR, SPA, PWA, Cordova and Electron Application in Vue with Quasar
 
 A Quasar Framework app
 

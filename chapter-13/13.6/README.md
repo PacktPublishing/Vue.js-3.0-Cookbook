@@ -1,4 +1,4 @@
-# 12.6 - Making Smarter Watchers and Computed properties
+# 13.6 - Making Smarter Watchers and Computed properties
 
 ## Project setup
 ```

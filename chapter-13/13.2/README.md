@@ -1,4 +1,4 @@
-# 12.2 - Automatically loading Vuex modules
+# 13.2 - Automatically loading Vuex modules
 
 ## Project setup
 ```

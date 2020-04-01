@@ -1,4 +1,4 @@
-# 12.1 - Automatically loading vue routes
+# 13.1 - Automatically loading vue routes
 
 ## Project setup
 ```

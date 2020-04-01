@@ -1,4 +1,4 @@
-# 12.3 - Creating a custom directive
+# 13.3 - Creating a custom directive
 
 ## Project setup
 ```

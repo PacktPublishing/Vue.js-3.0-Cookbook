@@ -1,4 +1,4 @@
-# 12.7 - Creating a Nuxt.JS SSR with Python Flask as API
+# 13.7 - Creating a Nuxt.JS SSR with Python Flask as API
 
 # Server - Python
 

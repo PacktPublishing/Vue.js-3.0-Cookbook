@@ -1,4 +1,4 @@
-# 12.8 - DOs and DON'Ts on Vue Applications
+# 13.8 - DOs and DON'Ts on Vue Applications
 
 ## Project setup
 ```
