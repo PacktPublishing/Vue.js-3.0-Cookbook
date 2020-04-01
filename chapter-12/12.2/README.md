@@ -1,4 +1,4 @@
-# 13.2
+# 12.2 - Preparing your application for deployment in Netlify
 
 ## Project setup
 ```
@@ -13,6 +13,11 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
+```
+
+### Run your tests
+```
+npm run test
 ```
 
 ### Lints and fixes files
