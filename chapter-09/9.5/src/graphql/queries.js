@@ -101,27 +101,3 @@ export const getConversation = /* GraphQL */ `
     }
   }
 `;
-export const listConversations = /* GraphQL */ `
-  query ListConversations(
-    $filter: ModelConversationFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listConversations(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        messages {
-          nextToken
-        }
-        associated {
-          nextToken
-        }
-        name
-        members
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;

@@ -69,11 +69,6 @@ export const onCreateMessage = /* GraphQL */ `
       }
       authorId
       message
-      image {
-        bucket
-        region
-        key
-      }
       conversation {
         id
         messages {

@@ -159,76 +159,6 @@ export const createConversation = /* GraphQL */ `
     }
   }
 `;
-export const updateConversation = /* GraphQL */ `
-  mutation UpdateConversation(
-    $input: UpdateConversationInput!
-    $condition: ModelConversationConditionInput
-  ) {
-    updateConversation(input: $input, condition: $condition) {
-      id
-      messages {
-        items {
-          id
-          authorId
-          message
-          messageConversationId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      associated {
-        items {
-          id
-          conversationLinkUserId
-          conversationLinkConversationId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      name
-      members
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteConversation = /* GraphQL */ `
-  mutation DeleteConversation(
-    $input: DeleteConversationInput!
-    $condition: ModelConversationConditionInput
-  ) {
-    deleteConversation(input: $input, condition: $condition) {
-      id
-      messages {
-        items {
-          id
-          authorId
-          message
-          messageConversationId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      associated {
-        items {
-          id
-          conversationLinkUserId
-          conversationLinkConversationId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      name
-      members
-      createdAt
-      updatedAt
-    }
-  }
-`;
 export const createMessage = /* GraphQL */ `
   mutation CreateMessage(
     $input: CreateMessageInput!
@@ -257,11 +187,6 @@ export const createMessage = /* GraphQL */ `
       }
       authorId
       message
-      image {
-        bucket
-        region
-        key
-      }
       conversation {
         id
         messages {
@@ -309,11 +234,6 @@ export const updateMessage = /* GraphQL */ `
       }
       authorId
       message
-      image {
-        bucket
-        region
-        key
-      }
       conversation {
         id
         messages {
@@ -361,11 +281,6 @@ export const deleteMessage = /* GraphQL */ `
       }
       authorId
       message
-      image {
-        bucket
-        region
-        key
-      }
       conversation {
         id
         messages {

@@ -1,21 +1,23 @@
 type User
 @model
-@auth(rules: [
-    { allow: owner, ownerField: "id", operations: [create, update, delete] }
-]) {
+@auth(rules: [{ allow: owner, ownerField: "id", queries: null }]) {
     id: ID!
     email: String!
     username: String!
     avatar: S3Object
     name: String
     conversations: [ConversationLink] @connection(name: "UserLinks")
-    messages: [Message] @connection(name: "UserMessages", keyField: "authorId")
+    messages: [Message] @connection(name: "UserMessages")
     createdAt: String
     updatedAt: String
 }
 
 type Conversation
-@model(subscriptions: null)
+@model(
+    mutations: { create: "createConvo" }
+    queries: { get: "getConvo" }
+    subscriptions: null
+)
 @auth(rules: [{ allow: owner, ownerField: "members" }]) {
     id: ID!
     messages: [Message] @connection(name: "ConversationMessages", sortField: "createdAt")
@@ -33,8 +35,7 @@ type Message
     author: User @connection(name: "UserMessages", keyField: "authorId")
     authorId: String
     message: String!
-    image: S3Object
-    conversation: Conversation! @connection(name: "ConversationMessages", sortField: "createdAt")
+    conversation: Conversation! @connection(name: "ConversationMessages")
     messageConversationId: ID!
     createdAt: String
     updatedAt: String

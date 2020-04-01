@@ -1,7 +1,7 @@
 <template>
   <div>
     <fieldset>
-      <legend>{{ this.formattedNumber }}</legend>
+      <legend>{{ formattedNumber }}</legend>
       <button @click="increase">
         Increase
       </button><button @click="decrease">

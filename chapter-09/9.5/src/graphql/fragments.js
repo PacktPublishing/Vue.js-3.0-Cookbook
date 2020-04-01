@@ -1,17 +1,5 @@
 import graphql from 'graphql-tag';
 
-const createUser = graphql`
-  mutation($username: String!) {
-    createUser(input: {
-      username: $username
-    }) {
-      id 
-      username
-      createdAt
-    }
-  }
-`;
-
 const createMessage = graphql`mutation CreateMessage(
   $id: ID,
   $authorId: String,
@@ -71,6 +59,13 @@ const getUser = graphql`
     getUser(id: $id) {
       id
       username
+      avatar {
+        bucket
+        key
+        region
+      }
+      email
+      name
     }
   }
 `;
@@ -158,17 +153,8 @@ const onCreateMessage = graphql`
   }
 `;
 
-const onCreateUser = graphql`subscription OnCreateUser {
-  onCreateUser {
-    id
-    username
-    createdAt
-  }
-}
-`;
 
 export {
-  createUser,
   createMessage,
   createConversation,
   createConversationLink,
@@ -177,5 +163,4 @@ export {
   getUserAndConversations,
   listUsers,
   onCreateMessage,
-  onCreateUser,
 };
