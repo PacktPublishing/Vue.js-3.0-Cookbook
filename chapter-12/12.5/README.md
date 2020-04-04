@@ -1,6 +1,4 @@
-# 12.2 - Preparing your application for deployment in Netlify
-
-(https://quirky-golick-3c6942.netlify.com/)
+# 12.3
 
 ## Project setup
 ```
