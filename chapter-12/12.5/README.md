@@ -1,4 +1,4 @@
-# 12.3
+# 12.5 - Configure the Zeit Now CLI on your project
 
 ## Project setup
 ```
