@@ -7,12 +7,14 @@ export const onCreateConversationLink = /* GraphQL */ `
       id
       user {
         id
+        email
         username
         avatar {
           bucket
           region
           key
         }
+        name
         conversations {
           nextToken
         }
@@ -48,12 +50,14 @@ export const onCreateMessage = /* GraphQL */ `
       id
       author {
         id
+        email
         username
         avatar {
           bucket
           region
           key
         }
+        name
         conversations {
           nextToken
         }
@@ -64,12 +68,7 @@ export const onCreateMessage = /* GraphQL */ `
         updatedAt
       }
       authorId
-      message
-      image {
-        bucket
-        region
-        key
-      }
+      content
       conversation {
         id
         messages {
@@ -90,15 +89,17 @@ export const onCreateMessage = /* GraphQL */ `
   }
 `;
 export const onCreateUser = /* GraphQL */ `
-  subscription OnCreateUser($id: String!) {
-    onCreateUser(id: $id) {
+  subscription OnCreateUser {
+    onCreateUser {
       id
+      email
       username
       avatar {
         bucket
         region
         key
       }
+      name
       conversations {
         items {
           id
@@ -113,43 +114,7 @@ export const onCreateUser = /* GraphQL */ `
         items {
           id
           authorId
-          message
-          messageConversationId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const onUpdateUser = /* GraphQL */ `
-  subscription OnUpdateUser($id: String!) {
-    onUpdateUser(id: $id) {
-      id
-      username
-      avatar {
-        bucket
-        region
-        key
-      }
-      conversations {
-        items {
-          id
-          conversationLinkUserId
-          conversationLinkConversationId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      messages {
-        items {
-          id
-          authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -162,15 +127,17 @@ export const onUpdateUser = /* GraphQL */ `
   }
 `;
 export const onDeleteUser = /* GraphQL */ `
-  subscription OnDeleteUser($id: String!) {
-    onDeleteUser(id: $id) {
+  subscription OnDeleteUser {
+    onDeleteUser {
       id
+      email
       username
       avatar {
         bucket
         region
         key
       }
+      name
       conversations {
         items {
           id
@@ -185,7 +152,45 @@ export const onDeleteUser = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
+          messageConversationId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser {
+    onUpdateUser {
+      id
+      email
+      username
+      avatar {
+        bucket
+        region
+        key
+      }
+      name
+      conversations {
+        items {
+          id
+          conversationLinkUserId
+          conversationLinkConversationId
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      messages {
+        items {
+          id
+          authorId
+          content
           messageConversationId
           createdAt
           updatedAt

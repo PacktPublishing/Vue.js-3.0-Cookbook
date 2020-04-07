@@ -30,7 +30,7 @@ export const createUser = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -71,7 +71,7 @@ export const updateUser = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -112,7 +112,7 @@ export const deleteUser = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -135,77 +135,7 @@ export const createConversation = /* GraphQL */ `
         items {
           id
           authorId
-          message
-          messageConversationId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      associated {
-        items {
-          id
-          conversationLinkUserId
-          conversationLinkConversationId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      name
-      members
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const updateConversation = /* GraphQL */ `
-  mutation UpdateConversation(
-    $input: UpdateConversationInput!
-    $condition: ModelConversationConditionInput
-  ) {
-    updateConversation(input: $input, condition: $condition) {
-      id
-      messages {
-        items {
-          id
-          authorId
-          message
-          messageConversationId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      associated {
-        items {
-          id
-          conversationLinkUserId
-          conversationLinkConversationId
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      name
-      members
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteConversation = /* GraphQL */ `
-  mutation DeleteConversation(
-    $input: DeleteConversationInput!
-    $condition: ModelConversationConditionInput
-  ) {
-    deleteConversation(input: $input, condition: $condition) {
-      id
-      messages {
-        items {
-          id
-          authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -256,12 +186,7 @@ export const createMessage = /* GraphQL */ `
         updatedAt
       }
       authorId
-      message
-      image {
-        bucket
-        region
-        key
-      }
+      content
       conversation {
         id
         messages {
@@ -308,12 +233,7 @@ export const updateMessage = /* GraphQL */ `
         updatedAt
       }
       authorId
-      message
-      image {
-        bucket
-        region
-        key
-      }
+      content
       conversation {
         id
         messages {
@@ -360,12 +280,7 @@ export const deleteMessage = /* GraphQL */ `
         updatedAt
       }
       authorId
-      message
-      image {
-        bucket
-        region
-        key
-      }
+      content
       conversation {
         id
         messages {
