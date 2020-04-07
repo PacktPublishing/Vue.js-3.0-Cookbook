@@ -23,11 +23,16 @@ const routes = [
   },
   {
     path: '/chat/messages',
-    component: () => import('layouts/Messages.vue'),
+    component: () => import('layouts/Chat.vue'),
     children: [
       {
         path: ':id/:name',
         name: 'Messages',
+        meta: {
+          goBack: {
+            name: 'Contacts',
+          },
+        },
         component: () => import('pages/Messages.vue'),
       },
     ],
@@ -40,6 +45,11 @@ const routes = [
         path: '',
         alias: 'edit',
         name: 'Edit',
+        meta: {
+          goBack: {
+            name: 'Contacts',
+          },
+        },
         component: () => import('pages/Edit.vue'),
       },
     ],

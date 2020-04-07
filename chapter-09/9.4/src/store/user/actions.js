@@ -1,8 +1,7 @@
 import { graphqlOperation } from 'aws-amplify';
-import { getUser } from 'src/graphql/queries';
-import { listUsers } from 'src/graphql/fragments';
+import { getUser, listUsers } from 'src/graphql/queries';
 import { createUser, updateUser } from 'src/graphql/mutations';
-import { AuthAPI } from 'src/driver/appsync';
+import { AuthAPI } from 'driver/appsync';
 import {
   signUp,
   validateUser,
