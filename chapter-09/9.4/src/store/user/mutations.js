@@ -11,6 +11,7 @@ function setError(state, error = new Error()) {
 }
 
 function createUser(state, {
+  id = '',
   email = '',
   password = '',
   name = '',
@@ -19,6 +20,7 @@ function createUser(state, {
   state.username = username;
   state.email = email;
   state.name = name;
+  state.id = id;
   state.password = window.btoa(password);
   state.loading = false;
 }

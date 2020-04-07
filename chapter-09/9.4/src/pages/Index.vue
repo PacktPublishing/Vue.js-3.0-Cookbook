@@ -1,41 +1,41 @@
 <template>
-    <q-page padding class="flex flex-center bg-grey-1">
-      <q-card style="width: 350px">
-        <q-card-section>
-          <h6 class="no-margin">Chat Application</h6>
-        </q-card-section>
-        <q-card-section>
-          <q-form
-            class="q-gutter-md"
-          >
-            <email-input
-              v-model.trim="email"
-            />
-            <password-input
-              v-model.trim="password"
-            />
-          </q-form>
-        </q-card-section>
-        <q-card-actions align="right">
-          <q-btn
-            label="Create new account"
-            color="primary"
-            flat
-            class="q-ml-sm"
-            @click="createAccount"
+  <q-page padding class="flex flex-center bg-grey-1">
+    <q-card style="width: 350px">
+      <q-card-section>
+        <h6 class="no-margin">Chat Application</h6>
+      </q-card-section>
+      <q-card-section>
+        <q-form
+          class="q-gutter-md"
+        >
+          <email-input
+            v-model.trim="email"
           />
-          <q-btn
-            label="Login"
-            type="submit"
-            color="primary"
-            @click="onSubmit"
+          <password-input
+            v-model.trim="password"
           />
-        </q-card-actions>
-        <q-inner-loading :showing="isLoading">
-          <q-spinner size="50px" color="primary"/>
-        </q-inner-loading>
-      </q-card>
-    </q-page>
+        </q-form>
+      </q-card-section>
+      <q-card-actions align="right">
+        <q-btn
+          label="Create new account"
+          color="primary"
+          flat
+          class="q-ml-sm"
+          @click="createAccount"
+        />
+        <q-btn
+          label="Login"
+          type="submit"
+          color="primary"
+          @click="onSubmit"
+        />
+      </q-card-actions>
+      <q-inner-loading :showing="isLoading">
+        <q-spinner size="50px" color="primary"/>
+      </q-inner-loading>
+    </q-card>
+  </q-page>
 </template>
 
 <script>
@@ -66,7 +66,7 @@ export default {
           email: this.email,
           password: this.password,
         });
-        this.$router.push({ name: 'Chat' });
+        this.$router.push({ name: 'Contacts' });
       } catch (e) {
         this.$q.dialog({
           message: e.message,

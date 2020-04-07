@@ -27,7 +27,7 @@ export const getUser = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -77,7 +77,7 @@ export const getConversation = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -98,30 +98,6 @@ export const getConversation = /* GraphQL */ `
       members
       createdAt
       updatedAt
-    }
-  }
-`;
-export const listConversations = /* GraphQL */ `
-  query ListConversations(
-    $filter: ModelConversationFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listConversations(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        messages {
-          nextToken
-        }
-        associated {
-          nextToken
-        }
-        name
-        members
-        createdAt
-        updatedAt
-      }
-      nextToken
     }
   }
 `;

@@ -1,6 +1,8 @@
-import { API, graphqlOperation } from 'aws-amplify';
-import { getUser as GetUser } from 'src/graphql/queries';
+import { graphqlOperation } from 'aws-amplify';
+import { getUser } from 'src/graphql/queries';
+import { listUsers } from 'src/graphql/fragments';
 import { createUser, updateUser } from 'src/graphql/mutations';
+import { AuthAPI } from 'src/driver/appsync';
 import {
   signUp,
   validateUser,
@@ -16,7 +18,10 @@ async function initialLogin({ commit }) {
 
     const AuthUser = await getCurrentAuthUser();
 
-    const { data } = await API.graphql(graphqlOperation(GetUser, { id: AuthUser.id }));
+    const { data } = await AuthAPI.graphql(graphqlOperation(getUser, {
+      id: AuthUser.username,
+    }));
+
     commit(MT.SET_USER_DATA, data.getUser);
 
     return Promise.resolve(AuthUser);
@@ -28,7 +33,6 @@ async function initialLogin({ commit }) {
 
 async function signUpNewUser({ commit }, {
   email = '',
-  username = '',
   name = '',
   password = '',
 }) {
@@ -38,10 +42,11 @@ async function signUpNewUser({ commit }, {
     const userData = await signUp(email, password);
 
     commit(MT.CREATE_USER, {
+      id: userData.userSub,
       email,
       password,
       name,
-      username,
+      username: userData.userSub,
     });
 
     return Promise.resolve(userData);
@@ -51,30 +56,25 @@ async function signUpNewUser({ commit }, {
   }
 }
 
-async function createNewUser({ commit, dispatch, state }, code) {
+async function createNewUser({ commit, state }, code) {
   try {
     commit(MT.LOADING);
     const {
       email,
-      username,
       name,
       password,
     } = state;
     const userData = await validateUser(email, code);
 
-    await dispatch('signInUser', {
-      email,
-      password: window.atob(password),
-    });
+    await signIn(`${email}`, `${window.atob(password)}`);
 
     const AuthUser = await getCurrentAuthUser();
 
-    await API.graphql(graphqlOperation(
+    await AuthAPI.graphql(graphqlOperation(
       createUser,
       {
         input: {
-          id: AuthUser.username,
-          username,
+          username: AuthUser.username,
           email,
           name,
         },
@@ -94,14 +94,13 @@ async function signInUser({ commit, dispatch }, { email = '', password = '' }) {
   try {
     commit(MT.LOADING);
 
-    await signIn(email, password);
+    await signIn(`${email}`, `${password}`);
 
     await dispatch('initialLogin');
 
     return Promise.resolve(true);
   } catch (err) {
     commit(MT.ERROR);
-
     return Promise.reject(err);
   }
 }
@@ -126,7 +125,7 @@ async function editUser({ commit, state }, {
       avatar: state.avatar,
     }, { name, username, avatar });
 
-    const { data } = await API.graphql(graphqlOperation(updateUser,
+    const { data } = await AuthAPI.graphql(graphqlOperation(updateUser,
       { input: { id: state.id, ...updateObject } }));
 
     if (password && newPassword) {
@@ -141,10 +140,29 @@ async function editUser({ commit, state }, {
   }
 }
 
+async function listAllUsers() {
+  try {
+    const {
+      data: {
+        listUsers: {
+          items: usersList,
+        },
+      },
+    } = await AuthAPI.graphql(graphqlOperation(
+      listUsers,
+    ));
+
+    return Promise.resolve(usersList);
+  } catch (e) {
+    return Promise.reject(e);
+  }
+}
+
 export default {
   initialLogin,
   signUpNewUser,
   createNewUser,
   signInUser,
   editUser,
+  listAllUsers,
 };
