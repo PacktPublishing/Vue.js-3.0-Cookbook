@@ -10,19 +10,18 @@ const createMessage = graphql`mutation CreateMessage(
   createMessage(input: {
     createdAt: $createdAt, 
     id: $id,
-    message: $message,
+    content: $message,
     messageConversationId: $messageConversationId,
     authorId: $authorId
   }) {
     id
-    message
+    content
     authorId
     messageConversationId
     createdAt
   }
 }
 `;
-
 
 const createConversation = graphql`mutation CreateConversation($name: String!, $members: [String!]!) {
   createConversation(input: {
@@ -111,7 +110,15 @@ const getConversation = graphql`
       messages(limit: 1000) {
         items {
           id
-          message
+          content
+          author {
+            name
+            avatar {
+              bucket
+              key
+              region
+            }
+          }
           authorId
           messageConversationId
           createdAt

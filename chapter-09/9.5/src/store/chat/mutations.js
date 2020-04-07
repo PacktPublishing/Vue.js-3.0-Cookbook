@@ -1,7 +1,7 @@
 import MT from './types';
 
 function setLoading(state) {
-  state.loading = true;
+  state.loading = !state.loading;
 }
 
 function setError(state, error = new Error()) {

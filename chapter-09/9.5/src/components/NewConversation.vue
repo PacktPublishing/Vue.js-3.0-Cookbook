@@ -87,7 +87,8 @@ export default {
     ...mapGetters('chat', ['getConversations']),
     contactList() {
       return this.userList
-        .filter(user => this.getConversations.findIndex(u => u.id === user.id) === -1);
+        .filter(user => this.getConversations
+          .findIndex(u => u.id === user.id) === -1);
     },
   },
   methods: {
@@ -110,16 +111,13 @@ export default {
     },
     async createConversation(otherUserName) {
       try {
-        await this.newConversation({
+        const conversation = await this.newConversation({
           username: this.getUser.id,
           otherUserName,
         });
         this.$router.push({
           name: 'Messages',
-          params: {
-            id: '',
-            name: '',
-          },
+          params: conversation,
         });
       } catch (e) {
         this.$q.dialog({

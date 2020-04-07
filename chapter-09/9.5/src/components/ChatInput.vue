@@ -2,13 +2,11 @@
   <q-input
     bottom-slots
     v-model="text"
-    :disable="isLoading"
     label="Mesage"
     @keypress.enter="sendMessage"
   >
     <template v-slot:after>
       <q-btn
-        :disable="isLoading"
         round
         flat
         icon="send"
@@ -19,16 +17,13 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'ChatInput',
   data: () => ({
     text: '',
   }),
-  computed: {
-    ...mapGetters('chat', ['isLoading']),
-  },
   methods: {
     ...mapActions('chat', ['newMessage', 'fetchNewMessages']),
     async sendMessage() {

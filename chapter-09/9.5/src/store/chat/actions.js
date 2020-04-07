@@ -44,8 +44,10 @@ async function newConversation({}, { username, otherUserName }) {
       members,
     }));
     const { data: { createConversation: { id: conversationLinkConversationId } } } = conversation;
+
     const relation1 = { conversationLinkUserId: username, conversationLinkConversationId };
     const relation2 = { conversationLinkUserId: otherUserName, conversationLinkConversationId };
+
     await API.graphql(graphqlOperation(createConversationLink, relation1));
     await API.graphql(graphqlOperation(createConversationLink, relation2));
 
@@ -78,6 +80,8 @@ async function newMessage({ commit }, { message, conversationId }) {
     return Promise.resolve(true);
   } catch (e) {
     return Promise.reject(e);
+  } finally {
+    commit(MT.LOADING);
   }
 }
 

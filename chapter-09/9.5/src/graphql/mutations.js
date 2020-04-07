@@ -30,7 +30,7 @@ export const createUser = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -71,7 +71,7 @@ export const updateUser = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -112,7 +112,7 @@ export const deleteUser = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -135,7 +135,7 @@ export const createConversation = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -186,7 +186,7 @@ export const createMessage = /* GraphQL */ `
         updatedAt
       }
       authorId
-      message
+      content
       conversation {
         id
         messages {
@@ -233,7 +233,7 @@ export const updateMessage = /* GraphQL */ `
         updatedAt
       }
       authorId
-      message
+      content
       conversation {
         id
         messages {
@@ -280,7 +280,7 @@ export const deleteMessage = /* GraphQL */ `
         updatedAt
       }
       authorId
-      message
+      content
       conversation {
         id
         messages {

@@ -27,7 +27,7 @@ export const getUser = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt
@@ -77,7 +77,7 @@ export const getConversation = /* GraphQL */ `
         items {
           id
           authorId
-          message
+          content
           messageConversationId
           createdAt
           updatedAt

@@ -1,10 +1,10 @@
-const getConversations = (state) => {
+const getConversations = (state, _getters, _rootState, rootGetters) => {
   const { conversations } = state;
   return conversations
     .reduce((acc, curr) => {
       const { conversation } = curr;
 
-      const [user] = conversation.name.split(' and ');
+      const user = rootGetters['user/getUser'].id;
 
       const users = conversation
         .associated
@@ -16,8 +16,8 @@ const getConversations = (state) => {
     }, [])
     .flat(Infinity);
 };
-const getChatMessages = state => convId => state.messages
-  .find(m => m.id === convId).messages.items || [];
+const getChatMessages = state => convId => (state.messages.length ? state.messages
+  .find(m => m.id === convId).messages.items : []);
 const isLoading = state => state.loading;
 const hasError = state => state.error;
 

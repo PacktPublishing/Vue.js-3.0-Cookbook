@@ -3,14 +3,14 @@
     <q-header elevated>
       <q-toolbar>
         <q-btn
-          v-go-back
+          v-go-back="{name: 'Contacts'}"
           dense
           flat
           round
           icon="keyboard_arrow_left"
         />
         <q-toolbar-title>
-          Chat App asd asd
+          Chat App - {{ $route.params.name }}
         </q-toolbar-title>
         <q-btn
           dense
