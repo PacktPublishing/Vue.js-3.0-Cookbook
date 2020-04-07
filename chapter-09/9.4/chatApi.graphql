@@ -1,5 +1,7 @@
 type User
-@model
+@model(
+    subscriptions: null
+)
 @auth(rules: [{ allow: owner, ownerField: "id", queries: null }]) {
     id: ID!
     email: String!
@@ -7,15 +9,15 @@ type User
     avatar: S3Object
     name: String
     conversations: [ConversationLink] @connection(name: "UserLinks")
-    messages: [Message] @connection(name: "UserMessages")
+    messages: [Message] @connection(name: "UserMessages", keyField: "authorId")
     createdAt: String
     updatedAt: String
 }
 
 type Conversation
 @model(
-    mutations: { create: "createConvo" }
-    queries: { get: "getConvo" }
+    mutations: { create: "createConversation" }
+    queries: { get: "getConversation" }
     subscriptions: null
 )
 @auth(rules: [{ allow: owner, ownerField: "members" }]) {
@@ -30,11 +32,11 @@ type Conversation
 
 type Message
 @model(subscriptions: null, queries: null)
-@auth(rules: [{ allow: owner, ownerField: "authorId" }]) {
+@auth(rules: [{ allow: owner, ownerField: "authorId", operations: [create, update, delete]}]) {
     id: ID!
     author: User @connection(name: "UserMessages", keyField: "authorId")
     authorId: String
-    message: String!
+    content: String!
     conversation: Conversation! @connection(name: "ConversationMessages")
     messageConversationId: ID!
     createdAt: String
@@ -61,6 +63,12 @@ type Subscription {
     @aws_subscribe(mutations: ["createConversationLink"])
     onCreateMessage(messageConversationId: ID!): Message
     @aws_subscribe(mutations: ["createMessage"])
+    onCreateUser: User
+    @aws_subscribe(mutations: ["createUser"])
+    onDeleteUser: User
+    @aws_subscribe(mutations: ["deleteUser"])
+    onUpdateUser: User
+    @aws_subscribe(mutations: ["updateUser"])
 }
 
 type S3Object {
