@@ -1,4 +1,4 @@
-# 9.4 - Creating a user on the Application
+# 9.4 - Creating the AWS Amplify Driver on your application
 
 A Quasar Framework App
 

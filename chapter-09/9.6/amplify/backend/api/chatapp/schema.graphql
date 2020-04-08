@@ -1,0 +1,78 @@
+type User
+@model(
+  subscriptions: null
+)
+@auth(rules: [{ allow: owner, ownerField: "id", queries: null }]) {
+  id: ID!
+  email: String!
+  username: String!
+  avatar: S3Object
+  name: String
+  conversations: [ConversationLink] @connection(name: "UserLinks")
+  messages: [Message] @connection(name: "UserMessages", keyField: "authorId")
+  createdAt: String
+  updatedAt: String
+}
+
+type Conversation
+@model(
+  mutations: { create: "createConversation" }
+  queries: { get: "getConversation" }
+  subscriptions: null
+)
+@auth(rules: [{ allow: owner, ownerField: "members" }]) {
+  id: ID!
+  messages: [Message] @connection(name: "ConversationMessages", sortField: "createdAt")
+  associated: [ConversationLink] @connection(name: "AssociatedLinks")
+  name: String!
+  members: [String!]!
+  createdAt: String
+  updatedAt: String
+}
+
+type Message
+@model(subscriptions: null, queries: null)
+@auth(rules: [{ allow: owner, ownerField: "authorId", operations: [create, update, delete]}]) {
+  id: ID!
+  author: User @connection(name: "UserMessages", keyField: "authorId")
+  authorId: String
+  content: String!
+  conversation: Conversation! @connection(name: "ConversationMessages")
+  messageConversationId: ID!
+  createdAt: String
+  updatedAt: String
+}
+
+type ConversationLink
+@model(
+  mutations: { create: "createConversationLink", update: "updateConversationLink" }
+  queries: null
+  subscriptions: null
+) {
+  id: ID!
+  user: User! @connection(name: "UserLinks")
+  conversationLinkUserId: ID
+  conversation: Conversation! @connection(name: "AssociatedLinks")
+  conversationLinkConversationId: ID!
+  createdAt: String
+  updatedAt: String
+}
+
+type Subscription {
+  onCreateConversationLink(conversationLinkUserId: ID!): ConversationLink
+  @aws_subscribe(mutations: ["createConversationLink"])
+  onCreateMessage(messageConversationId: ID!): Message
+  @aws_subscribe(mutations: ["createMessage"])
+  onCreateUser: User
+  @aws_subscribe(mutations: ["createUser"])
+  onDeleteUser: User
+  @aws_subscribe(mutations: ["deleteUser"])
+  onUpdateUser: User
+  @aws_subscribe(mutations: ["updateUser"])
+}
+
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}

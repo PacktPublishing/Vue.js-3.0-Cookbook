@@ -1,4 +1,4 @@
-# 9.5 -
+# 9.5 - Creating the User Vuex module on your application
 
 A Quasar Framework App
 

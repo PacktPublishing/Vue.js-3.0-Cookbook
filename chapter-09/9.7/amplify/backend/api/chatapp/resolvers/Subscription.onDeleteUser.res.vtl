@@ -1,0 +1,40 @@
+## [Start] Determine request authentication mode **
+#if( $util.isNullOrEmpty($authMode) && !$util.isNull($ctx.identity) && !$util.isNull($ctx.identity.sub) && !$util.isNull($ctx.identity.issuer) && !$util.isNull($ctx.identity.username) && !$util.isNull($ctx.identity.claims) && !$util.isNull($ctx.identity.sourceIp) && !$util.isNull($ctx.identity.defaultAuthStrategy) )
+  #set( $authMode = "userPools" )
+#end
+## [End] Determine request authentication mode **
+## [Start] Check authMode and execute owner/group checks **
+#if( $authMode == "userPools" )
+  ## No Static Group Authorization Rules **
+
+
+  ## [Start] Owner Authorization Checks **
+  #set( $isOwnerAuthorized = false )
+  ## Authorization rule: { allow: owner, ownerField: "id", identityClaim: "cognito:username" } **
+  #set( $allowedOwners0 = $util.defaultIfNull($ctx.args.id, null) )
+  #set( $identityValue = $util.defaultIfNull($ctx.identity.claims.get("username"),
+                        $util.defaultIfNull($ctx.identity.claims.get("cognito:username"), "___xamznone____")) )
+  #if( $util.isList($allowedOwners0) )
+    #foreach( $allowedOwner in $allowedOwners0 )
+      #if( $allowedOwner == $identityValue )
+        #set( $isOwnerAuthorized = true )
+      #end
+    #end
+  #end
+  #if( $util.isString($allowedOwners0) )
+    #if( $allowedOwners0 == $identityValue )
+      #set( $isOwnerAuthorized = true )
+    #end
+  #end
+  ## [End] Owner Authorization Checks **
+
+
+  ## [Start] Throw if unauthorized **
+  #if( !($isStaticGroupAuthorized == true || $isOwnerAuthorized == true) )
+    $util.unauthorized()
+  #end
+  ## [End] Throw if unauthorized **
+#end
+## [End] Check authMode and execute owner/group checks **
+
+$util.toJson(null)
