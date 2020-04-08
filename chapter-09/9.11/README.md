@@ -1,4 +1,4 @@
-# 9.11 - Creating the Contact page
+# 9.11 - Creating the Contacts page of your application
 
 A Quasar Framework App
 

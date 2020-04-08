@@ -1,4 +1,4 @@
-# 9.12 - Creating the Messages page
+# 9.12 - Creating the Messages page of your application
 
 A Quasar Framework App
 
