@@ -61,20 +61,18 @@ async function newMessage({ commit }, { message, conversationId }) {
   try {
     commit(MT.LOADING);
 
-    const AuthUser = await getCurrentAuthUser();
+    const { username } = await getCurrentAuthUser();
 
-    await AuthAPI.graphql(graphqlOperation(
+    return AuthAPI.graphql(graphqlOperation(
       createMessage,
       {
         id: uid(),
-        authorId: AuthUser.username,
-        message,
+        authorId: username,
+        content: message,
         messageConversationId: conversationId,
         createdAt: Date.now(),
       },
     ));
-
-    return Promise.resolve(true);
   } catch (e) {
     return Promise.reject(e);
   } finally {
@@ -86,12 +84,18 @@ async function getMessages({ commit }) {
   try {
     commit(MT.LOADING);
 
-    const AuthUser = await getCurrentAuthUser();
+    const { username } = await getCurrentAuthUser();
 
-    const { data: { getUser: { conversations } } } = await AuthAPI.graphql(graphqlOperation(
+    const {
+      data: {
+        getUser: {
+          conversations,
+        },
+      },
+    } = await AuthAPI.graphql(graphqlOperation(
       getUserAndConversations,
       {
-        id: AuthUser.username,
+        id: username,
       },
     ));
 
