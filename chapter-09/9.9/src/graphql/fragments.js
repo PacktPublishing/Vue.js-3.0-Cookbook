@@ -74,7 +74,7 @@ const getUserAndConversations = graphql`
     getUser(id:$id) {
       id
       username
-      conversations(limit: 100) {
+      conversations(limit: 10) {
         items {
           id
           conversation {
@@ -148,19 +148,6 @@ const listUsers = graphql`
   }
 `;
 
-const onCreateMessage = graphql`
-  subscription onCreateMessage($messageConversationId: ID!) {
-    onCreateMessage(messageConversationId: $messageConversationId) {
-      id
-      message
-      authorId
-      messageConversationId
-      createdAt
-    }
-  }
-`;
-
-
 export {
   createMessage,
   createConversation,
@@ -169,5 +156,4 @@ export {
   getUser,
   getUserAndConversations,
   listUsers,
-  onCreateMessage,
 };
