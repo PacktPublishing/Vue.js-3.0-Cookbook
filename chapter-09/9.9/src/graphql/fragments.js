@@ -98,20 +98,20 @@ const getConversation = graphql`
 const createMessage = graphql`mutation CreateMessage(
   $id: ID,
   $authorId: String,
-  $message: String!,
+  $content: String!,
   $messageConversationId: ID!
   $createdAt: String,
 ) {
   createMessage(input: {
-    createdAt: $createdAt, 
     id: $id,
-    content: $message,
-    messageConversationId: $messageConversationId,
     authorId: $authorId
+    content: $content,
+    messageConversationId: $messageConversationId,
+    createdAt: $createdAt,
   }) {
     id
-    content
     authorId
+    content
     messageConversationId
     createdAt
   }
@@ -130,11 +130,11 @@ const createConversation = graphql`mutation CreateConversation($name: String!, $
 `;
 
 const createConversationLink = graphql`mutation CreateConversationLink(
-    $conversationLinkConversationId: ID!,
-    $conversationLinkUserId: ID
-  ) {
+  $conversationLinkConversationId: ID!,
+  $conversationLinkUserId: ID
+) {
   createConversationLink(input: {
-    conversationLinkConversationId: $conversationLinkConversationId, 
+    conversationLinkConversationId: $conversationLinkConversationId,
     conversationLinkUserId: $conversationLinkUserId
   }) {
     id

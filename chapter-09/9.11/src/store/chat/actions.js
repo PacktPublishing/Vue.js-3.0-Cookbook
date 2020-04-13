@@ -1,4 +1,4 @@
-import { API, graphqlOperation } from 'aws-amplify';
+import { graphqlOperation } from 'aws-amplify';
 import {
   getUserAndConversations,
   createConversation,
@@ -10,46 +10,43 @@ import {
   getCurrentAuthUser,
 } from 'driver/auth';
 import { uid } from 'quasar';
+import { AuthAPI } from 'src/driver/appsync';
 import MT from './types';
 
-async function getMessages({ commit }) {
+async function newConversation(_vuex, { username, otherUserName }) {
   try {
-    commit(MT.LOADING);
+    const members = [username, otherUserName];
 
-    const AuthUser = await getCurrentAuthUser();
-
-    const { data: { getUser: { conversations } } } = await API.graphql(graphqlOperation(
-      getUserAndConversations,
-      {
-        id: AuthUser.username,
-      },
-    ));
-
-    commit(MT.SET_CONVERSATIONS, conversations);
-
-    return Promise.resolve(conversations);
-  } catch (err) {
-    commit(MT.ERROR, err);
-    return Promise.reject(err);
-  }
-}
-
-// eslint-disable-next-line no-empty-pattern
-async function newConversation({}, { username, otherUserName }) {
-  try {
-    const members = [username, otherUserName].sort();
     const conversationName = members.join(' and ');
-    const conversation = await API.graphql(graphqlOperation(createConversation, {
-      name: conversationName,
-      members,
-    }));
-    const { data: { createConversation: { id: conversationLinkConversationId } } } = conversation;
 
-    const relation1 = { conversationLinkUserId: username, conversationLinkConversationId };
-    const relation2 = { conversationLinkUserId: otherUserName, conversationLinkConversationId };
+    const {
+      data: {
+        createConversation: {
+          id: conversationLinkConversationId,
+        },
+      },
+    } = await AuthAPI.graphql(
+      graphqlOperation(createConversation,
+        {
+          name: conversationName,
+          members,
+        }),
+    );
+    const relation = { conversationLinkConversationId };
 
-    await API.graphql(graphqlOperation(createConversationLink, relation1));
-    await API.graphql(graphqlOperation(createConversationLink, relation2));
+    await Promise.all([
+      AuthAPI.graphql(
+        graphqlOperation(createConversationLink, {
+          ...relation,
+          conversationLinkUserId: username,
+        }),
+      ),
+      AuthAPI.graphql(
+        graphqlOperation(createConversationLink, {
+          ...relation,
+          conversationLinkUserId: otherUserName,
+        }),
+      )]);
 
     return Promise.resolve({
       id: conversationLinkConversationId,
@@ -66,7 +63,7 @@ async function newMessage({ commit }, { message, conversationId }) {
 
     const AuthUser = await getCurrentAuthUser();
 
-    await API.graphql(graphqlOperation(
+    await AuthAPI.graphql(graphqlOperation(
       createMessage,
       {
         id: uid(),
@@ -85,11 +82,33 @@ async function newMessage({ commit }, { message, conversationId }) {
   }
 }
 
+async function getMessages({ commit }) {
+  try {
+    commit(MT.LOADING);
+
+    const AuthUser = await getCurrentAuthUser();
+
+    const { data: { getUser: { conversations } } } = await AuthAPI.graphql(graphqlOperation(
+      getUserAndConversations,
+      {
+        id: AuthUser.username,
+      },
+    ));
+
+    commit(MT.SET_CONVERSATIONS, conversations);
+
+    return Promise.resolve(conversations);
+  } catch (err) {
+    commit(MT.ERROR, err);
+    return Promise.reject(err);
+  }
+}
+
 async function fetchNewMessages({ commit }, { conversationId }) {
   try {
     commit(MT.LOADING);
 
-    const { data } = await API.graphql(graphqlOperation(
+    const { data } = await AuthAPI.graphql(graphqlOperation(
       getConversation,
       {
         id: conversationId,
@@ -105,8 +124,8 @@ async function fetchNewMessages({ commit }, { conversationId }) {
 }
 
 export default {
-  getMessages,
   newConversation,
   newMessage,
+  getMessages,
   fetchNewMessages,
 };
