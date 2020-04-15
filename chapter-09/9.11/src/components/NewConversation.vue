@@ -93,9 +93,7 @@ export default {
   },
   methods: {
     ...mapActions('user', ['listAllUsers']),
-    ...mapActions('chat', [
-      'newConversation',
-    ]),
+    ...mapActions('chat', ['newConversation']),
     async fetchUsers() {
       this.pending = true;
       try {
