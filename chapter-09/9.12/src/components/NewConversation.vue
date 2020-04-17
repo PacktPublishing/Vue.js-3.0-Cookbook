@@ -25,7 +25,7 @@
             <q-item-section avatar>
               <q-avatar>
                 <q-img
-                  :src="getAvatar(contact.avatar)"
+                  :src="getAvatar(contact.avatar, contact.name)"
                   spinner-color="primary"
                 />
               </q-avatar>
