@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <q-page>
     <q-list bordered>
       <q-item
         v-for="contact in getConversations"
@@ -8,7 +8,7 @@
           name: 'Messages',
            params: {
             id: contact.conversation,
-             name: contact.name,
+            name: contact.name,
           },
         }"
         class="q-my-sm"
@@ -20,13 +20,7 @@
             <q-img
               :src="getAvatar(contact.avatar, contact.name)"
               spinner-color="primary"
-            >
-              <template v-slot:error>
-                <div class="absolute-full flex flex-center bg-negative text-white">
-                  Cannot load image
-                </div>
-              </template>
-            </q-img>
+            />
           </q-avatar>
         </q-item-section>
 
@@ -51,23 +45,24 @@
         v-model="dialogNewConversation"
       />
     </q-page-sticky>
-  </div>
+  </q-page>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import NewConversation from 'components/NewConversation';
 import getAvatar from 'src/mixins/getAvatar';
 
 export default {
   name: 'ChatContacts',
   mixins: [getAvatar],
-  components: { NewConversation },
+  components: {
+    NewConversation: () => import('components/NewConversation'),
+  },
   data: () => ({
     dialogNewConversation: false,
   }),
   async mounted() {
-    this.getMessages();
+    await this.getMessages();
   },
   computed: {
     ...mapGetters('user', ['getUser']),

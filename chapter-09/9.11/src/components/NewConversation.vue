@@ -27,13 +27,7 @@
                 <q-img
                   :src="getAvatar(contact.avatar)"
                   spinner-color="primary"
-                >
-                  <template v-slot:error>
-                    <div class="absolute-full flex flex-center bg-negative text-white">
-                      Cannot load image
-                    </div>
-                  </template>
-                </q-img>
+                />
               </q-avatar>
             </q-item-section>
 

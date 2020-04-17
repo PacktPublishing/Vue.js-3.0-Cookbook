@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pa-md row justify-center">
+  <q-page class="q-pa-md row justify-center">
     <q-chat-message
       v-for="message in currentMessages"
       :ref="`${message.id}`"
@@ -11,7 +11,7 @@
       :avatar="getAvatar(message.author.avatar, message.author.name)"
       class="col-12"
     />
-  </div>
+  </q-page>
 </template>
 
 <script>

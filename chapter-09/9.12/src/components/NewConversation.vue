@@ -27,13 +27,7 @@
                 <q-img
                   :src="getAvatar(contact.avatar)"
                   spinner-color="primary"
-                >
-                  <template v-slot:error>
-                    <div class="absolute-full flex flex-center bg-negative text-white">
-                      Cannot load image
-                    </div>
-                  </template>
-                </q-img>
+                />
               </q-avatar>
             </q-item-section>
 
@@ -87,15 +81,13 @@ export default {
     ...mapGetters('chat', ['getConversations']),
     contactList() {
       return this.userList
-        .filter(user => this.getConversations
-          .findIndex(u => u.id === user.id) === -1);
+      .filter(user => this.getConversations
+      .findIndex(u => u.id === user.id) === -1);
     },
   },
   methods: {
     ...mapActions('user', ['listAllUsers']),
-    ...mapActions('chat', [
-      'newConversation',
-    ]),
+    ...mapActions('chat', ['newConversation']),
     async fetchUsers() {
       this.pending = true;
       try {
