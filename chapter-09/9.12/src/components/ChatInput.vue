@@ -1,7 +1,7 @@
 <template>
   <q-input
-    bottom-slots
     v-model="text"
+    bottom-slots
     label="Mesage"
     @keypress.enter="sendMessage"
   >
