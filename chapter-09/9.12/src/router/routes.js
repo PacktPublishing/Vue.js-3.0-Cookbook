@@ -28,6 +28,11 @@ const routes = [
       {
         path: ':id/:name',
         name: 'Messages',
+        meta: {
+          goBack: {
+            name: 'Contacts',
+          },
+        },
         component: () => import('pages/Messages.vue'),
       },
     ],
