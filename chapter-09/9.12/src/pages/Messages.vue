@@ -20,13 +20,13 @@ import { date } from 'quasar';
 import getAvatar from 'src/mixins/getAvatar';
 
 export default {
-  name: 'Messages',
+  name: 'MessagesPage',
   mixins: [getAvatar],
   data: () => ({
-    timeout: null,
+    interval: null,
   }),
   async beforeMount() {
-    this.timeout = setInterval(async () => {
+    this.interval = setInterval(async () => {
       await this.fetchNewMessages({
         conversationId: this.$route.params.id,
       });
