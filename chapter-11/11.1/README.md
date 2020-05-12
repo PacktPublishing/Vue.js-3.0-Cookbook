@@ -1,4 +1,4 @@
-# Create a Bulma and Vue-CLI Project
+# Creating a page, layout and user form with Buefy
 
 ## Project setup
 ```
