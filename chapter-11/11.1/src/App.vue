@@ -1,21 +1,19 @@
 <template>
-  <main-layout>
-    <hero-section />
-    <user-form />
-  </main-layout>
+  <div id="q-app">
+    <router-view/>
+  </div>
 </template>
 
 <script>
-import MainLayout from './layouts/main.vue';
-import HeroSection from './components/heroSection.vue';
-import UserForm from './components/userForm.vue';
-
 export default {
   name: 'App',
-  components: {
-    UserForm,
-    HeroSection,
-    MainLayout,
+  async created() {
+    try {
+      await this.$store.dispatch('user/initialLogin');
+      this.$router.replace({ name: 'Contacts' });
+    } catch (err) {
+      this.$router.replace({ name: 'Index' });
+    }
   },
 };
 </script>

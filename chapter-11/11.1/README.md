@@ -1,24 +1,26 @@
-# Creating a page, layout and user form with Buefy
+# 11.1 - Creating GraphQL queries and fragments
 
-## Project setup
-```
-npm install
-```
+A Quasar Framework App
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+## Install the dependencies
+```bash
+yarn
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+### Start the app in development mode (hot-code reloading, error reporting, etc.)
+```bash
+quasar dev
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Lint the files
+```bash
+yarn run lint
+```
+
+### Build the app for production
+```bash
+quasar build
+```
+
+### Customize the configuration
+See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).

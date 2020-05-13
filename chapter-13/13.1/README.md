@@ -1,4 +1,4 @@
-# 13.1 - Automatically loading vue routes
+# Creating a page, layout and user form with Buefy
 
 ## Project setup
 ```
@@ -13,11 +13,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
 ```
 
 ### Lints and fixes files
