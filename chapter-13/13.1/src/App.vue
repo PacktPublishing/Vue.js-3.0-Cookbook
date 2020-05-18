@@ -19,16 +19,18 @@
           />
         </b-field>
         <b-field grouped>
-          <b-field expanded
-                   label="Phone"
+          <b-field
+            expanded
+            label="Phone"
           >
             <b-input
               v-model="phone"
               type="tel"
             />
           </b-field>
-          <b-field expanded
-                   label="Cellphone"
+          <b-field
+            expanded
+            label="Cellphone"
           >
             <b-input
               v-model="cellphone"
@@ -46,16 +48,18 @@
           />
         </b-field>
         <b-field grouped>
-          <b-field expanded
-                   label="Zipcode"
+          <b-field
+            expanded
+            label="Zipcode"
           >
             <b-input
               v-model="zipcode"
               type="tel"
             />
           </b-field>
-          <b-field expanded
-                   label="Country"
+          <b-field
+            expanded
+            label="Country"
           >
             <b-input
               v-model="country"
@@ -65,15 +69,17 @@
         <h1 class="title is-3">User Information</h1>
         <hr/>
         <b-field grouped>
-          <b-field expanded
-                   label="Username"
+          <b-field
+            expanded
+            label="Username"
           >
             <b-input
               v-model="username"
             />
           </b-field>
-          <b-field expanded
-                   label="Password"
+          <b-field
+            expanded
+            label="Password"
           >
             <b-input
               v-model="password"
