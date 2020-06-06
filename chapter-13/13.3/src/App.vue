@@ -26,7 +26,7 @@
           <a-input v-model="form.cellphone" />
         </a-form-model-item>
       </a-card>
-      <a-card title="Address" :style="{ marginTop: '16px' }">
+      <a-card title="Address" style="margin-top: 16px">
         <a-form-model-item label="Address">
           <a-input v-model="form.address" />
         </a-form-model-item>
@@ -37,7 +37,7 @@
           <a-input v-model="form.country" />
         </a-form-model-item>
       </a-card>
-      <a-card title="User Information" :style="{ marginTop: '16px' }">
+      <a-card title="User Information" style="margin-top: 16px">
         <a-form-model-item label="Username">
           <a-input v-model="form.username" />
         </a-form-model-item>
@@ -65,7 +65,7 @@
 import Layout from './components/Layout.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Layout,
   },
@@ -74,7 +74,6 @@ export default {
       labelCol: { span: 4 },
       wrapperCol: { span: 14 },
       form: {
-        valid: true,
         name: '',
         username: '',
         password: '',
