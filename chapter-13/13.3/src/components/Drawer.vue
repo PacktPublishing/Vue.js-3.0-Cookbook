@@ -3,10 +3,9 @@
     v-model="drawer"
     collapsible
   >
-    <div class="logo"/>
     <a-menu
-      theme="dark"
       :default-selected-keys="['1']"
+      theme="dark"
       mode="inline"
     >
       <a-menu-item
