@@ -1,4 +1,4 @@
-# 13.2 - Automatically loading Vuex modules
+# 13.2 - Creating a page, layout and user form with Vuetify
 
 ## Project setup
 ```
@@ -13,11 +13,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
 ```
 
 ### Lints and fixes files
