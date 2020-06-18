@@ -10,21 +10,17 @@
   <script>
     const {
       defineComponent,
-      ref,
       createApp,
     } = Vue;
 
-    const componentA = defineComponent({
-      setup() {
-        const count = ref(0)
-        const addOne = () => {
-          count.value += 1;
-        }
-
-        return {
-          count,
-          addOne,
-        }
+    const component = defineComponent({
+      data: () => ({
+        count: 0
+      }),
+      methods: {
+        addOne() {
+          this.count += 1;
+        },
       },
       template: `
         <h1>
@@ -36,7 +32,7 @@
       `
     });
 
-    createApp(componentA)
+    createApp(component)
       .mount('#app');
   </script>
 </body>

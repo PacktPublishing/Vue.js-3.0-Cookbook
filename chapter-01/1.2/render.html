@@ -10,34 +10,33 @@
   <script>
     const {
       defineComponent,
-      ref,
       createApp,
       h,
     } = Vue;
 
-    const componentA = defineComponent({
-      setup() {
-        const count = ref(0)
-        const addOne = () => {
-          count.value += 1;
-        }
-
-        return {
-          count,
-          addOne,
-        }
+    const component = defineComponent({
+      data: () => ({
+        count: 0
+      }),
+      methods: {
+        addOne() {
+          this.count += 1;
+        },
       },
       render() {
-        return [
-          h('h1', 'This is a Vue 3 Root Element!'),
-          h('button', {
+        const h1 = h('h1', 'This is a Vue 3 Root Element!');
+        const button = h('button', {
             onClick: this.addOne,
-          }, `Pressed ${this.count} times.`),
+          }, `Pressed ${this.count} times.`);
+
+        return [
+          h1,
+          button,
         ];
       },
     });
 
-    createApp(componentA)
+    createApp(component)
       .mount('#app');
   </script>
 </body>
