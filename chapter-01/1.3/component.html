@@ -20,21 +20,16 @@
       props: {
         modelValue: String,
       },
-      methods: {
-        updateName({
-          target
-        }) {
-          this.$emit('update:modelValue', target.value);
-        }
-      },
+      inheritAttrs: false,
       template: `
       <label>
         <input
           v-bind="{
             ...$attrs,
-            ...$props,
           }"
-          @input="updateName"
+          :value="modelValue"
+          type="text"
+          @change="(event) => $emit('update:modelValue', event.target.value)"
         />
       </label>
       `
@@ -45,16 +40,11 @@
       data: () => ({
         name: '',
       }),
-      watch: {
-        name(value) {
-          console.log(value);
-        },
-      },
       template: `
       <name-input
         v-model="name"
-        style="border:2px solid red;"
-        data-debug="false"
+        style="border:0; border-bottom: 2px solid red;"
+        data-test="name-input"
       />`
     });
 
