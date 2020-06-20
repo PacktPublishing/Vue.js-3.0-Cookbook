@@ -20,19 +20,19 @@
     const mod = (a, b) => ((a % b) + b) % b;
 
     const maxRoadLength = 50;
-    const competidor = reactive({
+    const competitor = reactive({
       position: 0,
       speed: 1,
     });
 
     setInterval(() => {
-      competidor.position = mod(competidor.position + competidor.speed, maxRoadLength)
+      competitor.position = mod(competitor.position + competitor.speed, maxRoadLength)
     }, 100);
 
     watch(() => {
       const street = Array(maxRoadLength).fill('_');
       const marathonEl = document.getElementById('marathon');
-      street[competidor.position] = (competidor.position % 2 === 1)
+      street[competitor.position] = (competitor.position % 2 === 1)
         ? '🏃'
         : '🚶';
 
