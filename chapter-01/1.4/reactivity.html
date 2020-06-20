@@ -25,10 +25,6 @@
       speed: 1,
     });
 
-    setInterval(() => {
-      competitor.position = mod(competitor.position + competitor.speed, maxRoadLength)
-    }, 100);
-
     watch(() => {
       const street = Array(maxRoadLength).fill('_');
       const marathonEl = document.getElementById('marathon');
@@ -39,6 +35,11 @@
       marathonEl.innerHTML = '';
       marathonEl.innerHTML = street.reverse().join('');
     });
+
+
+    setInterval(() => {
+      competitor.position = mod(competitor.position + competitor.speed, maxRoadLength)
+    }, 100);
   </script>
 </body>
 
