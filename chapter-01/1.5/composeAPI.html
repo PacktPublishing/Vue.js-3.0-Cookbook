@@ -9,31 +9,85 @@
 </div>
 <script>
 const {
-  defineComponent,
   createApp,
+  defineComponent,
+  setup,
+  ref,
+  onMounted,
+  onUnmounted,
 } = Vue;
 
-const component = defineComponent({
-  data: () => ({
-    count: 0
-  }),
-  methods: {
-    addOne() {
-      this.count += 1;
-    },
+function fetchLocation() {
+  let positionWatcher;
+  const geoLocation = navigator.geolocation;
+  const gpsTime = ref(Date.now());
+  const coordinates = ref({
+    accuracy: 0,
+    latitude: 0,
+    longitude: 0,
+    altitude: null,
+    altitudeAccuracy: null,
+    heading: null,
+    speed: null,
+  });
+
+  function setPosition({
+                         timestamp,
+                         coords,
+                       }) {
+    gpsTime.value = timestamp
+    coordinates.value = coords
+  }
+
+  onMounted(() => {
+    if (geoLocation) positionWatcher = geoLocation.watchPosition(setPosition);
+  });
+
+  onUnmounted(() => {
+    if (positionWatcher) geoLocation.clearWatch(positionWatcher);
+  });
+
+  return {
+    coordinates,
+    gpsTime,
+  };
+}
+
+const appComponent = defineComponent({
+  setup() {
+    const {
+      coordinates,
+      gpsTime,
+    } = fetchLocation();
+    const formatOptions = {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    };
+
+    const formatDate = (date) => (new Intl.DateTimeFormat(navigator.language, formatOptions).format(date));
+
+    return {
+      coordinates,
+      gpsTime,
+      formatDate
+    };
   },
   template: `
-        <h1>
-          This is a Vue 3 Root Element!
-        </h1>
-        <button @click="addOne">
-          Pressed {{ count }} times.
-        </button>
-      `
+    <h1>My Geo Position at {{formatDate(new Date(gpsTime))}}</h1>
+    <ul>
+      <li>Latitude: {{ coordinates.latitude }}</li>
+      <li>Longitude: {{ coordinates.longitude }}</li>
+      <li>Altitude: {{ coordinates.altitude  }}</li>
+    </ul>
+  `
 });
 
-createApp(component)
-.mount('#app');
+createApp(appComponent)
+  .mount('#app');
 </script>
 </body>
 
