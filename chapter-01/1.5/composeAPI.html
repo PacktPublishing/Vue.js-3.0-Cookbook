@@ -25,18 +25,15 @@ function fetchLocation() {
     accuracy: 0,
     latitude: 0,
     longitude: 0,
-    altitude: null,
-    altitudeAccuracy: null,
-    heading: null,
-    speed: null,
+    altitude: 0,
+    altitudeAccuracy: 0,
+    heading: 0,
+    speed: 0,
   });
 
-  function setPosition({
-                         timestamp,
-                         coords,
-                       }) {
-    gpsTime.value = timestamp
-    coordinates.value = coords
+  function setPosition(payload) {
+    gpsTime.value = payload.timestamp
+    coordinates.value = payload.coords
   }
 
   onMounted(() => {
