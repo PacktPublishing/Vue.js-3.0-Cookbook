@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <button
+      @click="display = !display"
+    >
+      Toggle
+    </button>
   </div>
 </template>
 

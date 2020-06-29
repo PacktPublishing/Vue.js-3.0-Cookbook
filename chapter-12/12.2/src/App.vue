@@ -6,6 +6,11 @@
     >
       <img alt="Vue logo" src="./assets/logo.png">
     </transition>
+    <button
+      @click="display = !display"
+    >
+      Toggle
+    </button>
   </div>
 </template>
 
