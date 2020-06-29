@@ -1,4 +1,4 @@
-# 12.1
+# 12.1 - Creating your first CSS animation
 
 ## Project setup
 ```
