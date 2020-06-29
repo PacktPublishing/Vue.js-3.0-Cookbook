@@ -4,7 +4,9 @@
       enter-active-class="animated bounceInLeft"
       leave-active-class="animated bounceOutLeft"
     >
-      <img alt="Vue logo" src="./assets/logo.png">
+      <img
+        v-if="display"
+        alt="Vue logo" src="./assets/logo.png">
     </transition>
     <button
       @click="display = !display"

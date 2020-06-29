@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img
+      v-if="display"
+      alt="Vue logo" src="./assets/logo.png">
     <button
       @click="display = !display"
     >
