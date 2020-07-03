@@ -1,12 +1,22 @@
 <template>
   <div id="app">
-    <img
-      v-if="display"
-      alt="Vue logo" src="./assets/logo.png">
-    <button
-      @click="display = !display"
+    <transition-group
+      tag="ul"
+      enter-active-class="animated zoomIn"
     >
-      Toggle
+      <li
+        v-for="i in count"
+        :key="i"
+        style="float: left"
+      >
+        <img src="https://picsum.photos/100"/>
+      </li>
+    </transition-group>
+    <hr style="clear: both"/>
+    <button
+      @click="count = count + 1"
+    >
+      Increase
     </button>
   </div>
 </template>
@@ -15,18 +25,18 @@
 export default {
   name: 'App',
   data: () => ({
-    display: true,
+    count: 0,
   }),
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
 </style>

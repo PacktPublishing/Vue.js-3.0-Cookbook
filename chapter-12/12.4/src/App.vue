@@ -1,8 +1,15 @@
 <template>
   <div id="app">
-    <img
-      v-if="display"
-      alt="Vue logo" src="./assets/logo.png">
+    <transition
+      appear
+      appear-active-class="animated jackInTheBox"
+      enter-active-class="animated jackInTheBox"
+      leave-active-class="animated rollOut"
+    >
+      <img
+        v-if="display"
+        alt="Vue logo" src="./assets/logo.png">
+    </transition>
     <button
       @click="display = !display"
     >
@@ -21,12 +28,12 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
 </style>
