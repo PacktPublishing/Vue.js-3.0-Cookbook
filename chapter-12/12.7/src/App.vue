@@ -7,10 +7,9 @@
       <img
         v-if="display"
         key="up"
-        alt="Vue logo" src="./assets/logo.png">
+        src="./assets/logo.png">
       <img
         v-else
-        alt="Vue logo"
         key="down"
         src="./assets/logo.png"
         style="transform: rotate(180deg)"
