@@ -41,10 +41,12 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 .rotate-enter-active,
 .rotate-leave-active {
   transition: transform .8s ease-in-out;
 }
+
 .rotate-enter,
 .rotate-leave-active {
   transform: rotate( -180deg );
