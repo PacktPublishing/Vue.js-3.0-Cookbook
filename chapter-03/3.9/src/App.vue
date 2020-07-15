@@ -7,18 +7,18 @@
         <div class="container">
           <h2>My Tasks</h2>
           <ul class="taskList">
-            <li 
+            <li
               v-for="(taskItem, index) in displayList"
               :key="`${index}_${Math.random()}`"
             >
-              <input type="checkbox" 
-                :checked="!!taskItem.finishedAt" 
+              <input type="checkbox"
+                :checked="!!taskItem.finishedAt"
                 @input="changeStatus(taskItem.id)"
-              /> 
-              #{{ taskItem.id }} - {{ taskItem.task }} 
-              <span v-if="taskItem.finishedAt"> | 
-                Done at: 
-                {{ taskItem.finishedAt | formatDate }}
+              />
+              #{{ taskItem.id }} - {{ taskItem.task }}
+              <span v-if="taskItem.finishedAt"> |
+                Done at:
+                {{ formatDate(taskItem.finishedAt) }}
               </span>
             </li>
           </ul>
@@ -60,7 +60,7 @@ export default {
       return this.sortedList;
     }
   },
-  filters: {
+  methods: {
     formatDate(value) {
       if (!value) return "";
       if (typeof value !== "number") return value;
@@ -78,9 +78,7 @@ export default {
       });
 
       return intlDateTime.format(new Date(value));
-    }
-  },
-  methods: {
+    },
     addNewTask(task) {
       this.taskList.push({
         task,

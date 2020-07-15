@@ -6,9 +6,9 @@
       <div class="cardBox">
         <div class="container">
           <h2>My Tasks</h2>
-          <hr />          
+          <hr />
           <div class="col-4">
-            <input 
+            <input
               v-model="hideDone"
               type="checkbox"
               id="hideDone"
@@ -19,7 +19,7 @@
             </label>
           </div>
           <div class="col-4">
-            <input 
+            <input
               v-model="reverse"
               type="checkbox"
               id="reverse"
@@ -30,7 +30,7 @@
             </label>
           </div>
           <div class="col-4">
-            <input 
+            <input
               v-model="sortById"
               type="checkbox"
               id="sortById"
@@ -41,19 +41,19 @@
             </label>
           </div>
           <ul class="taskList">
-            <li 
+            <li
               v-for="(taskItem, index) in displayList"
               :key="`${index}_${Math.random()}`"
               :class="!!taskItem.finishedAt ? 'taskDone' : ''"
             >
-              <input type="checkbox" 
-                :checked="!!taskItem.finishedAt" 
+              <input type="checkbox"
+                :checked="!!taskItem.finishedAt"
                 @input="changeStatus(taskItem.id)"
-              /> 
-              #{{ taskItem.id }} - {{ taskItem.task }} 
-              <span v-if="taskItem.finishedAt"> | 
-                Done at: 
-                {{ taskItem.finishedAt | formatDate }}
+              />
+              #{{ taskItem.id }} - {{ taskItem.task }}
+              <span v-if="taskItem.finishedAt"> |
+                Done at:
+                {{ formatDate(taskItem.finishedAt) }}
               </span>
             </li>
           </ul>
@@ -103,12 +103,12 @@ export default {
     displayList() {
       const taskList = [...this.sortedList];
 
-      return this.reverse 
-      ? taskList.reverse() 
+      return this.reverse
+      ? taskList.reverse()
       : taskList;
     }
   },
-  filters: {
+  methods: {
     formatDate(value) {
       if (!value) return "";
       if (typeof value !== "number") return value;
@@ -126,9 +126,7 @@ export default {
       });
 
       return intlDateTime.format(new Date(value));
-    }
-  },
-  methods: {
+    },
     addNewTask(task) {
       this.taskList.push({
         task,
@@ -169,7 +167,7 @@ export default {
       background-color: inherit;
     }
     to{
-      background-color: rgba(0, 160, 24, 0.577);  
+      background-color: rgba(0, 160, 24, 0.577);
     }
   }
 
