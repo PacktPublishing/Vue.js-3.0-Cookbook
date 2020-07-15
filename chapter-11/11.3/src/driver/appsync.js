@@ -1,6 +1,6 @@
 import { Auth, API } from 'aws-amplify';
 import { GRAPHQL_AUTH_MODE } from '@aws-amplify/api';
-import awsconfig from '../aws-exports';
+import AwsExports from '../aws-exports';
 
 API.configure({
   url: awsconfig.aws_appsync_graphqlEndpoint,

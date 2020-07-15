@@ -1,6 +1,6 @@
 import { Storage } from 'aws-amplify';
 import { uid } from 'quasar';
-import AwsConfig from '../aws-exports';
+import AwsExports from '../aws-exports';
 
 Storage.configure({
   AWSS3: {
