@@ -1,11 +1,8 @@
 <template>
-  <q-page class="flex flex-center bg-grey-1">
-    Chat
-  </q-page>
+  <div />
 </template>
-
 <script>
 export default {
-  name: 'Messages',
+  name: 'PlaceholderPage',
 };
 </script>

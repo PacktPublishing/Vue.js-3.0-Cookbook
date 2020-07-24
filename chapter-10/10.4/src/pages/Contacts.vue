@@ -1,11 +1,8 @@
 <template>
-    <q-page padding class="bg-grey-1 flex flex-center">
-      Chat
-    </q-page>
+  <div />
 </template>
-
 <script>
 export default {
-  name: 'Contacts',
+  name: 'PlaceholderPage',
 };
 </script>
