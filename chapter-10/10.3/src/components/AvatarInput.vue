@@ -3,7 +3,7 @@
     v-model="file"
     outlined
     bottom-slots
-    label="You Avatar"
+    label="Your Avatar"
     class="q-pr-md"
     @input="getFile"
   >
