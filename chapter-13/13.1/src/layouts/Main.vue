@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import FooterSection from '../components/footer.vue';
-import TopMenu from '../components/topMenu.vue';
+import FooterSection from '../components/Footer.vue';
+import TopMenu from '../components/TopMenu.vue';
 
 export default {
   name: 'MainLayout',

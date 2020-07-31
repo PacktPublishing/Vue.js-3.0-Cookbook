@@ -104,8 +104,8 @@
 </template>
 
 <script>
-import MainLayout from './layouts/main.vue';
-import HeroSection from './components/heroSection.vue';
+import MainLayout from './layouts/Main.vue';
+import HeroSection from './components/HeroSection.vue';
 
 export default {
   name: 'App',
