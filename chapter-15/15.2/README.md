@@ -1,4 +1,4 @@
-# 15.2 - Automatically loading Vuex modules
+# 15.2
 
 ## Project setup
 ```
@@ -13,11 +13,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
 ```
 
 ### Lints and fixes files

@@ -1,6 +1,6 @@
-const toCamel = s => s.replace(/([-_][a-z])/ig, c => c.toUpperCase()
+const toCamel = (s) => s.replace(/([-_][a-z])/ig, (c) => c.toUpperCase()
   .replace(/[-_]/g, ''));
-const requireModule = require.context('./store/', false, /^(?!.*test).*\.js$/is);
+const requireModule = require.context('./modules/', false, /^(?!.*test).*\.js$/is);
 const modules = {};
 
 requireModule.keys().forEach((fileName) => {

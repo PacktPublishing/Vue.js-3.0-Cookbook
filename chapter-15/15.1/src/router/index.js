@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
 const routes = [];
 const requireRoutes = require.context(
@@ -16,6 +16,8 @@ requireRoutes.keys().forEach((fileName) => {
   });
 });
 
-export default new Router({
+const router = new VueRouter({
   routes,
 });
+
+export default router;
