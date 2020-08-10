@@ -1,4 +1,4 @@
-# 15.2
+# 15.2 - Automatically loading Vuex modules
 
 ## Project setup
 ```
