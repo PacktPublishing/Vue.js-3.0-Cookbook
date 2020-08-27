@@ -1,4 +1,4 @@
-# 3.10 - Conditional and filtering data on the list
+# 3.10 - Creating conditional filters to sort list data
 
 ## Project setup
 ```
