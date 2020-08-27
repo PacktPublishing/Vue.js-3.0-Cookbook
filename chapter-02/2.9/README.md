@@ -1,4 +1,4 @@
-# 2.9 - Creating a custom mixin with vue-class-component
+# 2.9 - Creating a custom function decorator with vue-class-component
 
 ## Project setup
 ```
