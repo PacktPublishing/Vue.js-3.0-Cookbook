@@ -1,4 +1,4 @@
-# 5.6 - Using axios as the new HTTP client
+# 5.6 - Creating a request and response interceptor for axios
 
 ## Project setup
 ```
