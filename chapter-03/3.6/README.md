@@ -1,4 +1,4 @@
-# 3.6 - Creating computed properties and how they work
+# 3.6 - Creating computed properties and understanding how they work
 
 ## Project setup
 ```
