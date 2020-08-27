@@ -1,4 +1,4 @@
-# 5.3 - Creating your local fake JSON API Server with MirajeJS
+# 5.3 - Creating your fake JSON API Server with MirajeJS
 
 ## Project setup
 ```
