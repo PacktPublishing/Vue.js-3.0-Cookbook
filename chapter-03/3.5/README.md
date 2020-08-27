@@ -1,4 +1,4 @@
-# 3.5 - Creating a dynamic todo list
+# 3.5 - Creating a dynamic to-do list
 
 ## Project setup
 ```
