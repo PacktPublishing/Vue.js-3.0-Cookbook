@@ -1,4 +1,4 @@
-# 5.5 - Creating a request and response interceptor for axios
+# 5.5 - Creating different axios instances
 
 ## Project setup
 ```
