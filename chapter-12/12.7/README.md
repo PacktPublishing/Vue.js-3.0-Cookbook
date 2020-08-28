@@ -1,4 +1,4 @@
-# 12.7
+# 12.7 - Creating a seamless transition between elements
 
 ## Project setup
 ```
