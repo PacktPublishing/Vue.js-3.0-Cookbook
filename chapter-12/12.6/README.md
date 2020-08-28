@@ -1,4 +1,4 @@
-# 12.6
+# 12.6 - Creating a custom transition component
 
 ## Project setup
 ```
