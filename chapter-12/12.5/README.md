@@ -1,4 +1,4 @@
-# 12.5
+# 12.5 - Creating animations for lists and groups
 
 ## Project setup
 ```
