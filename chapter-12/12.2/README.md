@@ -1,4 +1,4 @@
-# 12.2
+# 12.2 - Creating a custom transition class with Animate.css
 
 ## Project setup
 ```
