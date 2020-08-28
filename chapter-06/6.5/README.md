@@ -1,4 +1,4 @@
-# 6.5 - Creating route redirect
+# 6.5 - Creating route redirects
 
 ## Project setup
 ```
