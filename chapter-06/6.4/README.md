@@ -1,4 +1,4 @@
-# 6.4 - Creating route alias
+# 6.4 - Creating a route alias
 
 ## Project setup
 ```
