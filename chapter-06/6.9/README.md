@@ -1,4 +1,4 @@
-# 6.8 - Creating an authentication middleware
+# 6.9 - Lazy loading your pages asynchronously
 
 ## Project setup
 ```
