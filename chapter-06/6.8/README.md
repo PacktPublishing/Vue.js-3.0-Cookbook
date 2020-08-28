@@ -1,4 +1,4 @@
-# 6.8 - Creating an authentication middleware
+# 6.8 - Creating and applying authentication middleware
 
 ## Project setup
 ```
