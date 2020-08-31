@@ -49,6 +49,7 @@ module.exports = {
 
   // add your custom rules here
   rules: {
+    'class-methods-use-this': 'off',
     'no-param-reassign': 'off',
 
     'import/first': 'off',

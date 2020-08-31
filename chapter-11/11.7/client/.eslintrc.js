@@ -27,6 +27,7 @@ module.exports = {
   },
   // add your custom rules here
   rules: {
+    'class-methods-use-this': 'off',
     'nuxt/no-cjs-in-config': 'off',
     'import/extensions': ['error', 'always', {
       js: 'never',
