@@ -1,19 +1,23 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import routes from './routes';
-
 Vue.use(VueRouter);
 
+const routes = [];
+const requireRoutes = require.context(
+  './routes',
+  true,
+  /^(?!.*test).*\.js$/is,
+);
 
-export default function (/* { store, ssrContext } */) {
-  const Router = new VueRouter({
-    scrollBehavior: () => ({ x: 0, y: 0 }),
-    routes,
-
-    mode: process.env.VUE_ROUTER_MODE,
-    base: process.env.VUE_ROUTER_BASE,
+requireRoutes.keys().forEach((fileName) => {
+  routes.push({
+    ...requireRoutes(fileName).default,
   });
+});
 
-  return Router;
-}
+const router = new VueRouter({
+  routes,
+});
+
+export default router;

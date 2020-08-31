@@ -1,40 +1,37 @@
 {
-  "name": "11.1",
-  "version": "0.0.1",
-  "description": "A Quasar Framework App",
-  "productName": "Quasar App",
-  "cordovaId": "org.cordova.quasar.app",
-  "capacitorId": "",
-  "author": "Heitor Ramon Ribeiro <heitor.ramon@gmail.com>",
+  "name": "11-1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "lint": "eslint --ext .js,.vue src --fix",
-    "test": "echo \"No test specified\" && exit 0"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
-    "aws-amplify": "^2.2.2",
-    "aws-appsync": "^3.0.2",
-    "axios": "^0.18.1",
-    "graphql": "^14.6.0",
-    "graphql-tag": "^2.10.1",
-    "quasar": "^1.0.0",
-    "vue-i18n": "^8.0.0"
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11",
+    "vue-router": "^3.2.0"
   },
   "devDependencies": {
-    "@quasar/app": "^1.0.0",
-    "@vue/eslint-config-airbnb": "^4.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.10.0",
-    "eslint-loader": "^2.1.1",
-    "eslint-plugin-vue": "^5.0.0"
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "lint-staged": "^9.5.0",
+    "vue-template-compiler": "^2.6.11"
   },
-  "engines": {
-    "node": ">= 10.18.1",
-    "npm": ">= 6.13.4",
-    "yarn": ">= 1.21.1"
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
-  "browserslist": [
-    "last 1 version, not dead, ie >= 11"
-  ]
+  "lint-staged": {
+    "*.{js,jsx,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
 }

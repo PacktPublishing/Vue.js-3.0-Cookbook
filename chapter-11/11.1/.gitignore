@@ -1,29 +1,17 @@
 .DS_Store
-.thumbs.db
 node_modules
-
-# Quasar core related directories
-.quasar
 /dist
 
-# Cordova related directories and files
-/src-cordova/node_modules
-/src-cordova/platforms
-/src-cordova/plugins
-/src-cordova/www
 
-# Capacitor related directories and files
-/src-capacitor/www
-/src-capacitor/node_modules
-
-# BEX related directories and files
-/src-bex/www
-/src-bex/js/core
+# local env files
+.env.local
+.env.*.local
 
 # Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Editor directories and files
 .idea
@@ -32,18 +20,4 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-
-#amplify
-amplify/\#current-cloud-backend
-amplify/.config/local-*
-amplify/mock-data
-amplify/backend/amplify-meta.json
-amplify/backend/awscloudformation
-build/
-dist/
-node_modules/
-aws-exports.js
-awsconfiguration.json
-amplifyconfiguration.json
-amplify-gradle-config.json
-amplifyxc.config
+*.sw?

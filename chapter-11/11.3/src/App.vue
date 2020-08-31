@@ -1,19 +1,18 @@
 <template>
-  <div id="q-app">
-    <router-view/>
+  <div id="app">
+    <input
+      v-model="inputMask"
+      v-input-mask="'###-###-###'"
+      type="text"
+    >
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
-  async created() {
-    try {
-      await this.$store.dispatch('user/initialLogin');
-      this.$router.replace({ name: 'Contacts' });
-    } catch (err) {
-      this.$router.replace({ name: 'Index' });
-    }
-  },
+  data: () => ({
+    inputMask: '',
+  }),
 };
 </script>

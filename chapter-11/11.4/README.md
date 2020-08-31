@@ -1,26 +1,29 @@
-# 11.4 - Creating the Messages page of your application
+# 11.4 - Creating a Vue plugin
 
-A Quasar Framework App
-
-## Install the dependencies
-```bash
-yarn
+## Project setup
+```
+npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
+### Compiles and hot-reloads for development
+```
+npm run serve
 ```
 
-### Lint the files
-```bash
-yarn run lint
+### Compiles and minifies for production
+```
+npm run build
 ```
 
-### Build the app for production
-```bash
-quasar build
+### Run your tests
+```
+npm run test
 ```
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
