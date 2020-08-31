@@ -1,4 +1,4 @@
-# 14.5 - Preparing for automatic deployment on Vercel with GitHub
+# 14.5 - Configure the Vercel CLI and deploying your project
 
 ## Project setup
 ```
