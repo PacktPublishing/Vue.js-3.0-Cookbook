@@ -4,8 +4,8 @@ const postMethods = ['post', 'patch'];
 
 export function requestInterceptor(config) {
   if (
-    postMethods.includes(config.method.toLocaleLowerCase())
-    && !config.data.data.id
+    postMethods.includes(config.method.toLocaleLowerCase()) &&
+    Object.prototype.hasOwnProperty.call('id', config.data.data) && !config.data.data.id
   ) {
     throw new Error('You need to pass an ID for this request');
   }

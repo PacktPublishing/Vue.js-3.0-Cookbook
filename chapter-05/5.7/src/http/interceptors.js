@@ -3,9 +3,10 @@ import Swal from 'sweetalert2';
 const postMethods = ['post', 'patch'];
 
 export function requestInterceptor(config) {
+  console.log(config);
   if (
     postMethods.includes(config.method.toLocaleLowerCase()) &&
-    !config.data.data.id
+    Object.prototype.hasOwnProperty.call('id', config.data.data) && !config.data.data.id
   ) {
     throw new Error('You need to pass an ID for this request');
   }
