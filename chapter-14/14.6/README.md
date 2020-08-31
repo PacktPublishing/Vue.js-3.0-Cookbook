@@ -1,4 +1,4 @@
-# 14.6 - Preparing for automatic deployment on Zeit Now with GitHub
+# 14.6 - Preparing for automatic deployment on Vercel with GitHub
 
 ## Project setup
 ```
