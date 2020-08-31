@@ -1,4 +1,4 @@
-# 14.5 - Configure the Zeit Now CLI on your project
+# 14.5 - Preparing for automatic deployment on Vercel with GitHub
 
 ## Project setup
 ```
