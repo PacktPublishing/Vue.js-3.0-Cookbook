@@ -17,8 +17,8 @@
   </a-layout>
 </template>
 <script>
-import Drawer from './Drawer.vue';
 import TopBar from './TopBar.vue';
+import Drawer from './Drawer.vue';
 
 export default {
   components: { TopBar, Drawer },

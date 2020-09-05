@@ -17,4 +17,6 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint',
   },
+  axios: {},
+  css: ['bulma/css/bulma.css'],
 };

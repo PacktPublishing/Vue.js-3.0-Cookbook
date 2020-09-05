@@ -69,7 +69,7 @@
         phone: '',
       },
     }),
-    async created() {
+    async beforeMount() {
       await this.getUserById();
     },
     methods: {
