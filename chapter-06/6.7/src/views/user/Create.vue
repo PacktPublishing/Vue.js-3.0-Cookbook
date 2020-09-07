@@ -75,7 +75,7 @@
     }),
     methods: {
       async createUser() {
-        await postHttp(`${window.location.href}api/users`, {
+        await postHttp(`/api/users`, {
           data: {
             ...this.userData,
           }
