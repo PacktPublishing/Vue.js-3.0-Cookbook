@@ -57,6 +57,3 @@ With the following software and hardware list you can run all code files present
 ## Get to Know the Author
 **Heitor Ramon Ribeiro**
 is a Lead FrontEnd Engineer at Kovi (YC W19). With over 15 years of experience in JavaScript, frontend development, and UI/UX design, Heitor has become an expert in delivering solutions for an enterprise architecture system combined with the best user experience. At Kovi, Heitor is currently working on building the next generation of products for gig workers in South America. He is managing and coding a solution that can bring together the past and future with the power of Vue.js.
-
-### Suggestions and Feedback
-[Click here](https://docs.google.com/forms/d/e/1FAIpQLSdy7dATC6QmEL81FIUuymZ0Wy9vH1jHkvpY57OiMeKGqib_Ow/viewform) if you have any feedback or suggestions.
