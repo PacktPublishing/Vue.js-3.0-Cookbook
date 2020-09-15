@@ -43,6 +43,7 @@ With the following software and hardware list you can run all code files present
 | 1 to 11       | Node.js 12 or higher with NPM                  | Windows, Mac OS X, and Linux (Any) |
 | 1 to 11        | Vue-CLI            | Windows, Mac OS X, and Linux (Any) |
 | 10     |Netlify account            | Windows, Mac OS X, and Linux (Any) |
+| 10     |GitHub account            | Windows, Mac OS X, and Linux (Any) |
 | 10        | Vercel account           | Windows, Mac OS X, and Linux (Any) |
 | 10        | Firebase           | Windows, Mac OS X, and Linux (Any) |
 | 11       | Python           | Windows, Mac OS X, and Linux (Any) |
