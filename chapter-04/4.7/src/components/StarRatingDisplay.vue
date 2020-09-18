@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: 'StartRatingDisplay',
+  name: 'StarRatingDisplay',
   props: {
     maxRating: {
       type: Number,
