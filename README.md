@@ -41,13 +41,14 @@ With the following software and hardware list you can run all code files present
 | Chapter  | Software required                   | OS required                        |
 | -------- | ------------------------------------| -----------------------------------|
 | 1 to 11       | Node.js 12 or higher with NPM                  | Windows, Mac OS X, and Linux (Any) |
-| 1 to 11        | Vue-CLI            | Windows, Mac OS X, and Linux (Any) |
-| 10     |Netlify account            | Windows, Mac OS X, and Linux (Any) |
+| 1 to 11        | Vue CLI 4.X            | Windows, Mac OS X, and Linux (Any) |
+| 10     |Netlify-CLI            | Windows, Mac OS X, and Linux (Any) |
 | 10     |GitHub account            | Windows, Mac OS X, and Linux (Any) |
-| 10        | Vercel account           | Windows, Mac OS X, and Linux (Any) |
-| 10        | Firebase           | Windows, Mac OS X, and Linux (Any) |
-| 11       | Python           | Windows, Mac OS X, and Linux (Any) |
-| 11       | Nuxt.JS            | Windows, Mac OS X, and Linux (Any) |
+| 10        | Vercel-CLI          | Windows, Mac OS X, and Linux (Any) |
+| 10        | Firebase-CLI           | Windows, Mac OS X, and Linux (Any) |
+| 11       | Python 3          | Windows, Mac OS X, and Linux (Any) |
+| 11       | Quasar-CLI 1.X          | Windows, Mac OS X, and Linux (Any) |
+| 11       | Nuxt-CLI 3.X.X           | Windows, Mac OS X, and Linux (Any) |
 | 11       | Visual Studio Code 1.4.X and IntelliJ WebStorm 2020.2            | Windows, Mac OS X, and Linux (Any) |
 | 11       | Xcode 11.4 and iOs Simulator           | Windows, Mac OS X, and Linux (Any) |
 
