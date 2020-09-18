@@ -48,6 +48,8 @@ With the following software and hardware list you can run all code files present
 | 10        | Firebase           | Windows, Mac OS X, and Linux (Any) |
 | 11       | Python           | Windows, Mac OS X, and Linux (Any) |
 | 11       | Nuxt.JS            | Windows, Mac OS X, and Linux (Any) |
+| 11       | Visual Studio Code 1.4.X and IntelliJ WebStorm 20202            | Windows, Mac OS X, and Linux (Any) |
+| 11       | Xcode 11.4 and iOs Simulator           | Windows, Mac OS X, and Linux (Any) |
 
 ### Related products <Other books you may enjoy>
 * Hands-on Nuxt.js Web Development [[Packt]](https://www.packtpub.com/product/hands-on-nuxt-js-web-development/9781789952698) [[Amazon]](https://www.amazon.com/dp/1789952697)
