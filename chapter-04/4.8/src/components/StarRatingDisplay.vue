@@ -28,7 +28,7 @@ import StarRatingNameMixin from '../mixins/starRatingName';
 import StarRatingChildMixin from '../mixins/starRatingChild';
 
 export default {
-  name: 'StartRatingDisplay',
+  name: 'StarRatingDisplay',
   mixins: [
     StarRatingDisplayMixin,
     StarRatingNameMixin,
