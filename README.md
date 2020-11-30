@@ -52,6 +52,19 @@ With the following software and hardware list you can run all code files present
 | 11       | Visual Studio Code 1.4.X and IntelliJ WebStorm 2020.2            | Windows, Mac OS X, and Linux (Any) |
 | 11       | Xcode 11.4 and iOS Simulator           | Mac OS X |
 
+### Code examples
+- [_Chapter 1_ - **Understanding Vue 3 and Creating Components**](./chapter-01/)
+- [_Chapter 2_ - **Introducing TypeScript and the Vue Ecosystem**](./chapter-02/)
+- [_Chapter 3_ - **Data Binding, Form Validations, Events, and Computed Properties**](./chapter-03/)
+- [_Chapter 4_ - **Components, Mixins, and Functional Components**](./chapter-04/)
+- [_Chapter 5_ - **Fetching Data from the Web via HTTP Requests**](./chapter-05/)
+- [_Chapter 6_ - **Managing Routes with vue-router**](./chapter-06/)
+- [_Chapter 7_ - **Managing the Application State with Vuex**](./chapter-07/)
+- [_Chapter 8_ - **Animating Your Application with Transitions and CSS**](./chapter-08/)
+- [_Chapter 9_ - **Creating Beautiful Applications Using UI Frameworks**](./chapter-09/)
+- [_Chapter 10_ - **Deploying an Application to Cloud Platforms**](./chapter-10/)
+- [_Chapter 11_ - **Directives, Plugins, SSR, and More**](./chapter-11/)
+
 ### Related products <Other books you may enjoy>
 * Hands-on Nuxt.js Web Development [[Packt]](https://www.packtpub.com/product/hands-on-nuxt-js-web-development/9781789952698) [[Amazon]](https://www.amazon.com/dp/1789952697)
 
