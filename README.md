@@ -1,13 +1,13 @@
 ## $5 Tech Unlocked 2021!
 [Buy and download this Book for only $5 on PacktPub.com](https://www.packtpub.com/product/vue-js-3-cookbook/9781838826222)
 -----
-*If you have read this book, please leave a review on [Amazon.com](https://www.amazon.com/gp/product/183882622X).     Potential readers can then use your unbiased opinion to help them make purchase decisions. Thank you. The $5 campaign         runs from __December 15th 2020__ to __January 13th 2021.__*
+*If you have read this book, please leave a review on [Amazon.com](https://amzn.to/2LlqMUU).     Potential readers can then use your unbiased opinion to help them make purchase decisions. Thank you. The $5 campaign         runs from __December 15th 2020__ to __January 13th 2021.__*
 
 # Vue.js 3 Cookbook
 
-<a href="https://www.packtpub.com/product/vue-js-3-cookbook/9781838826222"><img src="https://static.packt-cdn.com/products/9781838826222/cover/smaller" alt="Vue.js 3 Cookbook" height="256px" align="right"></a>
+<a href="https://amzn.to/2LlqMUU"><img src="https://static.packt-cdn.com/products/9781838826222/cover/smaller" alt="Vue.js 3 Cookbook" height="256px" align="right"></a>
 
-This is the code repository for [Vue.js 3 Cookbook](https://www.packtpub.com/product/vue-js-3-cookbook/9781838826222), published by Packt.
+This is the code repository for [Vue.js 3 Cookbook](https://amzn.to/2LlqMUU), published by Packt.
 
 **Discover actionable solutions for building modern web apps with the latest Vue.js and TypeScript**
 
@@ -21,7 +21,7 @@ This book covers the following exciting features:
 * Add state management, routing, and navigation to your web apps
 * Extend Vue.js apps to server-side with Nuxt.js
 
-If you feel this book is for you, get your [copy](https://www.amazon.com/dp/183882622X) today!
+If you feel this book is for you, get your [copy](https://amzn.to/2LlqMUU) today!
 
 <a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" alt="https://www.packtpub.com/" border="5" /></a>
 
@@ -71,10 +71,13 @@ With the following software and hardware list you can run all code files present
 - [_Chapter 11_ - **Directives, Plugins, SSR, and More**](./chapter-11/)
 
 ### Related products <Other books you may enjoy>
-* Hands-on Nuxt.js Web Development [[Packt]](https://www.packtpub.com/product/hands-on-nuxt-js-web-development/9781789952698) [[Amazon]](https://www.amazon.com/dp/1789952697)
+* Hands-on Nuxt.js Web Development [[Packt]](https://www.packtpub.com/product/hands-on-nuxt-js-web-development/9781789952698) [[Amazon]](https://amzn.to/3pWxkbH)
 
-* Svelte 3 Up and Running [[Packt]](https://www.packtpub.com/product/svelte-3-up-and-running/9781839213625) [[Amazon]](https://www.amazon.com/dp/1788293770)
+* Svelte 3 Up and Running [[Packt]](https://www.packtpub.com/product/svelte-3-up-and-running/9781839213625) [[Amazon]](https://amzn.to/2JSyghW)
 
 ## Get to Know the Author
 **Heitor Ramon Ribeiro**
 is a Lead FrontEnd Engineer at Kovi (YC W19). With over 15 years of experience in JavaScript, frontend development, and UI/UX design, Heitor has become an expert in delivering solutions for an enterprise architecture system combined with the best user experience. At Kovi, Heitor is currently working on building the next generation of products for gig workers in South America. He is managing and coding a solution that can bring together the past and future with the power of Vue.js.
+
+## Other books by the author
+* [Building Vue.js Applications with GraphQL](https://amzn.to/2XcB24r)
