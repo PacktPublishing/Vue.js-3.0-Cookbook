@@ -1,7 +1,3 @@
-## [Get this title for $10 on Packt's Spring Sale](https://www.packt.com/B14748?utm_source=github&utm_medium=packt-github-repo&utm_campaign=spring_10_dollar_2022)
------
-For a limited period, all eBooks and Videos are only $10. All the practical content you need \- by developers, for developers
-
 # Vue.js 3 Cookbook
 
 <a href="https://amzn.to/2LlqMUU"><img src="https://static.packt-cdn.com/products/9781838826222/cover/smaller" alt="Vue.js 3 Cookbook" height="256px" align="right"></a>
