@@ -76,3 +76,7 @@ is a Lead FrontEnd Engineer at Kovi (YC W19). With over 15 years of experience i
 
 ## Other books by the author
 * [Building Vue.js Applications with GraphQL](https://amzn.to/2XcB24r)
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781838826222">https://packt.link/free-ebook/9781838826222 </a> </p>
